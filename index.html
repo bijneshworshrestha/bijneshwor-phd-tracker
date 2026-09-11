@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhD & Scholarship Tracker — Bijneshwor Shrestha</title>
+  <meta name="description" content="Live tracker of PhD positions and scholarships in institutional theory, HRM, and management — auto-updated daily." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════════
+       FIREBASE CONFIG — replace the 7 placeholder values
+       with your actual Firebase project credentials.
+       Get them from: Firebase Console → Project Settings
+       → Your apps → Web app → firebaseConfig
+  ═══════════════════════════════════════════════ -->
+  <script>
+    const FIREBASE_CONFIG = {
+      apiKey:            "AIzaSyCVCxf6xlJb4vMBrTOQNs_xGTu3TbvTGBI",
+      authDomain:        "bijneshwor-phd-and-grant-hunt.firebaseapp.com",
+      databaseURL:       "https://bijneshwor-phd-and-grant-hunt-default-rtdb.firebaseio.com",
+      projectId:         "bijneshwor-phd-and-grant-hunt",
+      storageBucket:     "bijneshwor-phd-and-grant-hunt.firebasestorage.app",
+      messagingSenderId: "744026511745",
+      appId:             "1:744026511745:web:d46a5572f5c3d674e7b080"
+    };
+    // Firebase is configured — live data will load from Realtime Database
+    const FIREBASE_READY = true;
+  </script>
+
+  <style>
+    /* ── CSS tokens matching main site ── */
+    :root {
+      --accent:       #5A7A6E;
+      --accent-deep:  #3C5A50;
+      --accent-light: #EAF0EE;
+      --surface:      #F5F5F2;
+      --card:         #FFFFFF;
+      --ink:          #1A1E1D;
+      --ink-muted:    #5C6663;
+      --border:       #D8E0DC;
+      --nav-bg:       #3C5A50;
+      --nav-fg:       #EAF0EE;
+      --hero-bg:      #5A7A6E;
+      --hero-fg:      #FFFFFF;
+      --shadow-sm:    0 1px 4px rgba(0,0,0,.06);
+      --shadow-md:    0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg:    0 8px 32px rgba(0,0,0,.14);
+      --radius:       12px;
+      --radius-sm:    8px;
+      --urgent:       #C0392B;
+      --urgent-bg:    #FDECEA;
+      --warning:      #D68910;
+      --warning-bg:   #FEF9E7;
+      --ok:           #1E8449;
+      --ok-bg:        #EAFAF1;
+      --score-high:   #1E8449;
+      --score-mid:    #D68910;
+      --score-low:    #7F8C8D;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --surface:     #181C1B;
+        --card:        #222827;
+        --ink:         #E8EDEA;
+        --ink-muted:   #8FA49D;
+        --border:      #2E3A36;
+        --shadow-sm:   0 1px 4px rgba(0,0,0,.3);
+        --shadow-md:   0 4px 16px rgba(0,0,0,.4);
+        --shadow-lg:   0 8px 32px rgba(0,0,0,.5);
+        --urgent-bg:   #2C1A1A;
+        --warning-bg:  #2C2210;
+        --ok-bg:       #0E2017;
+      }
+    }
+    :root[data-theme="dark"] {
+      --surface:     #181C1B;
+      --card:        #222827;
+      --ink:         #E8EDEA;
+      --ink-muted:   #8FA49D;
+      --border:      #2E3A36;
+      --shadow-sm:   0 1px 4px rgba(0,0,0,.3);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.4);
+      --shadow-lg:   0 8px 32px rgba(0,0,0,.5);
+      --urgent-bg:   #2C1A1A;
+      --warning-bg:  #2C2210;
+      --ok-bg:       #0E2017;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 1rem;
+    }
+
+    /* ── Skip link ── */
+    .skip-link {
+      position: absolute; left: -9999px; top: 4px;
+      background: var(--accent); color: #fff;
+      padding: .4rem 1rem; border-radius: var(--radius-sm);
+      font-size: .85rem; z-index: 9999;
+    }
+    .skip-link:focus { left: 4px; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--nav-bg);
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    }
+    .nav-brand {
+      color: var(--nav-fg); font-weight: 700; font-size: 1rem;
+      text-decoration: none; display: flex; align-items: center; gap: .5rem;
+    }
+    .nav-brand span { opacity: .7; font-weight: 300; }
+    .nav-links { display: flex; align-items: center; gap: .25rem; }
+    .nav-links a {
+      color: var(--nav-fg); text-decoration: none; font-size: .85rem;
+      padding: .4rem .75rem; border-radius: var(--radius-sm);
+      transition: background .15s;
+    }
+    .nav-links a:hover { background: rgba(255,255,255,.12); }
+    .nav-links a.active { background: rgba(255,255,255,.18); font-weight: 600; }
+    .theme-btn {
+      background: none; border: none; color: var(--nav-fg);
+      font-size: 1.1rem; cursor: pointer; padding: .4rem;
+      border-radius: 50%; line-height: 1;
+      transition: background .15s;
+    }
+    .theme-btn:hover { background: rgba(255,255,255,.12); }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--hero-bg);
+      color: var(--hero-fg);
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800; line-height: 1.2;
+    }
+    .hero p {
+      margin-top: .75rem; font-size: 1rem; max-width: 640px;
+      margin-inline: auto; opacity: .85; line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: .6rem; margin-top: 1.5rem;
+    }
+    .hero-tag {
+      background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.25);
+      color: #fff; font-size: .78rem; padding: .3rem .75rem;
+      border-radius: 20px; font-weight: 500;
+    }
+
+    /* ── Live status bar ── */
+    .status-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: .65rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: .5rem;
+    }
+    .sync-status {
+      display: flex; align-items: center; gap: .45rem;
+      font-size: .8rem; color: var(--ink-muted);
+    }
+    .sync-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #ccc; flex-shrink: 0;
+      transition: background .3s;
+    }
+    .sync-dot.live    { background: #27AE60; animation: pulse 2s infinite; }
+    .sync-dot.seeded  { background: #D68910; }
+    .sync-dot.offline { background: #E74C3C; }
+    @keyframes pulse {
+      0%,100% { opacity: 1; } 50% { opacity: .4; }
+    }
+    .last-scanned { font-size: .8rem; color: var(--ink-muted); }
+
+    /* ── Container ── */
+    .container {
+      max-width: 1100px; margin-inline: auto;
+      padding-inline: 1.5rem;
+    }
+
+    /* ── Stats row ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem; margin: 2rem 0;
+    }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm); text-align: center;
+    }
+    .stat-card .val {
+      font-size: 2rem; font-weight: 800; color: var(--accent);
+      line-height: 1;
+    }
+    .stat-card .lbl {
+      font-size: .78rem; color: var(--ink-muted); margin-top: .35rem;
+      font-weight: 500; text-transform: uppercase; letter-spacing: .04em;
+    }
+    .stat-card.urgent .val { color: var(--urgent); }
+
+    /* ── Filters ── */
+    .filters {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: .6rem; margin-bottom: 1.5rem;
+    }
+    .filter-group { display: flex; gap: .35rem; }
+    .filter-btn {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--ink-muted); padding: .4rem .9rem;
+      border-radius: 20px; font-size: .82rem; cursor: pointer;
+      font-family: inherit; font-weight: 500;
+      transition: all .15s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active {
+      background: var(--accent); border-color: var(--accent);
+      color: #fff;
+    }
+    .sort-select {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--ink); padding: .4rem .9rem;
+      border-radius: 20px; font-size: .82rem;
+      font-family: inherit; cursor: pointer;
+      margin-left: auto;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      display: flex; align-items: center; gap: .75rem;
+      margin: 2rem 0 1.25rem;
+    }
+    .section-heading h2 {
+      font-size: 1.15rem; font-weight: 700;
+    }
+    .section-badge {
+      background: var(--accent-light); color: var(--accent-deep);
+      font-size: .75rem; font-weight: 700; padding: .2rem .6rem;
+      border-radius: 20px; min-width: 28px; text-align: center;
+    }
+
+    /* ── Card grid ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Position / Scholarship card ── */
+    .opp-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, border-color .2s, transform .15s;
+      display: flex; flex-direction: column; gap: .9rem;
+    }
+    .opp-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .opp-card.urgent-card { border-color: var(--urgent); }
+    .opp-card.hidden { display: none; }
+
+    /* card top row */
+    .card-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: .75rem;
+    }
+    .card-title { font-weight: 700; font-size: .95rem; line-height: 1.4; }
+    .card-institution {
+      font-size: .82rem; color: var(--ink-muted); margin-top: .2rem;
+      display: flex; align-items: center; gap: .35rem;
+    }
+    .flag { font-size: 1rem; }
+
+    /* badges */
+    .badge {
+      font-size: .72rem; font-weight: 700; padding: .25rem .65rem;
+      border-radius: 20px; white-space: nowrap; flex-shrink: 0;
+    }
+    .badge-urgent  { background: var(--urgent-bg);  color: var(--urgent); }
+    .badge-warning { background: var(--warning-bg); color: var(--warning); }
+    .badge-ok      { background: var(--ok-bg);      color: var(--ok); }
+    .badge-muted   { background: var(--accent-light); color: var(--accent-deep); }
+
+    /* deadline row */
+    .card-deadline {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .82rem;
+    }
+    .deadline-label { color: var(--ink-muted); }
+    .deadline-val { font-weight: 600; color: var(--ink); }
+
+    /* relevance bar */
+    .relevance-wrap { }
+    .relevance-label {
+      display: flex; justify-content: space-between;
+      font-size: .75rem; color: var(--ink-muted); margin-bottom: .3rem;
+    }
+    .relevance-track {
+      height: 6px; background: var(--border);
+      border-radius: 3px; overflow: hidden;
+    }
+    .relevance-fill {
+      height: 100%; border-radius: 3px;
+      transition: width .6s ease;
+    }
+
+    /* notes */
+    .card-notes {
+      font-size: .8rem; color: var(--ink-muted);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* tags row */
+    .card-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .tag {
+      font-size: .72rem; background: var(--accent-light);
+      color: var(--accent-deep); padding: .2rem .55rem;
+      border-radius: 4px; font-weight: 500;
+    }
+
+    /* amount pill for scholarships */
+    .amount-pill {
+      font-size: .8rem; font-weight: 600;
+      color: var(--accent-deep); background: var(--accent-light);
+      padding: .25rem .7rem; border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* action button */
+    .card-action {
+      margin-top: auto; padding-top: .5rem;
+      display: flex; gap: .6rem;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .5rem 1.1rem; border-radius: var(--radius-sm);
+      font-size: .82rem; font-family: inherit; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all .15s; border: 1.5px solid transparent;
+    }
+    .btn-primary {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+    }
+    .btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+    .btn-outline {
+      background: transparent; color: var(--accent); border-color: var(--accent);
+    }
+    .btn-outline:hover { background: var(--accent-light); }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center; padding: 3rem 1rem;
+      color: var(--ink-muted); font-size: .9rem;
+    }
+    .empty-state .icon { font-size: 2.5rem; margin-bottom: .75rem; }
+
+    /* ── Research focus ── */
+    .research-focus {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      margin: 2rem 0; box-shadow: var(--shadow-sm);
+    }
+    .research-focus h3 { font-size: .95rem; font-weight: 700; margin-bottom: .75rem; }
+    .pillars {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .75rem;
+    }
+    .pillar {
+      background: var(--accent-light); color: var(--accent-deep);
+      font-size: .78rem; padding: .3rem .75rem;
+      border-radius: 20px; font-weight: 500;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--nav-bg); color: var(--nav-fg);
+      text-align: center; padding: 1.75rem 1.5rem;
+      font-size: .82rem; margin-top: 4rem;
+    }
+    footer a { color: rgba(255,255,255,.75); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .container { padding-inline: 1rem; }
+      .hero { padding: 2.5rem 1rem 2rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .status-bar { flex-direction: column; align-items: flex-start; }
+      .sort-select { margin-left: 0; }
+    }
+
+    /* ── Loading skeleton ── */
+    .skeleton {
+      background: linear-gradient(90deg, var(--border) 25%, var(--surface) 50%, var(--border) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 6px;
+    }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    .skeleton-card {
+      height: 220px;
+      border-radius: var(--radius);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ── NAV ── -->
+  <nav aria-label="Site navigation">
+    <a href="/" class="nav-brand">
+      Bijneshwor Shrestha <span>/ PhD Tracker</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">← Profile</a>
+      <a href="#positions">Positions</a>
+      <a href="#scholarships">Scholarships</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle colour theme">◑</button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <header class="hero">
+    <h1>PhD &amp; Scholarship Tracker</h1>
+    <p>
+      Live-updated daily by an automated scanner.
+      Research focus: institutional theory, managerial control, HRM in Nepalese service-sector organisations —
+      drawing on Nordic and Germanic comparative management research.
+    </p>
+    <div class="hero-meta">
+      <span class="hero-tag">🔍 Scanned daily</span>
+      <span class="hero-tag">🎯 Relevance-scored</span>
+      <span class="hero-tag">⏰ Deadline alerts</span>
+      <span class="hero-tag">🔄 Firebase real-time</span>
+    </div>
+  </header>
+
+  <!-- ── STATUS BAR ── -->
+  <div class="status-bar">
+    <div class="sync-status">
+      <div class="sync-dot" id="syncDot"></div>
+      <span id="syncLabel">Connecting to live database…</span>
+    </div>
+    <div class="last-scanned" id="lastScanned">Last scan: —</div>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main id="main" class="container">
+
+    <!-- Stats -->
+    <div class="stats" id="statsRow">
+      <div class="stat-card">
+        <div class="val" id="statPositions">—</div>
+        <div class="lbl">Open Positions</div>
+      </div>
+      <div class="stat-card">
+        <div class="val" id="statScholarships">—</div>
+        <div class="lbl">Scholarships / Fellowships</div>
+      </div>
+      <div class="stat-card urgent">
+        <div class="val" id="statUrgent">—</div>
+        <div class="lbl">Due within 14 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="val" id="statNextDays">—</div>
+        <div class="lbl">Days to Next Deadline</div>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group" role="group" aria-label="Filter by type">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="positions">Positions</button>
+        <button class="filter-btn" data-filter="scholarships">Scholarships</button>
+      </div>
+      <select class="sort-select" id="sortSelect" aria-label="Sort by">
+        <option value="deadline">Sort: Earliest deadline</option>
+        <option value="relevance">Sort: Highest relevance</option>
+        <option value="added">Sort: Recently added</option>
+      </select>
+    </div>
+
+    <!-- Positions section -->
+    <section id="positions">
+      <div class="section-heading">
+        <h2>PhD Positions</h2>
+        <span class="section-badge" id="posCount">0</span>
+      </div>
+      <div class="card-grid" id="positionsGrid">
+        <!-- skeleton while loading -->
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </section>
+
+    <!-- Scholarships section -->
+    <section id="scholarships">
+      <div class="section-heading">
+        <h2>Scholarships &amp; Fellowships</h2>
+        <span class="section-badge" id="schCount">0</span>
+      </div>
+      <div class="card-grid" id="scholarshipsGrid">
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+      </div>
+    </section>
+
+    <!-- Research focus -->
+    <div class="research-focus">
+      <h3>📚 Research Focus</h3>
+      <p style="font-size:.87rem;color:var(--ink-muted);line-height:1.6">
+        How do managerial control mechanisms shape work process clarity and operational effectiveness
+        in domestic Nepalese service-sector firms? Drawing from North (1990) institutional theory,
+        Tosi &amp; Slocum (1984) contingency theory, Mintzberg (1979/1983) coordinating mechanisms,
+        and Hall &amp; Soskice (2001) Varieties of Capitalism.
+      </p>
+      <div class="pillars">
+        <span class="pillar">Institutional Theory · North (1990)</span>
+        <span class="pillar">Contingency Theory · Tosi &amp; Slocum</span>
+        <span class="pillar">Mintzberg Org. Structures</span>
+        <span class="pillar">Varieties of Capitalism</span>
+        <span class="pillar">HRM · Developing Economies</span>
+        <span class="pillar">Nordic &amp; Germanic Management</span>
+        <span class="pillar">Nepal · South Asia</span>
+        <span class="pillar">Qualitative / Mixed-Methods</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>
+      <a href="/">← Back to Bijneshwor's Profile</a>
+      &nbsp;·&nbsp;
+      Auto-updated by daily PhD scanner
+      &nbsp;·&nbsp;
+      Data synced via Firebase Realtime Database
+    </p>
+    <p style="margin-top:.5rem;opacity:.6">
+      Berlin · bijneshwor@gmail.com
+    </p>
+  </footer>
+
+  <!-- ── FIREBASE SDK (loaded only when FIREBASE_READY = true) ── -->
+  <script>
+    // ═══════════════════════════════════════════════════════════════
+    //  SEED DATA  (always visible; Firebase overwrites this live)
+    //  This reflects the scanner's known data as of September 2026.
+    // ═══════════════════════════════════════════════════════════════
+    const SEED_POSITIONS = {
+      "nhh-accounting-pos-2026": {
+        title: "PhD Research Scholar — Accounting, Auditing and Law",
+        institution: "NHH Norwegian School of Economics",
+        country: "Norway",
+        flag: "🇳🇴",
+        deadline: "2026-09-15",
+        relevance: 52,
+        url: "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law",
+        notes: "Fully funded 4-year position (NOK 565,000/yr ≈ EUR 48k). Department has active management control research group. Managerial control is the core construct — strong alignment. Scandinavian language NOT required.",
+        status: "open",
+        addedAt: "2026-09-10T00:00:00Z",
+        tags: ["Management Control", "Nordic", "Fully Funded", "4 years"]
+      },
+      "nhh-strategy-pos-2026": {
+        title: "PhD Research Scholar — Strategy and Management",
+        institution: "NHH Norwegian School of Economics",
+        country: "Norway",
+        flag: "🇳🇴",
+        deadline: "2026-09-15",
+        relevance: 48,
+        url: "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management",
+        notes: "Fully funded 4-year position (NOK 565,000/yr). Research areas include Future of HRM, AI & Professional Services, and Business Model Innovation. Strong qualitative/mixed-methods tradition. Nordic institutional context.",
+        status: "open",
+        addedAt: "2026-09-10T00:00:00Z",
+        tags: ["HRM", "Strategy", "Nordic", "Fully Funded"]
+      }
+    };
+
+    const SEED_SCHOLARSHIPS = {
+      "hkpfs-2026": {
+        name: "Hong Kong PhD Fellowship Scheme (HKPFS)",
+        provider: "Research Grants Council, Hong Kong",
+        flag: "🇭🇰",
+        amount: "HKD 27,600/month + HKD 13,800/year travel",
+        deadline: "2026-12-01",
+        status: "open",
+        url: "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+        notes: "MOST URGENT MAJOR DEADLINE (Dec 1). Must apply to HK university simultaneously. ~270 awarded globally. Need to identify a suitable supervisor at HKUST/HKU/CUHK/PolyU first.",
+        eligibility: "Outstanding candidates regardless of nationality. Highly competitive.",
+        tags: ["Prestigious", "International", "Dec Deadline"]
+      },
+      "rsm-erim-2027": {
+        name: "ERIM PhD Programme",
+        provider: "Rotterdam School of Management / Erasmus University",
+        flag: "🇳🇱",
+        amount: "Full fellowship — 4 years",
+        deadline: "2027-01-15",
+        status: "open",
+        url: "https://www.erim.eur.nl/doctoral-programme/",
+        notes: "Jan 15 2027 deadline. Paul Boselie at Utrecht linked; ERIM also has other relevant HRM / organisation cluster faculty. Next cycle opens Nov 2026 — monitor.",
+        eligibility: "Research Master or equivalent. Strong mixed-methods background preferred.",
+        tags: ["HRM", "OB", "Netherlands", "4 years"]
+      },
+      "gothenburg-doctoral-2027": {
+        name: "Gothenburg University Doctoral Position",
+        provider: "University of Gothenburg — Department of Business Administration",
+        flag: "🇸🇪",
+        amount: "Swedish doctoral salary ~SEK 32,000/month",
+        deadline: "2027-03-15",
+        status: "open",
+        url: "https://www.gu.se/en/business-economics",
+        notes: "HIGHEST PROBABILITY ROUTE if Tengblad engagement progresses. Employment-based (no tuition, salary). Linked to Stefan Tengblad's research group. Monitor department job board Jan 2027.",
+        eligibility: "Linked to supervisor engagement. Position advertisement expected Feb–March 2027.",
+        tags: ["Nordic", "Employment-based", "Work Organisation"]
+      },
+      "kozminski-2027": {
+        name: "Kozminski University PhD Scholarship",
+        provider: "Kozminski University Warsaw",
+        flag: "🇵🇱",
+        amount: "Partial scholarship + tuition reduction",
+        deadline: "2027-05-31",
+        status: "open",
+        url: "https://www.kozminski.edu.pl/en/phd",
+        notes: "English-language PhD programme. May 2027 deadline gives time to build a stronger profile. International applicants welcome.",
+        eligibility: "International applicants. English proficiency required.",
+        tags: ["English-language", "Poland", "International"]
+      },
+      "tilburg-phd-2027": {
+        name: "Tilburg University PhD — HR Studies",
+        provider: "Tilburg School of Social and Behavioral Sciences",
+        flag: "🇳🇱",
+        amount: "Full fellowship — 4 years, employment-based",
+        deadline: "2027-06-30",
+        status: "open",
+        url: "https://www.tilburguniversity.edu/education/phd-programs",
+        notes: "Linked to HR Studies dept. Brigitte Kroon and Charissa Freese faculty connections. Longer horizon — monitor for specific vacancy advertisements.",
+        eligibility: "Employment-based position. Monitor for open calls from Jan 2027.",
+        tags: ["HRM", "Netherlands", "Employment-based"]
+      }
+    };
+
+    // ═══════════════════════════════════════════════════════════════
+    //  STATE
+    // ═══════════════════════════════════════════════════════════════
+    let allPositions   = {};
+    let allScholarships = {};
+    let activeFilter   = "all";
+    let activeSort     = "deadline";
+
+    // ═══════════════════════════════════════════════════════════════
+    //  UTILITIES
+    // ═══════════════════════════════════════════════════════════════
+    function daysUntil(dateStr) {
+      const target = new Date(dateStr + "T23:59:59Z");
+      const now    = new Date();
+      return Math.ceil((target - now) / 86400000);
+    }
+
+    function urgencyBadge(dateStr) {
+      if (!dateStr) return '<span class="badge badge-muted">TBD</span>';
+      const d = daysUntil(dateStr);
+      if (d < 0)  return '<span class="badge badge-muted">Closed</span>';
+      if (d <= 7) return `<span class="badge badge-urgent">🔴 ${d}d left</span>`;
+      if (d <= 30) return `<span class="badge badge-warning">⚠️ ${d}d left</span>`;
+      return `<span class="badge badge-ok">${d}d left</span>`;
+    }
+
+    function fmtDate(dateStr) {
+      if (!dateStr) return "TBD";
+      try {
+        return new Date(dateStr).toLocaleDateString("en-GB", { day:"numeric", month:"short", year:"numeric" });
+      } catch { return dateStr; }
+    }
+
+    function scoreColor(score) {
+      if (score >= 60) return "var(--score-high)";
+      if (score >= 40) return "var(--score-mid)";
+      return "var(--score-low)";
+    }
+
+    function escHtml(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  RENDER
+    // ═══════════════════════════════════════════════════════════════
+    function renderPosition(id, pos) {
+      const d = daysUntil(pos.deadline || "");
+      const isUrgent = d >= 0 && d <= 7;
+      const tags = (pos.tags || []).map(t => `<span class="tag">${escHtml(t)}</span>`).join("");
+      return `
+        <article class="opp-card ${isUrgent ? "urgent-card" : ""}" data-type="positions" data-deadline="${pos.deadline||""}" data-relevance="${pos.relevance||0}" data-added="${pos.addedAt||""}">
+          <div class="card-top">
+            <div>
+              <div class="card-title">${escHtml(pos.title)}</div>
+              <div class="card-institution">
+                <span class="flag">${escHtml(pos.flag||"🏛️")}</span>
+                ${escHtml(pos.institution)} &nbsp;·&nbsp; ${escHtml(pos.country)}
+              </div>
+            </div>
+            ${urgencyBadge(pos.deadline)}
+          </div>
+          <div class="card-deadline">
+            <span class="deadline-label">Deadline</span>
+            <span class="deadline-val">${fmtDate(pos.deadline)}</span>
+          </div>
+          <div class="relevance-wrap">
+            <div class="relevance-label">
+              <span>Relevance to thesis</span>
+              <span>${pos.relevance||0}/100</span>
+            </div>
+            <div class="relevance-track">
+              <div class="relevance-fill" style="width:${pos.relevance||0}%;background:${scoreColor(pos.relevance||0)}"></div>
+            </div>
+          </div>
+          ${pos.notes ? `<p class="card-notes">${escHtml(pos.notes)}</p>` : ""}
+          ${tags ? `<div class="card-tags">${tags}</div>` : ""}
+          <div class="card-action">
+            <a href="${escHtml(pos.url||"#")}" target="_blank" rel="noopener" class="btn btn-primary">View Posting ↗</a>
+          </div>
+        </article>`;
+    }
+
+    function renderScholarship(id, sch) {
+      const d = daysUntil(sch.deadline || "");
+      const isUrgent = d >= 0 && d <= 7;
+      const tags = (sch.tags || []).map(t => `<span class="tag">${escHtml(t)}</span>`).join("");
+      return `
+        <article class="opp-card ${isUrgent ? "urgent-card" : ""}" data-type="scholarships" data-deadline="${sch.deadline||""}" data-relevance="0" data-added="${sch.addedAt||""}">
+          <div class="card-top">
+            <div>
+              <div class="card-title">${escHtml(sch.name)}</div>
+              <div class="card-institution">
+                <span class="flag">${escHtml(sch.flag||"🏛️")}</span>
+                ${escHtml(sch.provider)}
+              </div>
+            </div>
+            ${urgencyBadge(sch.deadline)}
+          </div>
+          ${sch.amount ? `<div><span class="amount-pill">💰 ${escHtml(sch.amount)}</span></div>` : ""}
+          <div class="card-deadline">
+            <span class="deadline-label">Deadline</span>
+            <span class="deadline-val">${fmtDate(sch.deadline)}</span>
+          </div>
+          ${sch.eligibility ? `<p class="card-notes">${escHtml(sch.eligibility)}</p>` : ""}
+          ${sch.notes ? `<p class="card-notes">${escHtml(sch.notes)}</p>` : ""}
+          ${tags ? `<div class="card-tags">${tags}</div>` : ""}
+          <div class="card-action">
+            <a href="${escHtml(sch.url||"#")}" target="_blank" rel="noopener" class="btn btn-primary">Apply / Learn More ↗</a>
+          </div>
+        </article>`;
+    }
+
+    function sortItems(items) {
+      return [...items].sort((a, b) => {
+        if (activeSort === "deadline") {
+          const da = a.dataset.deadline || "9999";
+          const db = b.dataset.deadline || "9999";
+          return da.localeCompare(db);
+        }
+        if (activeSort === "relevance") {
+          return Number(b.dataset.relevance) - Number(a.dataset.relevance);
+        }
+        if (activeSort === "added") {
+          return (b.dataset.added || "").localeCompare(a.dataset.added || "");
+        }
+        return 0;
+      });
+    }
+
+    function updateStats() {
+      const now = new Date();
+      const posArr = Object.values(allPositions);
+      const schArr = Object.values(allScholarships);
+      const allArr = [...posArr.map(p => p.deadline), ...schArr.map(s => s.deadline)]
+        .filter(Boolean).map(d => daysUntil(d)).filter(d => d >= 0);
+
+      document.getElementById("statPositions").textContent   = posArr.filter(p => daysUntil(p.deadline||"") >= 0).length;
+      document.getElementById("statScholarships").textContent = schArr.filter(s => daysUntil(s.deadline||"") >= 0).length;
+      document.getElementById("statUrgent").textContent      = allArr.filter(d => d <= 14).length;
+      document.getElementById("statNextDays").textContent    = allArr.length ? Math.min(...allArr) : "—";
+      document.getElementById("posCount").textContent        = posArr.length;
+      document.getElementById("schCount").textContent        = schArr.length;
+    }
+
+    function applyFiltersAndSort() {
+      const posGrid = document.getElementById("positionsGrid");
+      const schGrid = document.getElementById("scholarshipsGrid");
+
+      // Re-render
+      posGrid.innerHTML = Object.keys(allPositions).length
+        ? Object.entries(allPositions).map(([id, p]) => renderPosition(id, p)).join("")
+        : '<div class="empty-state"><div class="icon">📭</div><p>No positions found yet.</p></div>';
+
+      schGrid.innerHTML = Object.keys(allScholarships).length
+        ? Object.entries(allScholarships).map(([id, s]) => renderScholarship(id, s)).join("")
+        : '<div class="empty-state"><div class="icon">📭</div><p>No scholarships found yet.</p></div>';
+
+      // Apply filter visibility
+      document.querySelectorAll(".opp-card").forEach(card => {
+        const type = card.dataset.type;
+        if (activeFilter === "all") {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.toggle("hidden", type !== activeFilter);
+        }
+      });
+
+      // Apply sort to each grid separately
+      [posGrid, schGrid].forEach(grid => {
+        const cards = [...grid.querySelectorAll(".opp-card")];
+        const sorted = sortItems(cards);
+        sorted.forEach(c => grid.appendChild(c));
+      });
+
+      updateStats();
+    }
+
+    function loadData(positions, scholarships, meta) {
+      allPositions    = positions    || SEED_POSITIONS;
+      allScholarships = scholarships || SEED_SCHOLARSHIPS;
+      applyFiltersAndSort();
+
+      // Last scanned
+      const ts = meta && meta.lastScanned
+        ? new Date(meta.lastScanned).toLocaleString("en-GB", { dateStyle:"medium", timeStyle:"short" })
+        : "Sep 2026 (seeded)";
+      document.getElementById("lastScanned").textContent = "Last scan: " + ts;
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  FIREBASE INIT  (only runs when FIREBASE_READY = true)
+    // ═══════════════════════════════════════════════════════════════
+    function initFirebase() {
+      const script1 = document.createElement("script");
+      script1.src = "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.min.js";
+      script1.onload = () => {
+        const script2 = document.createElement("script");
+        script2.src = "https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-database-compat.min.js";
+        script2.onload = () => {
+          try {
+            firebase.initializeApp(FIREBASE_CONFIG);
+            const db = firebase.database();
+            const dot   = document.getElementById("syncDot");
+            const label = document.getElementById("syncLabel");
+
+            // Connection state
+            db.ref(".info/connected").on("value", snap => {
+              if (snap.val() === true) {
+                dot.className   = "sync-dot live";
+                label.textContent = "🟢 Live — syncing from Firebase";
+              } else {
+                dot.className   = "sync-dot offline";
+                label.textContent = "⚪ Reconnecting…";
+              }
+            });
+
+            // Listen to all data
+            db.ref("phd-tracker").on("value", snap => {
+              const data = snap.val() || {};
+              loadData(
+                data.positions    || null,
+                data.scholarships || null,
+                data.meta         || null
+              );
+            });
+
+          } catch (err) {
+            console.error("Firebase error:", err);
+            fallbackToSeed();
+          }
+        };
+        document.head.appendChild(script2);
+      };
+      document.head.appendChild(script1);
+    }
+
+    function fallbackToSeed() {
+      const dot   = document.getElementById("syncDot");
+      const label = document.getElementById("syncLabel");
+      dot.className   = "sync-dot seeded";
+      label.textContent = "🟡 Showing seeded data — Firebase not connected";
+      loadData(null, null, null);
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    //  BOOT
+    // ═══════════════════════════════════════════════════════════════
+    document.addEventListener("DOMContentLoaded", () => {
+      if (FIREBASE_READY) {
+        initFirebase();
+      } else {
+        fallbackToSeed();
+      }
+
+      // Filter buttons
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeFilter = btn.dataset.filter;
+          applyFiltersAndSort();
+        });
+      });
+
+      // Sort select
+      document.getElementById("sortSelect").addEventListener("change", e => {
+        activeSort = e.target.value;
+        applyFiltersAndSort();
+      });
+
+      // Theme toggle
+      const themeBtn = document.getElementById("themeBtn");
+      const html     = document.documentElement;
+      const saved    = (() => { try { return localStorage.getItem("theme"); } catch { return null; } })();
+      if (saved) html.setAttribute("data-theme", saved);
+
+      themeBtn.addEventListener("click", () => {
+        const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch {}
+      });
+    });
+  </script>
+</body>
+</html>
