@@ -1,0 +1,149 @@
+name: Add Firestore Entries (One-off)
+ 
+on:
+  workflow_dispatch:  # Manual trigger only — run from Actions tab
+ 
+jobs:
+  add-entries:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install requests
+        run: pip install requests
+ 
+      - name: Add entries to Firestore
+        run: |
+          python3 << 'EOF'
+          import requests
+ 
+          BASE = "https://firestore.googleapis.com/v1/projects/kanchan-phd-and-grant-hunt/databases/(default)/documents"
+ 
+          def add(collection, doc_id, data):
+              fields = {}
+              for k, v in data.items():
+                  if isinstance(v, str):
+                      fields[k] = {"stringValue": v}
+                  elif isinstance(v, int):
+                      fields[k] = {"integerValue": str(v)}
+                  elif isinstance(v, list):
+                      fields[k] = {"arrayValue": {"values": [{"stringValue": x} for x in v]}}
+              r = requests.patch(f"{BASE}/{collection}/{doc_id}", json={"fields": fields})
+              status = "✅" if r.status_code in (200, 201) else f"❌ {r.status_code}"
+              print(f"{status}  {collection}/{doc_id}")
+ 
+          # ── POSITIONS ──────────────────────────────────────────────
+          add("positions", "pos-utrecht-clin-01", {
+              "id": "pos-utrecht-clin-01",
+              "title": "PhD: Freeze-Fight-Flight Dynamics in Mental Health Care",
+              "university": "Utrecht University",
+              "country": "Netherlands",
+              "supervisor": "Dr. Muriel Hagenaars",
+              "funding": "Salaried — CAO NU Scale P (~EUR 3,204–4,051/month gross)",
+              "deadline": "2026-09-27",
+              "relevance": 80,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://www.applykite.com/positions/phd-in-freeze-fight-flight-dynamics-in-mental-health-care-2xg4ijq3vc",
+              "notes": "URGENT — deadline Sept 27. Personality disorders; freeze response in daily life and treatment. Longitudinal EMA + intervention testing. ~10% teaching. Added by daily scanner 2026-09-12.",
+              "tags": ["Netherlands", "clinical", "personality-disorders", "EMA", "salaried", "scanner-2026-09-12"],
+          })
+ 
+          add("positions", "pos-maastricht-clin-01", {
+              "id": "pos-maastricht-clin-01",
+              "title": "PhD: Reducing Avoidance via Threat Imagery in Panic Disorder",
+              "university": "Maastricht University",
+              "country": "Netherlands",
+              "supervisor": "Prof. Dr. Iris Engelhard; Dr. Pauline Dibbets",
+              "funding": "Salaried — 0.8 FTE, 1-year initial extendable to 4 years (~EUR 3,204–4,051/month)",
+              "deadline": "2026-10-04",
+              "relevance": 85,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://vacancies.maastrichtuniversity.nl/job/Maastricht-PhD-Candidate-Reducing-avoidance-by-altering-threat-imagery-in-panic-disorder/1371461057/",
+              "notes": "Highest fit of 2026-09-12 scan. Imagery rescripting in panic disorder. Prof. Engelhard is a leading EMDR/imagery rescripting researcher. Start: late Nov 2026. Added by daily scanner 2026-09-12.",
+              "tags": ["Netherlands", "clinical", "panic-disorder", "imagery-rescripting", "psychotherapy", "salaried", "scanner-2026-09-12"],
+          })
+ 
+          add("positions", "pos-imprs-munich-01", {
+              "id": "pos-imprs-munich-01",
+              "title": "PhD: Fully Funded Translational Psychiatry — IMPRS-TP (Max Planck Munich)",
+              "university": "International Max Planck Research School for Translational Psychiatry (IMPRS-TP)",
+              "country": "Germany",
+              "supervisor": "TBD — chosen after admission",
+              "funding": "Fully funded — stipend + no tuition (competitive German rate)",
+              "deadline": "2026-10-31",
+              "relevance": 55,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://www.imprs-tp.mpg.de/",
+              "notes": "Applications open Aug 15 2026. References due Nov 7. Covers molecular psychiatry, neuroimaging, computational neuroscience. Prestigious programme; best fit if neuropsychology interest exists. Added by daily scanner 2026-09-12.",
+              "tags": ["Germany", "translational-psychiatry", "neuroimaging", "Max-Planck", "stipend", "scanner-2026-09-12"],
+          })
+ 
+          add("positions", "pos-antwerp-01", {
+              "id": "pos-antwerp-01",
+              "title": "PhD Scholarship: Well-being in Legal Professions (Criminal Law)",
+              "university": "University of Antwerp",
+              "country": "Belgium",
+              "supervisor": "Prof. Dr. Anne Van de Vijver; Prof. Dr. Joëlle Rozie; Prof. Dr. Miet Vanderhallen",
+              "funding": "Full doctoral scholarship 2+2 years (standard Antwerp scale + benefits)",
+              "deadline": "2026-09-30",
+              "relevance": 45,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://academicpositions.com/ad/university-of-antwerp/2026/doctoral-scholarship-holder-well-being-in-legal-professions/252120",
+              "notes": "CAUTION: requires Dutch proficiency. Stress/wellbeing in criminal-law professionals. Start Jan 1 2027. Added by daily scanner 2026-09-12.",
+              "tags": ["Belgium", "health-psychology", "occupational", "Dutch-required", "stipend", "scanner-2026-09-12"],
+          })
+ 
+          # ── SCHOLARSHIPS ───────────────────────────────────────────
+          add("scholarships", "sch-hkpfs-2027", {
+              "id": "sch-hkpfs-2027",
+              "title": "Hong Kong PhD Fellowship Scheme 2027/28",
+              "university": "Various — CUHK, HKU, and 6 other HK universities",
+              "country": "Hong Kong",
+              "supervisor": "TBD — must identify supervisor at participating university",
+              "funding": "HK$344,400/year (~USD 44,000) + HK$14,400 annual travel; up to 3 years",
+              "deadline": "2026-12-01",
+              "relevance": 75,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://opportunitiesforyouth.org/2026/09/08/hong-kong-phd-fellowship-scheme-2027-28-hk344400-annual-stipend-for-international-phd-students-in-hong-kong/",
+              "notes": "Application window OPEN NOW (Sept 1 – Dec 1 2026). 400 fellowships. CUHK has direct PhD in Clinical Psychology. Kanchan must contact supervisor now and apply to both HKPFS and university simultaneously. Added by daily scanner 2026-09-12.",
+              "tags": ["Hong-Kong", "fellowship", "CUHK", "clinical", "stipend", "scanner-2026-09-12"],
+          })
+ 
+          add("scholarships", "sch-wellcome-health-prof", {
+              "id": "sch-wellcome-health-prof",
+              "title": "Wellcome Trust PhD Fellowships for Health Professionals",
+              "university": "Various UK universities (UCL, King's, Edinburgh etc.)",
+              "country": "United Kingdom",
+              "supervisor": "TBD — apply through specific host programme",
+              "funding": "Clinical salary + full PhD fees (UK rate) + college fees + research expenses + travel; 3 years",
+              "deadline": "Rolling — varies by host programme",
+              "relevance": 70,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://wellcome.org/research-funding/schemes/phd-fellowships-health-professionals",
+              "notes": "11 programmes across UK universities. Eligible professions include psychologists. Contact individual programmes directly. Added by daily scanner 2026-09-12.",
+              "tags": ["UK", "Wellcome", "fellowship", "health-professionals", "clinical", "rolling", "scanner-2026-09-12"],
+          })
+ 
+          # ── CONFERENCES ────────────────────────────────────────────
+          add("conferences", "conf-eaclipt-2027", {
+              "id": "conf-eaclipt-2027",
+              "title": "EACLIPT 2027 — Shaping the Future of Mental Health",
+              "university": "Vilnius University",
+              "country": "Lithuania",
+              "supervisor": "N/A",
+              "funding": "N/A — conference attendance",
+              "deadline": "TBA — monitor eaclipt.org for call for abstracts",
+              "relevance": 85,
+              "status": "open",
+              "source": "scanner",
+              "url": "https://www.eaclipt.org/",
+              "notes": "Conference dates: June 17-19 2027, Vilnius. Theme: Shaping the future of mental health. Premier European clinical psychology conference. Added by daily scanner 2026-09-12.",
+              "tags": ["conference", "EACLIPT", "clinical", "Europe", "2027", "scanner-2026-09-12"],
+          })
+ 
+          print("\nDone!")
+          EOF
