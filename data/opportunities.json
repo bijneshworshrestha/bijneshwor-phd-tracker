@@ -1,554 +1,88 @@
 {
-  "metadata": {
-    "lastUpdated": "2026-09-17",
-    "updatedBy": "Claude automated scanner",
-    "artifactUrl": "https://claude.ai/code/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
-    "totalPositions": 5,
-    "totalScholarships": 10,
-    "totalSupervisors": 27
+  "_name": "Stark Tech Design System — Token Reference",
+  "_applied_to": "PhD Tracker (Bijneshwor Shrestha)",
+  "_date": "2026-09-18",
+
+  "colors": {
+    "_note": "dark values are the defaults; light values activate under prefers-color-scheme:light or data-theme='light'",
+    "paper":       { "dark": "#04070c",  "light": "#e7edf5",  "usage": "page background" },
+    "surface":     { "dark": "#0a1220",  "light": "#ffffff",  "usage": "card / panel background" },
+    "surface-2":   { "dark": "#0f1b2d",  "light": "#eef3fa",  "usage": "subtle inset / input background" },
+    "line":        { "dark": "#1c3049",  "light": "#ccd7e6",  "usage": "borders and dividers" },
+    "ink":         { "dark": "#e7f3ff",  "light": "#101825",  "usage": "primary text" },
+    "ink-soft":    { "dark": "#91acc7",  "light": "#48576b",  "usage": "secondary text / labels" },
+    "muted":       { "dark": "#6f88a3",  "light": "#647287",  "usage": "placeholder / disabled text" },
+    "muted-soft":  { "dark": "#101c2c",  "light": "#e9eef5",  "usage": "very subtle backgrounds" },
+    "accent":      { "dark": "#00d9ff",  "light": "#0072ce",  "usage": "primary interactive colour (cyan / cerulean)" },
+    "accent-soft": { "dark": "#0a2d42",  "light": "#dcedfc",  "usage": "accent background / tint" },
+    "accent-glow": { "dark": "rgba(0,217,255,0.35)", "light": "rgba(0,114,206,0.28)", "usage": "glow shadow on accent elements" },
+    "good":        { "dark": "#00e6a8",  "light": "#00897b",  "usage": "success / positive states" },
+    "good-soft":   { "dark": "#073527",  "light": "#dcf3ef",  "usage": "success background tint" },
+    "warn":        { "dark": "#ffb800",  "light": "#b3760a",  "usage": "warning / caution states" },
+    "warn-soft":   { "dark": "#3a2a04",  "light": "#faedd6",  "usage": "warning background tint" },
+    "skip":        { "dark": "#ff3d63",  "light": "#c62842",  "usage": "error / danger / destructive" },
+    "skip-soft":   { "dark": "#3a0f1a",  "light": "#fbe1e6",  "usage": "error background tint" },
+    "focus":       { "note": "alias of accent" }
   },
-  "positions": [
-    {
-      "id": "insead-phd-ob-2027",
-      "title": "PhD in Management — Organisational Behaviour Field",
-      "institution": "INSEAD",
-      "country": "France / Singapore (dual campus)",
-      "deadline": "2027-01-04",
-      "relevance": 55,
-      "status": "open",
-      "url": "https://www.insead.edu/phd",
-      "source": "auto",
-      "addedAt": "2026-09-15",
-      "lastChecked": "2026-09-17",
-      "notes": "Fully funded 5-year scholarship (tuition waiver + annual living stipend + research/conference funding + international health insurance). Dual campus: Fontainebleau (France) and Singapore. Organisational Behaviour field directly relevant to managerial control, HRM, and work organisation research. INSEAD is among the world's top-ranked business schools. Applications open September 2026 for mid-August 2027 intake. DEADLINE CORRECTED 17 Sept 2026: January 4, 2027 (open-one-way interview by Jan 6, 2027). Interview rounds: Jan–Mar 2027. GMAT/GRE mandatory (< 5 years old). Any bachelor's degree accepted; master's advantageous but not required. International students strongly encouraged.",
-      "applicationStatus": "Not Started"
+
+  "shadows": {
+    "shadow-card":  {
+      "dark":  "0 1px 2px rgba(0,0,0,0.5), 0 0 22px rgba(0,217,255,0.04)",
+      "light": "0 1px 2px rgba(0,0,0,0.08), 0 0 22px rgba(0,114,206,0.04)",
+      "usage": "default card resting shadow"
     },
-    {
-      "id": "mpifg-imprs-2027",
-      "title": "Doctoral Positions — IMPRS-SPCE (Economic Sociology & Political Economy)",
-      "institution": "Max Planck Institute for the Study of Societies (MPIfG) / University of Cologne / University of Duisburg-Essen",
-      "country": "Germany",
-      "deadline": "2027-02-01",
-      "openDate": "2026-12-01",
-      "relevance": 45,
-      "status": "open",
-      "url": "https://imprs.mpifg.de/",
-      "source": "auto",
-      "addedAt": "2026-09-13",
-      "notes": "Application window opens December 2026 (exact deadline TBC — monitor imprs.mpifg.de/99889/calls-for-applications). 3.5-year doctoral programme (42-month contract + 6-month wrap-up). Focus: economic sociology, comparative/international political economy, organizational sociology. Strong comparative institutional and VoC alignment — MPIfG is the global centre for VoC and institutional analysis (Hall & Soskice's original institutional home). Research on how social and political structures shape economic action directly bridges to Bijneshwor's institutional framework. International applicants from Germany and abroad welcome; English is required. Up to 8 students admitted per year. Contact: mischa.stratenwerth@mpifg.de",
-      "applicationStatus": "Not Started"
+    "shadow-hover": {
+      "dark":  "0 0 0 1px rgba(0,217,255,0.45), 0 0 26px rgba(0,217,255,0.18)",
+      "light": "0 0 0 1px rgba(0,114,206,0.20), 0 0 26px rgba(0,114,206,0.10)",
+      "usage": "interactive card hover / active shadow"
     },
-    {
-      "id": "nhh-accounting-pos-2026",
-      "title": "PhD Research Scholar — Department of Accounting, Auditing and Law",
-      "institution": "NHH Norwegian School of Economics",
-      "country": "Norway",
-      "deadline": "2026-09-15",
-      "relevance": 52,
-      "status": "closed",
-      "url": "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law",
-      "source": "auto",
-      "addedAt": "2026-09-10",
-      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr). Department has active management control research group; prior posting (2023) was explicitly on 'relationship between management control systems and digitalization' with qualitative methods focus. Managerial control is Bijneshwor's core construct — strong alignment. Nordic institutional context. Job ID 305122. Monitor NHH for next cycle (expected Jan 2027).",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "nhh-strategy-pos-2026",
-      "title": "PhD Research Scholar — Department of Strategy and Management",
-      "institution": "NHH Norwegian School of Economics",
-      "country": "Norway",
-      "deadline": "2026-09-15",
-      "relevance": 48,
-      "status": "closed",
-      "url": "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management",
-      "source": "auto",
-      "addedAt": "2026-09-10",
-      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr ~EUR 48k). Research areas included: Future of HRM, AI & Professional Services, Business Model Innovation. Nordic institutional context. Job ID 305121. Monitor NHH for next cycle (expected Jan 2027). NHH portal (17 Sept 2026): next main deadline is 15 January 2027.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "kcl-gregory-jackson-2027",
-      "title": "MPhil/PhD in Management (Supervisor: Gregory Jackson — currently accepting students)",
-      "institution": "King's College London — King's Business School",
-      "country": "UK",
-      "deadline": "TBC — contact KBS-PhD@kcl.ac.uk; typical Jan/Feb intake",
-      "relevance": 55,
-      "status": "open",
-      "url": "https://www.kcl.ac.uk/study/postgraduate-research/areas/management-research-mphil-phd",
-      "supervisorUrl": "https://www.kcl.ac.uk/people/gregory-jackson",
-      "supervisorStatus": "actively accepting",
-      "fundingNote": "No funded position — requires external scholarship; HKPFS or Swiss Excellence would cover it",
-      "source": "auto",
-      "addedAt": "2026-09-17",
-      "notes": "CONFIRMED 17 Sept 2026: Profile page states Gregory Jackson is CURRENTLY ACCEPTING NEW PhD STUDENTS. Jackson's research: comparative corporate governance, employment relations, corporate social responsibility, comparative institutional analysis — extremely strong alignment with Bij's institutional theory + HRM + comparative management framework. Jackson uses institutional theory (VoC, comparative capitalism) and qualitative methods. International tuition: £27,300/year — requires external scholarship (e.g., HKPFS, Swiss Excellence, Gates Cambridge). Contact: KBS-PhD@kcl.ac.uk. Sociology of work and employment relations maps directly to managerial control and work process clarity.",
-      "applicationStatus": "Not Started"
+    "shadow-glow":  {
+      "dark":  "0 0 14px rgba(0,217,255,0.35)",
+      "light": "0 0 14px rgba(0,114,206,0.28)",
+      "usage": "accent glow on key numbers / badges"
     }
-  ],
-  "scholarships": [
-    {
-      "id": "hkpfs-2026",
-      "name": "Hong Kong PhD Fellowship Scheme (HKPFS)",
-      "provider": "Research Grants Council, Hong Kong",
-      "amount": "HKD 28,700/month stipend + HKD 14,400/year travel allowance",
-      "deadline": "2026-12-01",
-      "status": "open",
-      "openDate": "2026-09-01",
-      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
-      "addedAt": "2026-09-09",
-      "notes": "MOST URGENT DEADLINE — 1 Dec 2026, 12:00 noon HK time. CONFIRMED OPEN (17 Sept 2026): RGC page shows 'Open for application now! Please refer to call circular.' HKUST-specific: full application also due 1 Dec 2026 by 11:59 pm. HKU/CUHK regular deadline also 1 Dec 2026. Regular non-HKPFS deadline: 3 Jan 2027 (HKUST). HKU converts every HKPFS holder automatically to Presidential PhD Scholarship (Year 1 cash award + tuition waiver + guaranteed hall place). Bij's floor: HKD 31,000–33,500/month — HKPFS alone fails; HKPFS + university top-up clears it. Decline studentship-only fallback (~HKD 18,000–19,000/month) outright. Sociology route confirmed (no GMAT at any HK sociology dept). Active contacts: Yi-min Lin (HKUST, sent), Zhu Ling (CUHK, sent), Ladegaard (HKU, declined). Only one HKPFS application ever permitted across all HK universities. Critical open item: line up 2nd (CUHK: 3rd) academic referee — only Prof Flavio confirmed so far.",
-      "eligibility": "Outstanding candidates regardless of country of origin; must apply to HKUST / HKU / CUHK / PolyU etc. simultaneously. Highly competitive (~270 awarded from thousands).",
-      "applicationStatus": "Not Started"
+  },
+
+  "typography": {
+    "fonts": {
+      "sans":  "'Varela Round', system-ui, sans-serif",
+      "mono":  "'IBM Plex Mono', ui-monospace, monospace"
     },
-    {
-      "id": "swiss-excellence-2027",
-      "name": "Swiss Government Excellence Scholarships",
-      "provider": "Swiss Federal Commission for Scholarships (FCS)",
-      "amount": "Full tuition waiver + monthly stipend (CHF 1,920–3,500 depending on level and canton)",
-      "deadline": "2026-11-10",
-      "status": "open",
-      "relevance": 60,
-      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
-      "addedAt": "2026-09-12",
-      "notes": "URGENT — deadline ~Nov 10, 2026. Nepal is an eligible country. Swiss universities (St. Gallen, Zurich, Lausanne) have strong management, institutional, and comparative organization research. Aligns with Germanic/Nordic theory pillar in proposal. Applications opened 20 August 2026. Country-specific deadline for Nepal not explicitly confirmed on main SBFI page (17 Sept 2026 check) — verify with Swiss Embassy Kathmandu. Apply through Swiss Embassy in Kathmandu.",
-      "eligibility": "Open to applicants from 183 countries including Nepal. For PhD research and postdoc at Swiss universities. Apply through Swiss Embassy in Kathmandu.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "unu-wider-visiting-2026",
-      "name": "UNU-WIDER Visiting PhD Fellowship (September 2026 cycle)",
-      "provider": "United Nations University — World Institute for Development Economics Research (UNU-WIDER), Helsinki, Finland",
-      "amount": "EUR 2,100/month stipend + return travel grant + medical insurance (3-month residency in Helsinki)",
-      "deadline": "2026-09-30",
-      "status": "open",
-      "relevance": 58,
-      "url": "https://www.wider.unu.edu/opportunity/visiting-phd-fellowship",
-      "addedAt": "2026-09-13",
-      "notes": "MOST URGENT — deadline September 30, 2026 at 23:59 UTC+3 (13 days from 17 Sept 2026). Main page returned 403 on 17 Sept scan — confirmed open via globalsouthopportunities.com (published 1 Sept 2026). Highly aligned: explicitly for PhD research on developing economies, with priority to researchers from developing countries (Nepal qualifies). Bijneshwor's research on Nepalese institutional environment maps directly onto the 'developing economies' mandate. Three months in Helsinki gives access to UNU-WIDER's global development research network and Nordic institutional context. Qualitative methods explicitly welcomed. Applies as a visiting scholar supplement, not a degree programme — can be combined with ongoing PhD enrolment. Highly competitive (~1% success rate historically). Two cycles per year: March 31 and September 30 deadlines.",
-      "eligibility": "Currently enrolled PhD students conducting dissertation research on developing economies. Strong qualitative and/or quantitative analytical skills required. English proficiency required. Priority given to researchers from developing countries (Nepal qualifies), women researchers, and advanced-stage PhD students.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "rsm-erim-2027",
-      "name": "ERIM PhD Programme (Erasmus Research Institute of Management)",
-      "provider": "Rotterdam School of Management / Erasmus University",
-      "amount": "Full PhD fellowship (4 years)",
-      "deadline": "2027-01-15",
-      "status": "open",
-      "openDate": "2026-11-01",
-      "url": "https://www.erim.eur.nl/doctoral-programme/",
-      "addedAt": "2026-09-09",
-      "notes": "Jan 15, 2027 deadline. Current open vacancy (17 Sept 2026): 'Neurodivergent Entrepreneurs' in Strategic Management & Entrepreneurship dept, deadline 1 Oct 2026 — not relevant (score ~10). People & Organisations dept has no current vacancy but historically relevant. The specific OMT position (People & Organisations dept, supervisors: Greetje Corporaal, Jochem Kroezen et al.) closed in January 2026. General ERIM fellowship remains active — Jan 2027 cycle. Paul Boselie at Utrecht is linked; ERIM also has other relevant faculty. Check for HRM / organisation cluster.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "gothenburg-doctoral-2027",
-      "name": "Gothenburg University Doctoral Position",
-      "provider": "University of Gothenburg — Department of Business Administration",
-      "amount": "Swedish doctoral salary (employment-based, ~SEK 32,000/month)",
-      "deadline": "2027-03-15",
-      "status": "open",
-      "openDate": "2027-01-01",
-      "url": "https://www.gu.se/en/business-economics",
-      "addedAt": "2026-09-09",
-      "notes": "HIGHEST PROBABILITY ROUTE. Tengblad REPLIED 15 SEPT 2026 — positive and substantive. Offered letter of recommendation. Cannot commit to supervision right now. Keep watching gu.se for doctoral position (expected Feb–Mar 2027). Next: draft thank-you to Tengblad, take up LoR offer. Monitor department job board from Jan 2027. 17 Sept scan: no open positions currently listed, Director of Postgraduate Studies is Jan Marton (kajsa.lundh@handels.gu.se).",
-      "eligibility": "Linked to Stefan Tengblad's research group. Position advertisement expected Feb–March 2027. Active lead supervisor already engaged.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "kozminski-2027",
-      "name": "Kozminski University PhD Scholarship",
-      "provider": "Kozminski University Warsaw",
-      "amount": "Partial scholarship + tuition reduction",
-      "deadline": "2027-05-31",
-      "status": "open",
-      "openDate": "2027-02-01",
-      "url": "https://www.kozminski.edu.pl/en/phd",
-      "addedAt": "2026-09-09",
-      "notes": "2026 cycle closed June 15, 2026. 2027 cycle not yet open (17 Sept scan confirmed). Programme: KUDoS, fully funded international interdisciplinary, Management track, ~EUR 823/month scholarship, admission fee EUR 107 (non-refundable). GMAT/GRE required for management track. C1 English required. May 2027 deadline gives time to build stronger profile.",
-      "eligibility": "International applicants; English-language PhD programme. English proficiency required.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "tilburg-phd-2027",
-      "name": "Tilburg University PhD (HR Studies)",
-      "provider": "Tilburg School of Social and Behavioral Sciences",
-      "amount": "Full fellowship (4 years, employment-based)",
-      "deadline": "2027-06-30",
-      "status": "open",
-      "openDate": "2027-01-01",
-      "url": "https://www.tilburguniversity.edu/education/phd-programs",
-      "addedAt": "2026-09-09",
-      "notes": "No positions currently visible on vacancies page (17 Sept scan — page routes to job alerts portal). Longer horizon. Brigitte Kroon and Charissa Freese faculty connections. Monitor via Academic Transfer and direct vacancies portal.",
-      "eligibility": "Linked to HR Studies department. Brigitte Kroon and Charissa Freese faculty connections.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "fulbright-nepal-2027",
-      "name": "Fulbright Nepal Scholar Award",
-      "provider": "U.S. Department of State / Fulbright Program via USEF Nepal",
-      "amount": "Full funding: tuition, monthly stipend, airfare, health insurance",
-      "deadline": "2027 cycle TBD — typically spring/summer application window; check USEF Nepal",
-      "status": "open",
-      "url": "https://us.fulbrightonline.org/countries/south-and-central-asia/nepal",
-      "addedAt": "2026-09-12",
-      "relevance": 50,
-      "notes": "Prestigious U.S. government scholarship specifically for Nepali scholars. Covers full PhD funding at American universities. Strong fit for institutional theory and HRM in developing economies research — U.S. schools with relevant faculty (Michigan, Wisconsin, Cornell ILR, Northwestern Kellogg). Opens Feb 2027 — only flag when deadline approaches per standing instructions. Score: 50. Monitor USEF Nepal (www.usefnepal.org) for 2027 cycle opening.",
-      "eligibility": "Nepali citizens; for doctoral study or research at U.S. universities. Management and social science fields included. Strong academic record required.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "mext-japan-2027",
-      "name": "MEXT Research Student Scholarship (Japan)",
-      "provider": "Japanese Government — Ministry of Education, Culture, Sports, Science and Technology",
-      "amount": "Approx. JPY 145,000–152,000/month + tuition waiver + travel allowance",
-      "deadline": "2027-05-01",
-      "status": "open",
-      "relevance": 40,
-      "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm",
-      "addedAt": "2026-09-12",
-      "notes": "Japanese government scholarship available specifically to Nepali students. Japan has a strong tradition of comparative management and work organisation research (Dore on enterprise society, comparative institutionalism in East Asian economies). Hitotsubashi, Waseda, Osaka, Kyushu have relevant management schools. Opens ~April 2027 — only flag when deadline approaches per standing instructions. Verify 2027 cycle with Japanese Embassy Kathmandu.",
-      "eligibility": "Nepali citizens; under 35 years old; bachelor's degree held. Application through Japanese Embassy in Kathmandu. Initial placement as research student, then formal PhD enrollment.",
-      "applicationStatus": "Not Started"
-    },
-    {
-      "id": "daad-epos-2027",
-      "name": "DAAD EPOS — Development-Related Postgraduate Courses",
-      "provider": "German Academic Exchange Service (DAAD)",
-      "amount": "Monthly stipend ~EUR 1,000 + travel allowance + health insurance + tuition support",
-      "deadline": "2027 cycle TBD — typically Oct–Nov for following academic year; check DAAD scholarship database",
-      "status": "open",
-      "relevance": 45,
-      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
-      "addedAt": "2026-09-12",
-      "notes": "INELIGIBLE FOR BIJ — confirmed. DAAD's own rule caps prior German residency at 15 months before application; Bij has lived in Germany 3 years. Cannot apply. Kept for reference only in case rules change.",
-      "eligibility": "Applicants from developing countries including Nepal. For postgraduate (Master's or doctoral) studies in Germany. Development-related research focus. Degree from home country required. NOTE: Bij is ineligible due to prior German residency > 15 months.",
-      "applicationStatus": "Not Started"
+    "scales": {
+      "heading": { "size": "30px", "lineHeight": "34px", "weight": 400,  "tracking": "0.01em", "family": "sans" },
+      "body":    { "size": "15px", "lineHeight": "23px", "weight": 400,  "family": "sans" },
+      "label":   { "size": "11px", "lineHeight": "14px", "weight": 600,  "tracking": "0.16em", "transform": "uppercase", "family": "mono" },
+      "data-lg": { "size": "24px", "lineHeight": "28px", "weight": 700,  "family": "mono" },
+      "data-sm": { "size": "11.5px","lineHeight": "16px", "weight": 500, "family": "mono" }
     }
-  ],
-  "watchlist": [
-    {
-      "institution": "Stockholm School of Economics (HHS)",
-      "note": "Next cycle expected early 2027. Areas include Organizations and People at Work (OB/HRM). Jan 2026 deadline passed. Contact: phd.admissions@hhs.se",
-      "url": "https://hhs.se/en/research/departments/dmo/education/phd-recruitment"
-    },
-    {
-      "institution": "NHH Bergen — new cycle",
-      "note": "Next main deadline: January 15, 2027. No positions currently posted. Monitor from November 2026.",
-      "url": "https://www.nhh.no/en/study-programmes/phd-programme-at-nhh/vacant-phd-positions/"
-    },
-    {
-      "institution": "HEC Paris PhD Management",
-      "note": "Deadline April 20, 2027. 5 years, EUR 26,000/year + tuition waiver. Management track incl. OB/HRM/cross-cultural. Score ~35 (below threshold). Borderline — monitor.",
-      "url": "https://www.hec.edu/en/faculty-research/departments/management-human-resources"
-    },
-    {
-      "institution": "Gates Cambridge Scholarship (non-US round)",
-      "note": "Deadline Dec 8, 2026 or Jan 6, 2027 (course-dependent). PhD-eligible at Cambridge. Score ~30. Highly competitive (~70 awards globally). Worth attempting if Cambridge supervisor found.",
-      "url": "https://www.gatescambridge.org/apply/timeline/"
-    },
-    {
-      "institution": "LSE MRes/PhD Employment Relations and Human Resources",
-      "note": "2026 deadline passed (Jan 14, 2026). New cycle expected Jan 2027. 5-year programme (MRes + PhD). Funding: LSE PhD Studentships + ESRC available. Relevant: comparative employment relations, diversity, future of work.",
-      "url": "https://www.lse.ac.uk/study-at-lse/graduate/mresphd-management-employment-relations-and-human-resources"
-    }
-  ],
-  "supervisors": [
-    {
-      "id": "tengblad-gothenburg",
-      "name": "Stefan Tengblad",
-      "institution": "University of Gothenburg (CGHRM)",
-      "country": "Sweden",
-      "status": "active_positive",
-      "email": null,
-      "lastAction": "2026-09-15",
-      "notes": "REPLIED 15 Sept 2026 — positive and substantive. Offered a letter of recommendation. Cannot commit to supervision right now. Highest-probability route; watch gu.se for a doctoral vacancy expected Feb–Mar 2027. Next step: thank-you reply, take up the LoR offer.",
-      "linkedOpportunity": "gothenburg-doctoral-2027"
-    },
-    {
-      "id": "boselie-utrecht",
-      "name": "Paul Boselie",
-      "institution": "Utrecht University",
-      "country": "Netherlands",
-      "status": "awaiting_reply",
-      "email": "p.boselie@uu.nl",
-      "lastAction": "2026-09-01",
-      "notes": "Follow-up sent Sept 1, 2026 — awaiting reply. Linked informally to ERIM/RSM network.",
-      "linkedOpportunity": "rsm-erim-2027"
-    },
-    {
-      "id": "vandevoorde-tilburg",
-      "name": "Karina van de Voorde",
-      "institution": "Tilburg University",
-      "country": "Netherlands",
-      "status": "awaiting_reply",
-      "email": "F.C.v.d.Voorde@tilburguniversity.edu",
-      "lastAction": "2026-09-01",
-      "notes": "Sent Sept 1, 2026 — awaiting reply. Watch clock: if no reply by ~Sept 22, 2026, email Brigitte Kroon next.",
-      "linkedOpportunity": "tilburg-phd-2027"
-    },
-    {
-      "id": "kroon-tilburg",
-      "name": "Brigitte Kroon",
-      "institution": "Tilburg University",
-      "country": "Netherlands",
-      "status": "awaiting_reply",
-      "email": null,
-      "lastAction": "2026-09-08",
-      "notes": "Sent Sept 8, 2026 — awaiting reply. Part of Jaap Paauwe's Contextual SHRM tradition — strong fit.",
-      "linkedOpportunity": "tilburg-phd-2027"
-    },
-    {
-      "id": "nicklich-fuberlin",
-      "name": "Manuel Nicklich",
-      "institution": "Freie Universität Berlin",
-      "country": "Germany",
-      "status": "awaiting_reply",
-      "email": "manuel.nicklich@fu-berlin.de",
-      "lastAction": "2026-09-01",
-      "notes": "Sent Sept 1, 2026 — awaiting reply.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "schramm-hamburg",
-      "name": "Florian Schramm",
-      "institution": "Universität Hamburg",
-      "country": "Germany",
-      "status": "awaiting_reply",
-      "email": "Florian.Schramm@uni-hamburg.de",
-      "lastAction": "2026-09-01",
-      "notes": "Sent Sept 1, 2026 — awaiting reply.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "hopner-mpifg",
-      "name": "Martin Höpner",
-      "institution": "MPIfG Cologne",
-      "country": "Germany",
-      "status": "awaiting_reply",
-      "email": "martin.hoepner@mpifg.de",
-      "lastAction": "2026-09-01",
-      "notes": "Sent Sept 1, 2026 — awaiting reply. Directly linked to the IMPRS-SPCE doctoral programme.",
-      "linkedOpportunity": "mpifg-imprs-2027"
-    },
-    {
-      "id": "blagoev-stgallen",
-      "name": "Blagoy Blagoev",
-      "institution": "University of St. Gallen (HSG)",
-      "country": "Switzerland",
-      "status": "awaiting_reply",
-      "email": "blagoy.blagoev@unisg.ch",
-      "lastAction": "2026-09-08",
-      "notes": "Referral-ask follow-up sent Sept 8, 2026 — awaiting reply. Relevant to Swiss Excellence Scholarship route.",
-      "linkedOpportunity": "swiss-excellence-2027"
-    },
-    {
-      "id": "haakonsson-cbs",
-      "name": "Stine Haakonsson",
-      "institution": "Copenhagen Business School",
-      "country": "Denmark",
-      "status": "awaiting_reply",
-      "email": null,
-      "lastAction": "2026-09-08",
-      "notes": "Sent Sept 8, 2026 — awaiting reply.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "lin-hkust",
-      "name": "Yi-min Lin",
-      "institution": "HKUST",
-      "country": "Hong Kong",
-      "status": "awaiting_reply",
-      "email": null,
-      "lastAction": "2026-09-08",
-      "notes": "Sent Sept 8, 2026 — awaiting reply. Needed to line up HKPFS application via HKUST.",
-      "linkedOpportunity": "hkpfs-2026"
-    },
-    {
-      "id": "zhu-cuhk",
-      "name": "Zhu Ling",
-      "institution": "CUHK",
-      "country": "Hong Kong",
-      "status": "awaiting_reply",
-      "email": null,
-      "lastAction": "2026-09-08",
-      "notes": "Sent Sept 8, 2026 — awaiting reply. Needed to line up HKPFS application via CUHK.",
-      "linkedOpportunity": "hkpfs-2026"
-    },
-    {
-      "id": "jackson-kcl",
-      "name": "Gregory Jackson",
-      "institution": "King's College London — King's Business School",
-      "country": "UK",
-      "status": "identified",
-      "email": null,
-      "lastAction": "2026-09-17",
-      "notes": "CONFIRMED 17 Sept 2026: profile page states Jackson is currently accepting new PhD students. Old FU Berlin email address drew no reply (he has since moved to King's). Not yet contacted at his new address — decide whether to email KBS-PhD@kcl.ac.uk directly. Extremely strong theoretical alignment (comparative corporate governance, VoC, comparative institutional analysis).",
-      "linkedOpportunity": "kcl-gregory-jackson-2027"
-    },
-    {
-      "id": "vanveldhoven-tilburg",
-      "name": "Marc van Veldhoven",
-      "institution": "Tilburg University",
-      "country": "Netherlands",
-      "status": "reserve",
-      "email": null,
-      "lastAction": null,
-      "notes": "Reserve contact — do not email until Karina van de Voorde has not replied by ~Sept 22, 2026.",
-      "linkedOpportunity": "tilburg-phd-2027"
-    },
-    {
-      "id": "aust-uclouvain",
-      "name": "Ina Aust",
-      "institution": "UCLouvain",
-      "country": "Belgium",
-      "status": "declined",
-      "email": null,
-      "lastAction": "2026-09-12",
-      "notes": "Declined Sept 12, 2026 — fit-drift decline. Closed, no follow-up appropriate.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "polzer-wuvienna",
-      "name": "Tobias Polzer",
-      "institution": "WU Vienna",
-      "country": "Austria",
-      "status": "declined",
-      "email": null,
-      "lastAction": "2026-09-12",
-      "notes": "Declined Sept 12, 2026 — capacity. No redirect given.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "ladegaard-hku",
-      "name": "Isak Ladegaard",
-      "institution": "HKU",
-      "country": "Hong Kong",
-      "status": "declined",
-      "email": null,
-      "lastAction": "2026-09-08",
-      "notes": "Declined same day as sent, Sept 8, 2026 — no reason given.",
-      "linkedOpportunity": "hkpfs-2026"
-    },
-    {
-      "id": "meyer-wuvienna",
-      "name": "Renate Meyer",
-      "institution": "WU Vienna",
-      "country": "Austria",
-      "status": "declined",
-      "email": null,
-      "lastAction": null,
-      "notes": "Declined — capacity/fit. Referral-ask also sent Sept 8. WU Vienna effectively closed now that both Meyer and Polzer have declined.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "bevort-cbs",
-      "name": "Frans Bévort",
-      "institution": "Copenhagen Business School (IOA)",
-      "country": "Denmark",
-      "status": "declined",
-      "email": null,
-      "lastAction": "2026-09-01",
-      "notes": "Capacity reached. First contacted Jun 25, 2026; follow-up sent Sept 1. No further contact planned.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "mayrhofer-wuvienna",
-      "name": "Wolfgang Mayrhofer",
-      "institution": "WU Vienna",
-      "country": "Austria",
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived — retiring.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "nolke-archived",
-      "name": "Arndt Nölke",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "gooderham-archived",
-      "name": "Per Gooderham",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "collings-archived",
-      "name": "David Collings",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "sakahelmhout-archived",
-      "name": "Saka-Helmhout",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "schouteten-archived",
-      "name": "Schouteten",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "tenzer-archived",
-      "name": "Tenzer",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Archived.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "sorge-archived",
-      "name": "Sorge",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Reclassified citation-only.",
-      "linkedOpportunity": null
-    },
-    {
-      "id": "beckert-archived",
-      "name": "Beckert",
-      "institution": null,
-      "country": null,
-      "status": "archived",
-      "email": null,
-      "lastAction": null,
-      "notes": "Not contacted — pursuing Höpner/IMPRS-SPCE route instead.",
-      "linkedOpportunity": "mpifg-imprs-2027"
-    }
-  ]
+  },
+
+  "spacing": [4, 8, 12, 16, 20, 24, 32],
+
+  "radii": {
+    "sm":     "8px",
+    "md":     "14px",
+    "lg":     "16px",
+    "pill":   "999px",
+    "circle": "50%"
+  },
+
+  "css_custom_properties": {
+    "_note": "These are the actual --var names used in the PhD Tracker HTML",
+    "--bg":             "maps to paper",
+    "--surface":        "maps to surface",
+    "--surface2":       "maps to surface-2",
+    "--border":         "maps to line",
+    "--text":           "maps to ink",
+    "--muted":          "maps to ink-soft (dark) / muted (light)",
+    "--accent":         "maps to accent",
+    "--accent-dim":     "maps to accent-soft",
+    "--accent-glow":    "maps to accent-glow",
+    "--red / --red-bg / --red-border":   "maps to skip / skip-soft",
+    "--amber / --amber-bg / --amber-border": "maps to warn / warn-soft",
+    "--green / --green-bg / --green-border": "maps to good / good-soft",
+    "--shadow-sm":      "maps to shadow-card",
+    "--shadow":         "maps to shadow-hover",
+    "--radius":         "12px (between Stark sm=8px and md=14px)"
+  }
 }
