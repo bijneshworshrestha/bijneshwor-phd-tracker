@@ -1,274 +1,1013 @@
 {
   "_meta": {
     "source": "Claude Artifact database — https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
-    "snapshot_generated": "2026-09-17",
-    "note": "This file is a point-in-time export. The artifact database is authoritative; re-export before relying on this for a decision.",
-    "scope": {
-      "regions_active": ["Europe (Nordic, DACH, Benelux, UK)", "Hong Kong", "Asia-Pacific"],
-      "asia_pacific_expansion": {
-        "added": "2026-09-17",
-        "countries": ["China", "South Korea", "New Zealand", "Australia"],
-        "new_portals": 12,
-        "portals": {
-          "China": ["Tsinghua University", "Peking University", "Fudan University"],
-          "South Korea": ["Seoul National University", "KAIST", "Yonsei University"],
-          "New Zealand": ["University of Auckland", "Victoria University of Wellington", "University of Otago"],
-          "Australia": ["Australian National University", "University of Melbourne", "University of Sydney"]
-        }
+    "snapshot_generated": "2026-09-19",
+    "note": "Full export of the artifact database's scored collections, in the same shape the dashboard (index.html) expects. This is what index.html should read when it cannot reach window.claude.use('db') (i.e. when hosted outside claude.ai, such as on GitHub Pages).",
+    "asia_pacific_expansion": {
+      "added": "2026-09-17",
+      "status": "unverified watchlist only — not yet scored, see watchlist_asia_pacific below",
+      "countries": [
+        "China",
+        "South Korea",
+        "New Zealand",
+        "Australia"
+      ],
+      "new_portals": 12,
+      "portals": {
+        "China": [
+          "Tsinghua University",
+          "Peking University",
+          "Fudan University"
+        ],
+        "South Korea": [
+          "Seoul National University",
+          "KAIST",
+          "Yonsei University"
+        ],
+        "New Zealand": [
+          "University of Auckland",
+          "Victoria University of Wellington",
+          "University of Otago"
+        ],
+        "Australia": [
+          "Australian National University",
+          "University of Melbourne",
+          "University of Sydney"
+        ]
       }
     }
   },
-
   "positions": [
     {
-      "id": "kcl-gregory-jackson-2027",
-      "title": "MPhil/PhD in Management (Supervisor: Gregory Jackson — currently accepting students)",
-      "institution": "King's College London — King's Business School",
-      "country": "UK",
-      "deadline": "TBC — contact KBS-PhD@kcl.ac.uk; typical Jan/Feb intake",
-      "status": "open",
-      "relevance": 55,
-      "source": "auto",
-      "supervisorStatus": "actively accepting",
-      "fundingNote": "No funded position — requires external scholarship; HKPFS or Swiss Excellence would cover it",
-      "url": "https://www.kcl.ac.uk/study/postgraduate-research/areas/management-research-mphil-phd",
-      "notes": "Confirmed 17 Sept 2026 via profile page: Jackson currently accepting new PhD students. Comparative corporate governance, employment relations, CSR, comparative institutional analysis. International tuition £27,300/year.",
-      "addedAt": "2026-09-17"
-    },
-    {
       "id": "insead-phd-ob-2027",
-      "title": "PhD in Management — Organisational Behaviour Field",
-      "institution": "INSEAD",
+      "addedAt": "2026-09-15",
+      "applyUrl": "https://inse.ad/phd-apply-2027",
       "country": "France / Singapore (dual campus)",
       "deadline": "2027-01-04",
-      "status": "open",
+      "institution": "INSEAD",
+      "lastChecked": "2026-09-17",
+      "notes": "Fully funded 5-year scholarship (tuition waiver + annual living stipend + research/conference funding + international health insurance). Dual campus: Fontainebleau (France) and Singapore. Organisational Behaviour field directly relevant to managerial control, HRM, and work organisation research. INSEAD is among the world's top-ranked business schools. Applications open September 2026 for mid-August 2027 intake. DEADLINE CORRECTED: January 4, 2027 (open-one-way interview by Jan 6, 2027). Interview rounds: Jan–Mar 2027. GMAT/GRE mandatory (< 5 years old). Any bachelor's degree accepted; master's advantageous but not required. International students strongly encouraged. Score: 55.",
       "relevance": 55,
       "source": "auto",
-      "url": "https://www.insead.edu/phd",
-      "notes": "Fully funded 5-year scholarship. Deadline corrected 17 Sept 2026 (was 2026-12-15). GMAT/GRE mandatory (<5 years old). Interview rounds Jan–Mar 2027.",
-      "lastChecked": "2026-09-17",
-      "addedAt": "2026-09-15"
+      "status": "open",
+      "title": "PhD in Management — Organisational Behaviour Field",
+      "url": "https://www.insead.edu/phd"
+    },
+    {
+      "id": "kcl-gregory-jackson-2027",
+      "addedAt": "2026-09-17",
+      "country": "UK",
+      "deadline": "TBC — contact KBS-PhD@kcl.ac.uk; typical Jan/Feb intake",
+      "fundingNote": "No funded position — requires external scholarship; HKPFS or Swiss Excellence would cover it",
+      "institution": "King's College London — King's Business School",
+      "notes": "CONFIRMED 17 Sept 2026: Profile page states Gregory Jackson is CURRENTLY ACCEPTING NEW PhD STUDENTS. Jackson's research: comparative corporate governance, employment relations, corporate social responsibility, comparative institutional analysis — extremely strong alignment with Bij's institutional theory + HRM + comparative management framework. Jackson uses institutional theory (VoC, comparative capitalism) and qualitative methods. International tuition: £27,300/year — requires external scholarship (e.g., HKPFS, Swiss Excellence, Gates Cambridge). Contact: KBS-PhD@kcl.ac.uk. Sociology of work and employment relations maps directly to managerial control and work process clarity. Score: 55.",
+      "relevance": 55,
+      "source": "auto",
+      "status": "open",
+      "supervisorStatus": "actively accepting",
+      "title": "MPhil/PhD in Management (Supervisor: Gregory Jackson — currently accepting students)",
+      "url": "https://www.kcl.ac.uk/study/postgraduate-research/areas/management-research-mphil-phd"
     },
     {
       "id": "mpifg-imprs-2027",
-      "title": "Doctoral Positions — IMPRS-SPCE (Economic Sociology & Political Economy)",
-      "institution": "Max Planck Institute for the Study of Societies (MPIfG) / University of Cologne / University of Duisburg-Essen",
+      "addedAt": "2026-09-13",
       "country": "Germany",
       "deadline": "2027-02-01",
-      "status": "open",
+      "institution": "Max Planck Institute for the Study of Societies (MPIfG) / University of Cologne / University of Duisburg-Essen",
+      "notes": "Application window opens December 2026 (exact deadline TBC — monitor imprs.mpifg.de/99889/calls-for-applications). 3.5-year doctoral programme (42-month contract + 6-month wrap-up). Focus: economic sociology, comparative/international political economy, organizational sociology. Strong comparative institutional and VoC alignment — MPIfG is the global centre for VoC and institutional analysis (Hall & Soskice's original institutional home). Research on how social and political structures shape economic action directly bridges to Bijneshwor's institutional framework. International applicants from Germany and abroad welcome; English is required. Up to 8 students admitted per year. Score: 45.",
       "relevance": 45,
       "source": "auto",
-      "url": "https://imprs.mpifg.de/",
-      "notes": "Application window opens December 2026, exact deadline TBC. 3.5-year contract. Up to 8 students admitted per year.",
-      "addedAt": "2026-09-13"
+      "status": "open",
+      "title": "Doctoral Positions — IMPRS-SPCE (Economic Sociology & Political Economy)",
+      "url": "https://imprs.mpifg.de/"
     },
     {
       "id": "nhh-accounting-pos-2026",
-      "title": "PhD Research Scholar — Department of Accounting, Auditing and Law",
-      "institution": "NHH Norwegian School of Economics",
+      "addedAt": "2026-09-10T00:00:00Z",
       "country": "Norway",
       "deadline": "2026-09-15",
-      "status": "closed",
+      "institution": "NHH Norwegian School of Economics",
+      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr). Department has active management control research group; prior posting (2023) was explicitly on 'relationship between management control systems and digitalization' with qualitative methods focus. Managerial control is Bijneshwor's core construct — strong alignment. Nordic institutional context. Job ID 305122. Monitor NHH for next cycle.",
       "relevance": 52,
       "source": "auto",
-      "url": "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law",
-      "notes": "Deadline passed 15 Sept 2026. NOK 565,000/yr, fully funded 4-year position. Monitor NHH for next cycle.",
-      "addedAt": "2026-09-10"
+      "status": "closed",
+      "title": "PhD Research Scholar — Department of Accounting, Auditing and Law",
+      "url": "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law"
     },
     {
       "id": "nhh-strategy-pos-2026",
-      "title": "PhD Research Scholar — Department of Strategy and Management",
-      "institution": "NHH Norwegian School of Economics",
+      "addedAt": "2026-09-10T00:00:00Z",
       "country": "Norway",
       "deadline": "2026-09-15",
-      "status": "closed",
+      "institution": "NHH Norwegian School of Economics",
+      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr ~EUR 48k). Research areas included: Future of HRM (remote work, aging workforce), AI & Professional Services (algorithmic expertise, organisational design), Business Model Innovation. Nordic institutional context. Job ID 305121. Monitor NHH for next cycle.",
       "relevance": 48,
       "source": "auto",
-      "url": "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management",
-      "notes": "Deadline passed 15 Sept 2026. NOK 565,000/yr (~EUR 48k). Monitor NHH for next cycle.",
-      "addedAt": "2026-09-10"
+      "status": "closed",
+      "title": "PhD Research Scholar — Department of Strategy and Management",
+      "url": "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management"
     }
   ],
-
   "scholarships": [
     {
-      "id": "hkpfs-2026",
-      "name": "Hong Kong PhD Fellowship Scheme (HKPFS)",
-      "provider": "Research Grants Council, Hong Kong",
-      "country": "Hong Kong",
-      "deadline": "2026-12-01",
-      "status": "open",
-      "amount": "HKD 28,700/month stipend + HKD 14,400/year travel allowance",
-      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
-      "notes": "MOST URGENT after UNU-WIDER. 1 Dec 2026 12:00 noon HK time. Only one lifetime application across all HK universities.",
-      "addedAt": "2026-09-09"
-    },
-    {
-      "id": "swiss-excellence-2027",
-      "name": "Swiss Government Excellence Scholarships",
-      "provider": "Swiss Federal Commission for Scholarships (FCS)",
-      "country": "Switzerland",
-      "deadline": "2026-11-10",
-      "status": "open",
-      "relevance": 60,
-      "amount": "Full tuition waiver + CHF 1,920–3,500/month stipend",
-      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
-      "notes": "Nepal is an eligible country. Apply via Swiss Embassy Kathmandu.",
-      "addedAt": "2026-09-12"
-    },
-    {
-      "id": "unu-wider-visiting-2026",
-      "name": "UNU-WIDER Visiting PhD Fellowship (September 2026 cycle)",
-      "provider": "United Nations University — World Institute for Development Economics Research (UNU-WIDER), Helsinki",
-      "country": "Finland",
-      "deadline": "2026-09-30",
-      "status": "open",
-      "relevance": 58,
-      "amount": "EUR 2,100/month stipend + return travel + medical insurance (3-month residency)",
-      "url": "https://www.wider.unu.edu/opportunity/visiting-phd-fellowship",
-      "notes": "CRITICAL — closes in days. Requires existing PhD enrolment. Priority to researchers from developing countries (Nepal qualifies).",
-      "addedAt": "2026-09-13"
-    },
-    {
-      "id": "rsm-erim-2027",
-      "name": "ERIM PhD Programme (Erasmus Research Institute of Management)",
-      "provider": "Rotterdam School of Management / Erasmus University",
-      "country": "Netherlands",
-      "deadline": "2027-01-15",
-      "status": "open",
-      "amount": "Full PhD fellowship (4 years), no GMAT/GRE required if other evidence of excellence shown",
-      "url": "https://www.erim.eur.nl/doctoral-programme/",
-      "notes": "Cycle opens 1 Nov 2026. No named faculty match found after two search passes.",
-      "addedAt": "2026-09-09"
-    },
-    {
-      "id": "gothenburg-doctoral-2027",
-      "name": "Gothenburg University Doctoral Position (Stefan Tengblad)",
-      "provider": "University of Gothenburg — Department of Business Administration",
-      "country": "Sweden",
-      "deadline": "2027-03-15",
-      "status": "open",
-      "amount": "Swedish doctoral salary (employment-based, ~SEK 32,000/month gross)",
-      "url": "https://www.gu.se/en/business-economics",
-      "notes": "Highest-probability route. Tengblad replied positively 15 Sept 2026, offered a letter of recommendation. Watch gu.se from Jan 2027.",
-      "addedAt": "2026-09-09"
-    },
-    {
       "id": "daad-epos-2027",
+      "addedAt": "2026-09-12",
+      "amount": "Monthly stipend ~EUR 1,000 + travel allowance + health insurance + tuition support",
+      "deadline": "2027 cycle TBD — typically Oct–Nov for following academic year; check DAAD scholarship database",
+      "eligibility": "Applicants from developing countries including Nepal. For postgraduate (Master’s or doctoral) studies in Germany. Development-related research focus. Degree from home country required.",
       "name": "DAAD EPOS — Development-Related Postgraduate Courses",
+      "notes": "INELIGIBLE FOR BIJ — confirmed. DAAD's own rule caps prior German residency at 15 months before application; Bij has lived in Germany 3 years. Cannot apply. Kept for reference only in case rules change. Score: 45.",
       "provider": "German Academic Exchange Service (DAAD)",
-      "country": "Germany",
-      "deadline": "2027 cycle TBD — typically Oct–Nov",
-      "status": "open",
       "relevance": 45,
-      "amount": "~EUR 1,000/month stipend + travel + health insurance + tuition support",
-      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
-      "notes": "INELIGIBLE FOR BIJ — DAAD's own 15-month prior-residency cap; Bij has lived in Germany 3 years. Kept for reference only.",
-      "addedAt": "2026-09-12"
+      "source": "auto",
+      "status": "open",
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777"
     },
     {
       "id": "fulbright-nepal-2027",
-      "name": "Fulbright Nepal Scholar Award",
-      "provider": "U.S. Department of State / Fulbright Program via USEF Nepal",
-      "country": "USA",
-      "deadline": "2027 cycle TBD — typically spring/summer",
-      "status": "open",
-      "relevance": 50,
+      "addedAt": "2026-09-12",
       "amount": "Full funding: tuition, monthly stipend, airfare, health insurance",
-      "url": "https://us.fulbrightonline.org/countries/south-and-central-asia/nepal",
-      "notes": "Nepali citizens only. Monitor USEF Nepal for 2027 cycle opening.",
-      "addedAt": "2026-09-12"
+      "deadline": "2027 cycle TBD — typically spring/summer application window; check USEF Nepal",
+      "eligibility": "Nepali citizens; for doctoral study or research at U.S. universities. Management and social science fields included. Strong academic record required.",
+      "name": "Fulbright Nepal Scholar Award",
+      "notes": "Prestigious U.S. government scholarship specifically for Nepali scholars. Covers full PhD funding at American universities. Strong fit for institutional theory and HRM in developing economies research — U.S. schools with relevant faculty (Michigan, Wisconsin, Cornell ILR, Northwestern Kellogg). Score: 50. Monitor USEF Nepal (www.usefnepal.org) for 2027 cycle opening.",
+      "provider": "U.S. Department of State / Fulbright Program via USEF Nepal",
+      "relevance": 50,
+      "source": "auto",
+      "status": "open",
+      "url": "https://us.fulbrightonline.org/countries/south-and-central-asia/nepal"
     },
     {
-      "id": "mext-japan-2027",
-      "name": "MEXT Research Student Scholarship (Japan)",
-      "provider": "Japanese Government — MEXT",
-      "country": "Japan",
-      "deadline": "2027-05-01",
+      "id": "gothenburg-doctoral-2027",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "amount": "Swedish doctoral salary (employment-based, ~SEK 32,000/month)",
+      "deadline": "2027-03-15",
+      "eligibility": "Linked to Stefan Tengblad’s research group. Position advertisement expected Feb–March 2027. Active lead supervisor already engaged.",
+      "name": "Gothenburg University Doctoral Position",
+      "notes": "HIGHEST PROBABILITY ROUTE. Tengblad REPLIED 15 SEPT 2026 — positive and substantive. Offered letter of recommendation. Cannot commit to supervision right now. Keep watching gu.se for doctoral position (expected Feb–Mar 2027). Next: draft thank-you to Tengblad, take up LoR offer. Swedish doctoral salary (employment-based, ~SEK 32,000/month). Monitor department job board from Jan 2027.",
+      "openDate": "2027-01-01",
+      "provider": "University of Gothenburg — Department of Business Administration",
       "status": "open",
-      "relevance": 40,
-      "amount": "~JPY 145,000–152,000/month + tuition waiver + travel allowance",
-      "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm",
-      "notes": "Nepali citizens; verify 2027 cycle and current age-limit rule with Embassy Kathmandu.",
-      "addedAt": "2026-09-12"
+      "url": "https://www.gu.se/en/business-economics"
+    },
+    {
+      "id": "hkpfs-2026",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "amount": "HKD 28,700/month stipend + HKD 14,400/year travel allowance",
+      "deadline": "2026-12-01",
+      "eligibility": "Outstanding candidates regardless of country of origin; must apply to HKUST / HKU / CUHK / PolyU etc. simultaneously. Highly competitive (~270 awarded from thousands).",
+      "name": "Hong Kong PhD Fellowship Scheme (HKPFS)",
+      "notes": "MOST URGENT DEADLINE — 1 Dec 2026, 12:00 noon HK time (RGC reference number). HKUST-specific: full application also due 1 Dec 2026 by 11:59 pm. HKU/CUHK regular deadline also 1 Dec 2026. Regular non-HKPFS deadline: 3 Jan 2027 (HKUST). HKU converts every HKPFS holder automatically to Presidential PhD Scholarship (Year 1 cash award + tuition waiver + guaranteed hall place). Bij's floor: HKD 31,000–33,500/month — HKPFS alone fails; HKPFS + university top-up clears it. Decline studentship-only fallback (~HKD 18,000–19,000/month) outright. Sociology route confirmed (no GMAT at any HK sociology dept). Active contacts: Yi-min Lin (HKUST, sent), Zhu Ling (CUHK, sent), Ladegaard (HKU, declined). Only one HKPFS application ever permitted across all HK universities. Critical open item: line up 2nd (CUHK: 3rd) academic referee — only Prof Flavio confirmed so far.",
+      "openDate": "2026-09-01",
+      "provider": "Research Grants Council, Hong Kong",
+      "status": "open",
+      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html"
     },
     {
       "id": "kozminski-2027",
-      "name": "Kozminski University PhD Scholarship",
-      "provider": "Kozminski University Warsaw",
-      "country": "Poland",
-      "deadline": "2027-05-31",
-      "status": "open",
+      "addedAt": "2026-09-09T00:00:00Z",
       "amount": "Partial scholarship + tuition reduction",
-      "url": "https://www.kozminski.edu.pl/en/phd",
-      "notes": "WARNING: statutory doctoral-school stipend fails Bij's Warsaw funding floor at the base rate; a grant-attached (e.g. NCN) contract might change this, not confirmed.",
-      "addedAt": "2026-09-09"
+      "deadline": "2027-05-31",
+      "eligibility": "International applicants; English-language PhD programme. English proficiency required.",
+      "name": "Kozminski University PhD Scholarship",
+      "notes": "Previously flagged — Vaszkun funding issue closed but institution still viable. May 2027 deadline gives time to build stronger profile.",
+      "openDate": "2027-02-01",
+      "provider": "Kozminski University Warsaw",
+      "status": "open",
+      "url": "https://www.kozminski.edu.pl/en/phd"
+    },
+    {
+      "id": "mext-japan-2027",
+      "addedAt": "2026-09-12",
+      "amount": "Approx. JPY 145,000–152,000/month + tuition waiver + travel allowance",
+      "deadline": "2027-05-01",
+      "eligibility": "Nepali citizens; under 35 years old; bachelor’s degree held. Application through Japanese Embassy in Kathmandu. Initial placement as research student, then formal PhD enrollment.",
+      "name": "MEXT Research Student Scholarship (Japan)",
+      "notes": "Japanese government scholarship available specifically to Nepali students. Japan has a strong tradition of comparative management and work organisation research (Dore on enterprise society, comparative institutionalism in East Asian economies). Hitotsubashi, Waseda, Osaka, Kyushu have relevant management schools. Score: 40 — lower comparative/Nordic fit but Nepal-specific eligibility is a major plus. Verify 2027 cycle with Japanese Embassy Kathmandu (tel: 977-1-5543361).",
+      "provider": "Japanese Government — Ministry of Education, Culture, Sports, Science and Technology",
+      "relevance": 40,
+      "source": "auto",
+      "status": "open",
+      "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm"
+    },
+    {
+      "id": "rsm-erim-2027",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "amount": "Full PhD fellowship (4 years)",
+      "deadline": "2027-01-15",
+      "eligibility": "Research Master or equivalent; proposal aligned with ERIM faculty research. Strong quantitative/mixed-methods background preferred.",
+      "name": "ERIM PhD Programme (Erasmus Research Institute of Management)",
+      "notes": "Jan 15 2027 deadline. Paul Boselie at Utrecht is linked; ERIM also has other relevant faculty. Check for HRM / organisation cluster.",
+      "openDate": "2026-11-01",
+      "provider": "Rotterdam School of Management / Erasmus University",
+      "status": "open",
+      "url": "https://www.erim.eur.nl/doctoral-programme/"
+    },
+    {
+      "id": "swiss-excellence-2027",
+      "addedAt": "2026-09-12",
+      "amount": "Full tuition waiver + monthly stipend (CHF 1,920–3,500 depending on level and canton)",
+      "deadline": "2026-11-10",
+      "eligibility": "Open to applicants from 183 countries including Nepal. For PhD research and postdoc at Swiss universities. Apply through Swiss Embassy in Kathmandu.",
+      "name": "Swiss Government Excellence Scholarships",
+      "notes": "URGENT — deadline Nov 10, 2026. Nepal is an eligible country. Swiss universities (St. Gallen, Zurich, Lausanne) have strong management, institutional, and comparative organization research. Aligns with Germanic/Nordic theory pillar in proposal. Score: 60.",
+      "provider": "Swiss Federal Commission for Scholarships (FCS)",
+      "relevance": 60,
+      "source": "auto",
+      "status": "open",
+      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"
     },
     {
       "id": "tilburg-phd-2027",
-      "name": "Tilburg University PhD (HR Studies)",
-      "provider": "Tilburg School of Social and Behavioral Sciences",
-      "country": "Netherlands",
-      "deadline": "2027-06-30",
-      "status": "open",
+      "addedAt": "2026-09-09T00:00:00Z",
       "amount": "Full fellowship (4 years, employment-based)",
-      "url": "https://www.tilburguniversity.edu/education/phd-programs",
-      "notes": "Contingent on vacancy advertisement. No vacancy currently posted.",
-      "addedAt": "2026-09-09"
+      "deadline": "2027-06-30",
+      "eligibility": "Linked to HR Studies department. Brigitte Kroon and Charissa Freese faculty connections.",
+      "name": "Tilburg University PhD (HR Studies)",
+      "notes": "Longer horizon. Monitor for position advertisements.",
+      "openDate": "2027-01-01",
+      "provider": "Tilburg School of Social and Behavioral Sciences",
+      "status": "open",
+      "url": "https://www.tilburguniversity.edu/education/phd-programs"
+    },
+    {
+      "id": "unu-wider-visiting-2026",
+      "addedAt": "2026-09-13",
+      "amount": "EUR 2,100/month stipend + return travel grant + medical insurance (3-month residency in Helsinki)",
+      "deadline": "2026-09-30",
+      "eligibility": "Currently enrolled PhD students conducting dissertation research on developing economies. Strong qualitative and/or quantitative analytical skills required. English proficiency required. Priority given to researchers from developing countries (Nepal qualifies), women researchers, and advanced-stage PhD students. Two cycles per year: March 31 and September 30 deadlines.",
+      "name": "UNU-WIDER Visiting PhD Fellowship (September 2026 cycle)",
+      "notes": "URGENT — deadline September 30, 2026 (17 days). Highly aligned: explicitly for PhD research on developing economies, with priority to researchers from developing countries (Nepal qualifies as developing country). Bijneshwor's research on Nepalese institutional environment maps directly onto the 'developing economies' mandate. Three months in Helsinki gives access to UNU-WIDER's global development research network and Nordic institutional context. Qualitative methods explicitly welcomed. Applies as a visiting scholar supplement, not a degree programme — can be combined with ongoing PhD enrolment. Score: 58.",
+      "provider": "United Nations University — World Institute for Development Economics Research (UNU-WIDER), Helsinki, Finland",
+      "relevance": 58,
+      "source": "auto",
+      "status": "open",
+      "url": "https://www.wider.unu.edu/opportunity/visiting-phd-fellowship"
     }
   ],
-
-  "watchlist_asia_pacific": {
-    "_note": "Added 2026-09-17 with the Asia-Pacific scanner expansion. These are well-known national scholarship schemes logged for monitoring, not yet independently re-verified against their current-cycle pages this run — I am not fully certain of the figures below, confirm on the official site before relying on any of them.",
-    "entries": [
-      {
-        "id": "csc-china-watchlist-2027",
-        "name": "Chinese Government Scholarship — China Scholarship Council (CSC)",
-        "country": "China",
-        "provider": "China Scholarship Council, via individual host universities (e.g. Tsinghua, Peking, Fudan)",
-        "deadline_note": "Varies by host university and track (university/bilateral/Great Wall programme); commonly falls roughly Feb–Apr for the following intake — verify per institution before treating any date as fixed",
-        "amount_note": "Approximately: tuition waiver + monthly stipend + accommodation + medical insurance (exact stipend tier varies by city/university — verify)",
-        "relevance_note": "Not yet scored — no confirmed link to institutional theory/HRM/Nepal criteria found this pass; would need a named supervisor and topic match to score",
-        "status": "watchlist",
-        "url": "https://www.campuschina.org/",
-        "added": "2026-09-17"
-      },
-      {
-        "id": "gks-korea-watchlist-2027",
-        "name": "Korean Government Scholarship Program (GKS) — Graduate track",
-        "country": "South Korea",
-        "provider": "National Institute for International Education (NIIED), via embassy or university track",
-        "deadline_note": "Embassy track typically ~Sept of the prior year; university track typically ~Feb–Mar — verify current cycle dates directly with NIIED or the host university (Seoul National, KAIST, Yonsei)",
-        "amount_note": "Approximately: tuition + monthly stipend (~KRW 1,000,000+/month reported historically) + settlement allowance + airfare — verify current figures",
-        "relevance_note": "Not yet scored — no named supervisor or topic match identified this pass",
-        "status": "watchlist",
-        "url": "https://www.studyinkorea.go.kr/",
-        "added": "2026-09-17"
-      },
-      {
-        "id": "nz-excellence-watchlist-2027",
-        "name": "New Zealand Excellence Awards / doctoral scholarships (host-university administered)",
-        "country": "New Zealand",
-        "provider": "Individual universities (e.g. University of Auckland, Victoria University of Wellington, University of Otago) and NZ government-linked award schemes",
-        "deadline_note": "Varies by university and scheme; some NZ award schemes have historically targeted Master's rather than PhD study — this needs confirming per scheme before treating it as a live PhD route",
-        "amount_note": "Domestic-equivalent doctoral stipend at PhD-scholarship universities reported historically around NZD 27,000–35,000/year tax-free plus tuition — verify current figures",
-        "relevance_note": "Not yet scored — flagged for verification of PhD (not Master's-only) eligibility before further work",
-        "status": "watchlist",
-        "url": "https://www.auckland.ac.nz/en/study/scholarships-and-awards.html",
-        "added": "2026-09-17"
-      },
-      {
-        "id": "australia-rtp-watchlist-2027",
-        "name": "Australian Government Research Training Program (RTP)",
-        "country": "Australia",
-        "provider": "Host university (e.g. ANU, University of Melbourne, University of Sydney), Australian Government-funded",
-        "deadline_note": "Set per university, commonly ~Aug–Oct of the prior year for the following intake — verify per institution",
-        "amount_note": "RTP stipend reported historically around AUD 35,000+/year tax-free plus tuition offset — see also the city-relative funding-floor note in the proposal's scholarship ledger, which found Australian RTP tends to fall short of Bij's stated funding floor once converted to EUR",
-        "relevance_note": "Not yet scored — no named supervisor or topic match identified this pass; prior funding-floor analysis flagged Australia as lowest-priority on funding grounds",
-        "status": "watchlist",
-        "url": "https://www.rtp.edu.au/",
-        "added": "2026-09-17"
-      }
-    ]
-  }
+  "supervisors": [
+    {
+      "id": "aust-ina",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-07-01",
+      "country": "Belgium",
+      "department": "International Business Programme",
+      "email": "",
+      "name": "Ina Aust-Gronarz",
+      "notes": "DECLINED 12 Sept 2026 — fit-drift decline. Research has moved to HRM/common good, circular economy, SDGs; proposal's core claim now too well-established for her. Three contacts (Jul, Aug 10, Sept 8). Recommended CRANET network for comparative HRM contacts. Closed, no follow-up appropriate.",
+      "specialization": "Sustainable HRM, HRM and common good, CSR, employee wellbeing as organisational outcome",
+      "status": "declined",
+      "university": "UCLouvain (Louvain School of Management / LouRiM)"
+    },
+    {
+      "id": "bevort-franz",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-01",
+      "country": "Denmark",
+      "department": "Department of Organization (IOA)",
+      "email": "",
+      "name": "Frans Bévort",
+      "notes": "DECLINED 1 Sept 2026 — same day as follow-up. Said he is not hiring and redirected directly to cbs.dk job board. CBS runs position-based model, not supervisor-first. IOA PhD scholarships run on annual cycle — check cbs.dk Feb–Apr 2027 for repeat posting. Contact: Ursula Plesner (up.ioa@cbs.dk). No further cold-email follow-up needed.",
+      "specialization": "Identity, professions, institutional logics",
+      "status": "declined",
+      "university": "Copenhagen Business School"
+    },
+    {
+      "id": "blagoev-blagoy",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-01",
+      "country": "Switzerland",
+      "department": "Institute of Work, Organization and Transformation",
+      "email": "blagoy.blagoev@unisg.ch",
+      "name": "Blagoy Blagoev",
+      "notes": "DECLINED 3 Sept 2026 — leaving HSG (not a capacity issue). Referral-ask follow-up sent 8 Sept 2026. Strongest managerial-control/bureaucracy fit found in the entire search. Antoinette Weibel (same institution, Director of Blagoev's institute) flagged as potential alternate — not yet actioned.",
+      "specialization": "Bureaucracy and control configurations, formalisation as actively constructed, resistance-led participation in innovation control",
+      "status": "declined",
+      "university": "University of St. Gallen (HSG)"
+    },
+    {
+      "id": "boselie-paul",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-06-26",
+      "country": "Netherlands",
+      "department": "Strategic HRM",
+      "email": "p.boselie@uu.nl",
+      "name": "Paul Boselie",
+      "notes": "Original cold email 26 Jun 2026. Follow-up sent 1 Sept 2026 with completed proposal. Confirmed currently supervising PhD on outsourcing/organisational effectiveness in Indonesian judiciary — strong capacity signal for non-Western institutional research. Awaiting reply to follow-up.",
+      "specialization": "Strategic HRM, institutionalism, HRM in public-sector and non-Western contexts, HR models and institutional transfer",
+      "status": "sent",
+      "university": "Utrecht University"
+    },
+    {
+      "id": "freese-charissa",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "",
+      "country": "Netherlands",
+      "department": "HR Studies",
+      "email": "",
+      "name": "Charissa Freese",
+      "notes": "DECLINED.",
+      "specialization": "Flexible work, psychological contracts",
+      "status": "declined",
+      "university": "Tilburg University"
+    },
+    {
+      "id": "gumusay-ali",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-08",
+      "country": "Germany",
+      "department": "Innovation, Entrepreneurship and Sustainability",
+      "email": "",
+      "name": "Ali Aslan Gümüşay",
+      "notes": "Replied 8 Sept 2026: 'no openings at the moment' but sent detailed application guide — not a flat decline. Currently most promising fresh German lead. Pathways: open slot (none now), funded RA on project, LMU-external scholarship, or scholarship-funded. Next: write exposé, then email asking if funded RA position exists. Under Germany-specific floor (€1,700/month), 65% TV-L E13 (~€2,100-2,250 net) clears comfortably.",
+      "specialization": "Hybrid organisations, purpose-driven organisations, institutional theory, innovation",
+      "status": "feedback",
+      "university": "LMU Munich"
+    },
+    {
+      "id": "haakonsson-dorthe",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-08",
+      "country": "Denmark",
+      "department": "Department of Organization (IOA)",
+      "email": "",
+      "name": "Stine Haakonsson",
+      "notes": "CBS alternate after Bévort's decline. Associate Professor. Email sent 8 Sept 2026. Out-of-office autoresponder only so far. Strong capacity signal: reportedly supervising ~20 PhD students via Sino-Danish Center. Fit via institutional environments in developing economies — lens is evolutionary economics / industry-level, not North's triad directly.",
+      "specialization": "Institutional environments in developing economies shaping firm behaviour, global value chains, innovation systems; Principal Coordinator Social Sciences at Sino-Danish Center",
+      "status": "sent",
+      "university": "Copenhagen Business School"
+    },
+    {
+      "id": "hopner-martin",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-08-01",
+      "country": "Germany",
+      "department": "Comparative Political Economy",
+      "email": "",
+      "name": "Martin Höpner",
+      "notes": "Exposé sent. VoC expert, highly relevant comparator framework.",
+      "specialization": "Varieties of Capitalism, German capitalism, institutional change",
+      "status": "sent",
+      "university": "Max Planck Institute for the Study of Societies"
+    },
+    {
+      "id": "jackson-gregory",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "",
+      "country": "UK",
+      "department": "Management",
+      "email": "",
+      "name": "Gregory Jackson",
+      "notes": "Moved from FU Berlin to King's College London (discovered 30 Aug 2026). Email sent 27 Jun 2026 to old FU Berlin address (LS-Jackson@wiwiss.fu-berlin.de) — likely landed in lapsing mailbox, no reply. Confirmed actively accepting PhD students at KCL. Decision pending: send fresh email to KCL address, or treat as citation-only given UK = relocation.",
+      "specialization": "Comparative capitalism, corporate governance, institutional theory",
+      "status": "pending",
+      "university": "King's College London"
+    },
+    {
+      "id": "kroon-brigitte",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-08-01",
+      "country": "Netherlands",
+      "department": "HR Studies",
+      "email": "",
+      "name": "Brigitte Kroon",
+      "notes": "Exposé sent. Relevant on SME and informal contexts.",
+      "specialization": "HRM in SMEs, informal employment, employee wellbeing",
+      "status": "sent",
+      "university": "Tilburg University"
+    },
+    {
+      "id": "ladegaard-isak",
+      "addedAt": "2026-09-15T00:00:00Z",
+      "contactDate": "2026-09-08",
+      "country": "Hong Kong",
+      "department": "Department of Sociology",
+      "email": "ladegaard@hku.hk",
+      "name": "Isak Ladegaard",
+      "notes": "DECLINED 8 Sept 2026 (same day) — 'maxed out my student quota for a few years ahead.' Warm reply. Referral-ask drafted, not yet confirmed sent. Next HKU target: Duoduo Xu (Associate Professor, sociology of work and precarity — #8 on ranked list). HKU requires supervisor contact before applying — Xu is the live follow-up.",
+      "specialization": "Economic sociology, governance across organisations and markets when formal oversight is weak, informal norms",
+      "status": "declined",
+      "university": "University of Hong Kong (HKU)"
+    },
+    {
+      "id": "lin-yimin",
+      "addedAt": "2026-09-15T00:00:00Z",
+      "contactDate": "2026-09-08",
+      "country": "Hong Kong",
+      "department": "Division of Social Science — Political Economy track",
+      "email": "y.lin@ust.hk",
+      "name": "Yi-min Lin",
+      "notes": "Email sent 8 Sept 2026 (exact wording not captured). Best institutional-economics/organisational match across entire HK sociology search — monograph on firm-level institutional change in China. Full Professor, Associate Dean. Note: HKUST does NOT follow supervisor-first model — apply to programme regardless of Lin's reply. HKPFS deadline via HKUST: 1 Dec 2026 11:59pm. Regular deadline: 3 Jan 2027. HKUST bar high: prefers quantitative background (harder fit for qualitative proposal).",
+      "specialization": "Political economy, organisations and institutions, governance structures and firm-level institutional change in post-Mao China",
+      "status": "sent",
+      "university": "Hong Kong University of Science and Technology (HKUST)"
+    },
+    {
+      "id": "meyer-renate",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "",
+      "country": "Austria",
+      "department": "Organisational Sociology",
+      "email": "",
+      "name": "Renate Meyer",
+      "notes": "DECLINED.",
+      "specialization": "Institutional theory, organisational fields, Neo-institutionalism",
+      "status": "declined",
+      "university": "WU Vienna"
+    },
+    {
+      "id": "nicklich-manuel",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-01",
+      "country": "Germany",
+      "department": "Sociology — OES chair (Jackson's successor)",
+      "email": "manuel.nicklich@fu-berlin.de",
+      "name": "Manuel Nicklich",
+      "notes": "Email sent 1 Sept 2026. Best Berlin / no-relocation lead. Took over Gregory Jackson's chair at FU Berlin. Work on repurposing institutions in peripheral service industries speaks directly to proposal's service-sector setting. Awaiting reply.",
+      "specialization": "Comparative institutional method, institutional change in peripheral service sectors, relational distance and skill formation across Germany and Japan",
+      "status": "sent",
+      "university": "Freie Universität Berlin"
+    },
+    {
+      "id": "polzer-thorsten",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-08",
+      "country": "Austria",
+      "department": "Public Management",
+      "email": "",
+      "name": "Thorsten Polzer",
+      "notes": "WU Vienna alternate after Renate Meyer's decline. Sent 8 Sept 2026. DECLINED 12 Sept 2026 — capacity, no redirect offered. WU Vienna now exhausted (both Meyer and Polzer declined). Open decision: research a fresh WU Vienna name or treat institution as closed.",
+      "specialization": "Institutional logics, public sector, managerial accountability",
+      "status": "declined",
+      "university": "WU Vienna"
+    },
+    {
+      "id": "schramm-dominik",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-01",
+      "country": "Germany",
+      "department": "Work and Employment",
+      "email": "Florian.Schramm@uni-hamburg.de",
+      "name": "Florian Schramm",
+      "notes": "Email sent 1 Sept 2026. Cross-national work on formal entitlement vs. workplace practice gap directly parallels proposal's question for Nepal. Awaiting reply.",
+      "specialization": "Labour law implementation, dismissal protection, platform/crowdwork employment, cross-national career resilience (28 countries)",
+      "status": "sent",
+      "university": "University of Hamburg"
+    },
+    {
+      "id": "tengblad-stefan",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-01",
+      "country": "Sweden",
+      "department": "Department of Business Administration",
+      "email": "stefan.tengblad@gu.se",
+      "name": "Stefan Tengblad",
+      "notes": "REPLY RECEIVED 15 SEPT 2026 — positive and substantive. Praised the proposal and its method. Flagged informant access and financing as the two critical practical risks. Offered a letter of recommendation 'when you apply.' Cannot commit to supervision right now. Keep watching gu.se for Feb–Mar 2027 doctoral position. Next: draft brief thank-you taking up the LoR offer. Also: document informant-access plan before a supervisor asks it less warmly.",
+      "specialization": "Managerial work, employee-driven innovation, Nordic management, practice-based organisation studies",
+      "status": "feedback",
+      "university": "University of Gothenburg"
+    },
+    {
+      "id": "van-de-voorde-karina",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "",
+      "country": "Netherlands",
+      "department": "HR Studies",
+      "email": "",
+      "name": "Karina van de Voorde",
+      "notes": "DECLINED.",
+      "specialization": "HRM and employee wellbeing, AMO theory",
+      "status": "declined",
+      "university": "Tilburg University"
+    },
+    {
+      "id": "vaszkun-balazs",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "",
+      "country": "Hungary",
+      "department": "Management",
+      "email": "",
+      "name": "Balázs Vaszkun",
+      "notes": "CLOSED by Bij's decision — funding fails. Stipendium Hungaricum PhD: ~€450-560/month all-in vs Budapest floor ~€1,350/month (shortfall ~€800-1,200/month). Strong theoretical fit (co-authored 'Contingency Theory' chapter). He invited a full research plan but Bij declined to invest the effort given the funding gap. Worth revisiting only if financial situation changes.",
+      "specialization": "Contingency theory, cross-cultural management, American vs Japanese management paradigms",
+      "status": "closed",
+      "university": "Corvinus University Budapest"
+    },
+    {
+      "id": "weibel-antoinette",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "",
+      "country": "Switzerland",
+      "department": "HRM and Organisation",
+      "email": "",
+      "name": "Antoinette Weibel",
+      "notes": "Pending outreach decision.",
+      "specialization": "Trust in organisations, motivation, institutional contexts",
+      "status": "pending",
+      "university": "University of St.Gallen"
+    },
+    {
+      "id": "zhu-ling",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "contactDate": "2026-09-08",
+      "country": "Hong Kong",
+      "department": "Department of Sociology",
+      "email": "lingzhu@cuhk.edu.hk",
+      "name": "Zhu Ling",
+      "notes": "Email sent 8 Sept 2026. Associate Professor. Economic Sociology, organisations and work. Methods lean quantitative/computational vs. proposal's qualitative design — worth discussion, not a blocker. Also asked directly whether Global MBA meets CUHK's social-science background preference. Awaiting reply. CUHK requires 3 academic referees for full-time research doctoral applicants.",
+      "specialization": "Economic sociology, organisations and work, institutional mechanisms of governance, inequality in political institutions",
+      "status": "sent",
+      "university": "Chinese University of Hong Kong (CUHK)"
+    }
+  ],
+  "applications": [],
+  "bibliography": [
+    {
+      "id": "agrawal-2009",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Agrawal, N.M. et al.",
+      "doi": "",
+      "journal": "Quarterly Journal of Economics",
+      "notes": "Bloom & Van Reenen — cross-country management practices survey. Evidence base for cross-national management variation.",
+      "tags": [
+        "contingency",
+        "emerging-economies",
+        "institutions"
+      ],
+      "title": "The Organization of Firms Across Countries",
+      "url": "",
+      "year": 2009
+    },
+    {
+      "id": "bayer-fening-2012",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Bayer, M. & Fening, F.A.",
+      "doi": "",
+      "journal": "International Journal of Business and Management",
+      "notes": "Contingency in developing country context.",
+      "tags": [
+        "contingency",
+        "emerging-economies"
+      ],
+      "title": "A Management Science Approach to Contingency Models of Organisational Structure",
+      "url": "",
+      "year": 2012
+    },
+    {
+      "id": "bista-1991",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Bista, D.B.",
+      "doi": "",
+      "journal": "Book / Dissertation",
+      "notes": "Afno Manchhe (own people) — informal networks and particularism shaping resource access. Critical informal institution concept for Nepal.",
+      "tags": [
+        "nepal",
+        "institutions"
+      ],
+      "title": "Afno Manchhe: Unequal Access to Public Resources and Institutions in Nepal",
+      "url": "",
+      "year": 1991
+    },
+    {
+      "id": "bloom-vanreenen-2006",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Bloom, N. & Van Reenen, J.",
+      "doi": "",
+      "journal": "Quarterly Journal of Economics",
+      "notes": "World Management Survey methodology — quantitative strand of Phase 4 may draw on this.",
+      "tags": [
+        "contingency",
+        "emerging-economies"
+      ],
+      "title": "Measuring and Explaining Management Practices Across Firms and Countries",
+      "url": "",
+      "year": 2006
+    },
+    {
+      "id": "braun-clarke-2006",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Braun, V. & Clarke, V.",
+      "doi": "",
+      "journal": "Qualitative Research in Psychology",
+      "notes": "Foundational TA paper. Phase-by-phase thematic analysis methodology for qualitative strand.",
+      "tags": [
+        "methods"
+      ],
+      "title": "Using Thematic Analysis in Psychology",
+      "url": "",
+      "year": 2006
+    },
+    {
+      "id": "braun-clarke-2019",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Braun, V. & Clarke, V.",
+      "doi": "",
+      "journal": "Qualitative Research in Sport, Exercise and Health",
+      "notes": "Reflexive TA update — clarifying epistemological stance for Phase 2 qualitative study.",
+      "tags": [
+        "methods"
+      ],
+      "title": "Reflecting on Reflexive Thematic Analysis",
+      "url": "",
+      "year": 2019
+    },
+    {
+      "id": "decent-work-nepal-2024",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Various",
+      "doi": "",
+      "journal": "Journal Article (2024)",
+      "notes": "Contemporary Nepal workplace evidence — decent work deficits, informality, precarity.",
+      "tags": [
+        "nepal",
+        "hrm"
+      ],
+      "title": "Decent Work and Work-Life Quality in Nepal: An Observation",
+      "url": "",
+      "year": 2024
+    },
+    {
+      "id": "donaldson-1984",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Donaldson, L.",
+      "doi": "",
+      "journal": "Journal of Management",
+      "notes": "1982 Reimann-based MS approach to contingency models.",
+      "tags": [
+        "contingency"
+      ],
+      "title": "Contingency Theory: Some Suggestive Directions (Management Science Approach)",
+      "url": "",
+      "year": 1984
+    },
+    {
+      "id": "donaldson-1987",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Donaldson, L.",
+      "doi": "",
+      "journal": "Journal of Management Studies",
+      "notes": "Defence of contingency theory against critics. Argues fit→performance link.",
+      "tags": [
+        "contingency"
+      ],
+      "title": "Strategy and Structural Adjustment to Regain Fit and Performance: In Defence of Contingency Theory",
+      "url": "",
+      "year": 1987
+    },
+    {
+      "id": "gautam-davis-2007",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Gautam, T. & Davis, A.J.",
+      "doi": "",
+      "journal": "Employee Relations",
+      "notes": "Empirical HRM study in Nepal. Key country-specific evidence.",
+      "tags": [
+        "hrm",
+        "nepal"
+      ],
+      "title": "Integration and Devolvement of Human Resource Practices in Nepal",
+      "url": "",
+      "year": 2007
+    },
+    {
+      "id": "hall-soskice-2001",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Hall, P.A. & Soskice, D.",
+      "doi": "",
+      "journal": "Oxford University Press",
+      "notes": "VoC framework (LME vs CME). Theoretical Pillar 4 — Nordic comparator. Hall & Soskice (2001).",
+      "tags": [
+        "voc",
+        "institutions"
+      ],
+      "title": "Varieties of Capitalism: The Institutional Foundations of Comparative Advantage",
+      "url": "",
+      "year": 2001
+    },
+    {
+      "id": "hofstede-2023",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Hofstede, G. (reviewed 2023)",
+      "doi": "",
+      "journal": "Review Article (2023)",
+      "notes": "Current review of Hofstede framework — relevance to power distance, uncertainty avoidance in Nepal.",
+      "tags": [
+        "institutions",
+        "nepal",
+        "emerging-economies"
+      ],
+      "title": "Hofstede’s Cultural Dimensions Theory: A Review",
+      "url": "",
+      "year": 2023
+    },
+    {
+      "id": "hox-2018",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Hox, J.J., Moerbeek, M. & van de Schoot, R.",
+      "doi": "",
+      "journal": "Routledge (3rd ed.)",
+      "notes": "Multilevel modelling reference for Phase 4 quantitative cross-country study.",
+      "tags": [
+        "methods"
+      ],
+      "title": "Multilevel Analysis: Techniques and Applications",
+      "url": "",
+      "year": 2018
+    },
+    {
+      "id": "hrm-retention-nepal-2023",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Various",
+      "doi": "",
+      "journal": "Journal Article (2023)",
+      "notes": "Direct HRM-retention evidence from Nepal — supports Phase 1 foundation.",
+      "tags": [
+        "hrm",
+        "nepal"
+      ],
+      "title": "Human Resource Management Practices and Employee Retention in Nepal",
+      "url": "",
+      "year": 2023
+    },
+    {
+      "id": "meyer-peng-2016",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Meyer, K.E. & Peng, M.W.",
+      "doi": "",
+      "journal": "Journal of International Business Studies",
+      "notes": "Framework for institutional analysis in emerging economies — relevant to Nepal context.",
+      "tags": [
+        "emerging-economies",
+        "institutions"
+      ],
+      "title": "Theoretical Foundations of Emerging Economy Business Research",
+      "url": "",
+      "year": 2016
+    },
+    {
+      "id": "mintzberg-1979",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Mintzberg, H.",
+      "doi": "",
+      "journal": "Prentice Hall",
+      "notes": "5 coordinating mechanisms + organisational configurations. Theoretical Pillar 3.",
+      "tags": [
+        "mintzberg",
+        "contingency"
+      ],
+      "title": "The Structuring of Organisations",
+      "url": "",
+      "year": 1979
+    },
+    {
+      "id": "mintzberg-1983",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Mintzberg, H.",
+      "doi": "",
+      "journal": "Prentice Hall",
+      "notes": "Condensed version of 1979 theory. 5 configurations including simple structure and machine bureaucracy.",
+      "tags": [
+        "mintzberg",
+        "contingency"
+      ],
+      "title": "Structure in Five: Designing Effective Organisations",
+      "url": "",
+      "year": 1983
+    },
+    {
+      "id": "mintzberg-2025-review",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Tasheva, G. et al.",
+      "doi": "",
+      "journal": "Review Article (2025)",
+      "notes": "Recent review of Mintzberg configurations — useful for literature review.",
+      "tags": [
+        "mintzberg",
+        "contingency"
+      ],
+      "title": "The Mintzberg Model of Organisational Configurations: An Analytical Study",
+      "url": "",
+      "year": 2025
+    },
+    {
+      "id": "negandhi-reimann-1972",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Negandhi, A.R. & Reimann, B.C.",
+      "doi": "",
+      "journal": "Academy of Management Journal",
+      "notes": "Classic contingency theory test in developing country. Direct precedent for this research.",
+      "tags": [
+        "contingency",
+        "emerging-economies"
+      ],
+      "title": "A Contingency Theory of Organization Re-Examined in the Context of a Developing Country",
+      "url": "",
+      "year": 1972
+    },
+    {
+      "id": "north-1990-ch1",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.1)",
+      "notes": "Foundation text for institutional framework — formal/informal constraints, enforcement.",
+      "tags": [
+        "institutions",
+        "emerging-economies"
+      ],
+      "title": "An Introduction to Institutions and Institutional Change",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "north-1990-ch12",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.12)",
+      "notes": "Path dependence and the role of institutions in economic outcomes.",
+      "tags": [
+        "institutions",
+        "emerging-economies"
+      ],
+      "title": "Institutions, Economic Theory and Economic Performance",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "north-1990-ch5",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.5)",
+      "notes": "Informal rules, norms, conventions — critical for understanding Nepali organisational context.",
+      "tags": [
+        "institutions",
+        "nepal"
+      ],
+      "title": "Informal Constraints",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "north-1990-ch6",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.6)",
+      "notes": "Formal rules hierarchy — constitutions, laws, property rights.",
+      "tags": [
+        "institutions"
+      ],
+      "title": "Formal Constraints",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "north-1990-ch7",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.7)",
+      "notes": "Third-party enforcement — relevant to weak state institutions in Nepal.",
+      "tags": [
+        "institutions"
+      ],
+      "title": "Enforcement",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "north-1990-ch9",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.9)",
+      "notes": "",
+      "tags": [
+        "institutions"
+      ],
+      "title": "Organizations, Learning and Institutional Change",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "north-path-change",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "North, D.C.",
+      "doi": "",
+      "journal": "Institutions, Institutional Change and Economic Performance (Ch.11)",
+      "notes": "Path dependence and lock-in — explains persistence of Nepali organisational patterns.",
+      "tags": [
+        "institutions"
+      ],
+      "title": "The Path of Institutional Change",
+      "url": "",
+      "year": 1990
+    },
+    {
+      "id": "peng-2008",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Peng, M.W. et al.",
+      "doi": "",
+      "journal": "Journal of International Business Studies",
+      "notes": "Institution-based view as third leg of IB strategy tripod.",
+      "tags": [
+        "institutions",
+        "emerging-economies"
+      ],
+      "title": "An Institution-Based View of International Business Strategy: A Focus on Emerging Economies",
+      "url": "",
+      "year": 2008
+    },
+    {
+      "id": "sorkvist-2024",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Sörkvist et al.",
+      "doi": "",
+      "journal": "Scandinavian Journal of Management",
+      "notes": "Nordic model of management — relevant as comparator for Nepali findings.",
+      "tags": [
+        "voc",
+        "hrm"
+      ],
+      "title": "The Nordic Model and Management in International Corporations: A Scoping Review",
+      "url": "",
+      "year": 2024
+    },
+    {
+      "id": "subedi-2014",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Subedi, M.",
+      "doi": "",
+      "journal": "Book",
+      "notes": "Fatalism, cultural persistence and development challenges in Nepal. Important for informal institutional context.",
+      "tags": [
+        "nepal"
+      ],
+      "title": "Fatalism and Development: Nepal’s Struggle for Modernisation",
+      "url": "",
+      "year": 2014
+    },
+    {
+      "id": "tosi-slocum-1984",
+      "addedAt": "2026-09-09T00:00:00Z",
+      "authors": "Tosi, H.L. & Slocum, J.W.",
+      "doi": "",
+      "journal": "Journal of Management",
+      "notes": "Core contingency apparatus — environment→structure→performance model. Theoretical Pillar 2.",
+      "tags": [
+        "contingency"
+      ],
+      "title": "Contingency Theory: Some Suggestive Directions",
+      "url": "",
+      "year": 1984
+    }
+  ],
+  "watchlist_asia_pacific": [
+    {
+      "id": "csc-china-watchlist-2027",
+      "name": "Chinese Government Scholarship — China Scholarship Council (CSC)",
+      "country": "China",
+      "provider": "China Scholarship Council, via individual host universities (e.g. Tsinghua, Peking, Fudan)",
+      "deadline_note": "Varies by host university and track; commonly roughly Feb-Apr for the following intake — verify per institution",
+      "amount_note": "Approximately tuition waiver + monthly stipend + accommodation + medical insurance — exact tier varies by city/university, verify",
+      "status": "watchlist",
+      "url": "https://www.campuschina.org/",
+      "added": "2026-09-17"
+    },
+    {
+      "id": "gks-korea-watchlist-2027",
+      "name": "Korean Government Scholarship Program (GKS) — Graduate track",
+      "country": "South Korea",
+      "provider": "National Institute for International Education (NIIED), via embassy or university track",
+      "deadline_note": "Embassy track ~Sept prior year; university track ~Feb-Mar — verify with NIIED or host university",
+      "amount_note": "Approximately tuition + monthly stipend + settlement allowance + airfare — verify current figures",
+      "status": "watchlist",
+      "url": "https://www.studyinkorea.go.kr/",
+      "added": "2026-09-17"
+    },
+    {
+      "id": "nz-excellence-watchlist-2027",
+      "name": "New Zealand Excellence Awards / host-university doctoral scholarships",
+      "country": "New Zealand",
+      "provider": "Individual universities (Auckland, Victoria Wellington, Otago) and NZ award schemes",
+      "deadline_note": "Varies by university and scheme; some NZ schemes have historically been Master's-only — confirm PhD eligibility per scheme",
+      "amount_note": "Reported historically ~NZD 27,000-35,000/year tax-free plus tuition at PhD-scholarship universities — verify current figures",
+      "status": "watchlist",
+      "url": "https://www.auckland.ac.nz/en/study/scholarships-and-awards.html",
+      "added": "2026-09-17"
+    },
+    {
+      "id": "australia-rtp-watchlist-2027",
+      "name": "Australian Government Research Training Program (RTP)",
+      "country": "Australia",
+      "provider": "Host university (ANU, Melbourne, Sydney), Australian Government-funded",
+      "deadline_note": "Set per university, commonly Aug-Oct of the prior year — verify per institution",
+      "amount_note": "RTP stipend reported historically ~AUD 35,000+/year tax-free plus tuition offset — prior funding-floor analysis (project ledger §6.3) flagged Australia as falling short of Bij's floor once converted to EUR",
+      "status": "watchlist",
+      "url": "https://www.rtp.edu.au/",
+      "added": "2026-09-17"
+    }
+  ]
 }
