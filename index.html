@@ -410,6 +410,46 @@
   .company-card .view { display: inline-block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; }
   .company-card .view:hover { text-decoration: underline; }
 
+  /* Sidebar nav */
+  .nav-panel { display: flex; flex-direction: column; gap: 4px; }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .nav-link:hover { background: var(--surface-2); border-color: var(--line); }
+  .nav-link.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 14px var(--accent-glow);
+  }
+  .nav-link .nav-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: inherit;
+    opacity: 0.75;
+  }
+
+  .company-card.tone-good { border-left-color: var(--good); }
+  .company-card.tone-warn { border-left-color: var(--warn); }
+  .company-card.tone-muted { border-left-color: var(--muted); }
+  .company-card.tone-skip { border-left-color: var(--skip); }
+  .company-card.tone-accent { border-left-color: var(--accent); }
+  .status-chip.chip-accent { background: var(--accent-soft); color: var(--accent); }
+
   /* Detail overlay */
   .detail-overlay {
     position: fixed;
@@ -555,9 +595,34 @@ const CONSTRAINTS = [
   'MEXT Japan: opens ~April 2027 — flag only as deadline approaches',
 ];
 
+const SUPERVISOR_STATUS_DEFS = {
+  active_positive: { label: 'Active lead — replied', cls: 'good' },
+  awaiting_reply:  { label: 'Sent — awaiting reply', cls: 'warn' },
+  identified:      { label: 'Identified — not yet contacted', cls: 'accent' },
+  reserve:         { label: 'Reserve', cls: 'muted' },
+  declined:        { label: 'Declined', cls: 'skip' },
+  archived:        { label: 'Archived', cls: 'muted' },
+};
+const APP_STATUS_DEFS = {
+  'Not Started':       { cls: 'muted' },
+  'Applied':           { cls: 'accent' },
+  'Awaiting Decision':  { cls: 'warn' },
+  'Accepted':          { cls: 'good' },
+  'Declined':          { cls: 'skip' },
+};
+
 let ALL_ITEMS = [];
 let ALL_WATCHLIST = [];
-const state = { query: '', tierFilter: 'all', sort: 'deadline-asc' };
+let ALL_SUPERVISORS = [];
+const state = { query: '', tierFilter: 'all', sort: 'deadline-asc', page: 'opportunities' };
+
+function switchPage(page) {
+  state.page = page;
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.dataset.nav === page));
+  document.querySelectorAll('[data-page]').forEach(el => {
+    el.style.display = el.dataset.page === page ? '' : 'none';
+  });
+}
 
 function daysUntil(dateStr) {
   const m = /^\d{4}-\d{2}-\d{2}/.exec(dateStr || '');
@@ -660,6 +725,7 @@ async function render() {
   const scholarships = (data.scholarships || []).map(s => ({ ...s, kind: 'scholarship', title: s.name, institution: s.provider }));
   ALL_ITEMS = positions.concat(scholarships);
   ALL_WATCHLIST = data.watchlist || [];
+  ALL_SUPERVISORS = data.supervisors || [];
 
   document.getElementById('last-updated').textContent =
     'Updated ' + (data.metadata && data.metadata.lastUpdated ? data.metadata.lastUpdated : '—');
@@ -669,6 +735,7 @@ async function render() {
 
   const statsBar = document.createElement('div');
   statsBar.className = 'stats-bar';
+  statsBar.dataset.page = 'opportunities';
   const statDefs = [
     { key: 'all', label: 'All opportunities', cls: 'accent' },
     { key: 'apply', label: 'Apply', cls: 'good' },
@@ -695,6 +762,7 @@ async function render() {
 
   const controls = document.createElement('div');
   controls.className = 'controls';
+  controls.dataset.page = 'opportunities';
   controls.innerHTML = `
     <input type="search" id="search-box" placeholder="Search title, institution, country…" aria-label="Search opportunities">
     <select id="sort-select" aria-label="Sort opportunities">
@@ -707,8 +775,28 @@ async function render() {
   wrap.appendChild(controls);
 
   const aside = document.createElement('aside');
+
+  const navPanel = document.createElement('div');
+  navPanel.className = 'panel nav-panel';
+  const navLinks = [
+    { key: 'opportunities', label: 'Opportunities', count: ALL_ITEMS.length },
+    { key: 'supervisors', label: 'Supervisors', count: ALL_SUPERVISORS.length },
+    { key: 'applications', label: 'Applications', count: ALL_ITEMS.length },
+  ];
+  navLinks.forEach(nl => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nav-link' + (nl.key === state.page ? ' active' : '');
+    btn.dataset.nav = nl.key;
+    btn.innerHTML = `<span>${escapeHtml(nl.label)}</span><span class="nav-count tabular">${nl.count}</span>`;
+    btn.addEventListener('click', () => switchPage(nl.key));
+    navPanel.appendChild(btn);
+  });
+  aside.appendChild(navPanel);
+
   const pillarsPanel = document.createElement('div');
   pillarsPanel.className = 'panel';
+  pillarsPanel.dataset.page = 'opportunities';
   pillarsPanel.innerHTML = '<h2>Theoretical pillars</h2>';
   PILLARS.forEach(p => {
     const row = document.createElement('div');
@@ -720,6 +808,7 @@ async function render() {
 
   const constraintsPanel = document.createElement('div');
   constraintsPanel.className = 'panel';
+  constraintsPanel.dataset.page = 'opportunities';
   constraintsPanel.innerHTML = '<h2>Key constraints</h2>';
   CONSTRAINTS.forEach(c => {
     const box = document.createElement('div');
@@ -731,6 +820,7 @@ async function render() {
   wrap.appendChild(aside);
 
   const main = document.createElement('main');
+  main.dataset.page = 'opportunities';
   TIER_DEFS.forEach(td => {
     const details = document.createElement('details');
     details.className = 'tier-section';
@@ -770,6 +860,76 @@ async function render() {
 
   wrap.appendChild(main);
 
+  // ---- Supervisors page ----
+  const supervisorsSection = document.createElement('main');
+  supervisorsSection.dataset.page = 'supervisors';
+  supervisorsSection.style.display = 'none';
+  const SUP_GROUP_ORDER = ['active_positive', 'awaiting_reply', 'identified', 'reserve', 'declined', 'archived'];
+  const SUP_GROUP_LABELS = {
+    active_positive: 'Active leads — replied',
+    awaiting_reply: 'Sent — awaiting reply',
+    identified: 'Identified — not yet contacted',
+    reserve: 'Reserve',
+    declined: 'Declined',
+    archived: 'Archived — do not contact',
+  };
+  SUP_GROUP_ORDER.forEach(statusKey => {
+    const group = ALL_SUPERVISORS.filter(s => s.status === statusKey);
+    if (!group.length) return;
+    const sd = SUPERVISOR_STATUS_DEFS[statusKey] || { label: statusKey, cls: 'muted' };
+    const section = document.createElement('section');
+    section.className = 'tier-section';
+    section.innerHTML = `<h2 style="display:flex;align-items:center;gap:10px;font-size:15px;margin:0 0 10px;font-weight:600;">${escapeHtml(SUP_GROUP_LABELS[statusKey])} <span class="count tabular" style="font-size:12px;color:var(--muted);font-weight:500;">${group.length}</span><span class="dash" style="flex:1;height:1px;background:var(--line);"></span></h2>`;
+    const grid = document.createElement('div');
+    grid.className = 'companies-grid';
+    group.forEach(s => {
+      const linked = s.linkedOpportunity ? ALL_ITEMS.find(x => x.id === s.linkedOpportunity) : null;
+      const card = document.createElement('div');
+      card.className = 'company-card tone-' + sd.cls;
+      card.innerHTML = `
+        <div class="cname">${escapeHtml(s.name)}</div>
+        <div class="cmeta">${escapeHtml(s.institution || '')}${s.country ? ' · ' + escapeHtml(s.country) : ''}</div>
+        ${s.lastAction ? `<div class="cmeta" style="margin-top:2px;">Last action: ${escapeHtml(s.lastAction)}</div>` : ''}
+        ${s.notes ? `<div class="note-line">${escapeHtml(s.notes)}</div>` : ''}
+        ${linked ? `<div class="cmeta" style="margin-top:6px;">Linked: ${escapeHtml(linked.title)}</div>` : ''}
+        ${s.email ? `<a class="view" href="mailto:${escapeAttr(s.email)}">${escapeHtml(s.email)}</a>` : ''}
+      `;
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    supervisorsSection.appendChild(section);
+  });
+  wrap.appendChild(supervisorsSection);
+
+  // ---- Applications page ----
+  const applicationsSection = document.createElement('main');
+  applicationsSection.dataset.page = 'applications';
+  applicationsSection.style.display = 'none';
+  const appSection = document.createElement('section');
+  appSection.className = 'tier-section';
+  appSection.innerHTML = `<h2 style="display:flex;align-items:center;gap:10px;font-size:15px;margin:0 0 10px;font-weight:600;">All opportunities — application status <span class="count tabular" style="font-size:12px;color:var(--muted);font-weight:500;">${ALL_ITEMS.length}</span><span class="dash" style="flex:1;height:1px;background:var(--line);"></span></h2>`;
+  const appList = document.createElement('div');
+  appList.className = 'posting-list';
+  sortItems(ALL_ITEMS.slice(), 'deadline-asc').forEach(p => {
+    const appStatus = p.applicationStatus || 'Not Started';
+    const asd = APP_STATUS_DEFS[appStatus] || { cls: 'muted' };
+    const row = document.createElement('div');
+    row.className = 'posting tone-' + badgeCls(p);
+    row.innerHTML = `
+      <div class="score-badge tabular ${badgeCls(p)}">${p.relevance != null ? p.relevance : '—'}</div>
+      <div>
+        <div class="title"><span class="kind-chip ${p.kind}">${p.kind === 'scholarship' ? 'Scholarship' : 'Position'}</span>${escapeHtml(p.title)}</div>
+        <div class="sub">${escapeHtml(p.institution)} <span class="src">· deadline ${escapeHtml(p.deadline || 'TBD')}</span></div>
+      </div>
+      <span class="status-chip chip-${asd.cls}">${escapeHtml(appStatus)}</span>
+      <a class="view" href="${escapeAttr(p.url)}" target="_blank" rel="noreferrer">View →</a>
+    `;
+    appList.appendChild(row);
+  });
+  appSection.appendChild(appList);
+  applicationsSection.appendChild(appSection);
+  wrap.appendChild(applicationsSection);
+
   const footer = document.createElement('footer');
   footer.innerHTML = `
     <span>View-only — the scanner and scoring run in a Claude conversation, not from this page.</span>
@@ -787,6 +947,7 @@ async function render() {
   });
 
   applyFilters();
+  switchPage(state.page);
 }
 
 function applyFilters() {
