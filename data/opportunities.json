@@ -1,88 +1,274 @@
 {
-  "_name": "Stark Tech Design System — Token Reference",
-  "_applied_to": "PhD Tracker (Bijneshwor Shrestha)",
-  "_date": "2026-09-18",
-
-  "colors": {
-    "_note": "dark values are the defaults; light values activate under prefers-color-scheme:light or data-theme='light'",
-    "paper":       { "dark": "#04070c",  "light": "#e7edf5",  "usage": "page background" },
-    "surface":     { "dark": "#0a1220",  "light": "#ffffff",  "usage": "card / panel background" },
-    "surface-2":   { "dark": "#0f1b2d",  "light": "#eef3fa",  "usage": "subtle inset / input background" },
-    "line":        { "dark": "#1c3049",  "light": "#ccd7e6",  "usage": "borders and dividers" },
-    "ink":         { "dark": "#e7f3ff",  "light": "#101825",  "usage": "primary text" },
-    "ink-soft":    { "dark": "#91acc7",  "light": "#48576b",  "usage": "secondary text / labels" },
-    "muted":       { "dark": "#6f88a3",  "light": "#647287",  "usage": "placeholder / disabled text" },
-    "muted-soft":  { "dark": "#101c2c",  "light": "#e9eef5",  "usage": "very subtle backgrounds" },
-    "accent":      { "dark": "#00d9ff",  "light": "#0072ce",  "usage": "primary interactive colour (cyan / cerulean)" },
-    "accent-soft": { "dark": "#0a2d42",  "light": "#dcedfc",  "usage": "accent background / tint" },
-    "accent-glow": { "dark": "rgba(0,217,255,0.35)", "light": "rgba(0,114,206,0.28)", "usage": "glow shadow on accent elements" },
-    "good":        { "dark": "#00e6a8",  "light": "#00897b",  "usage": "success / positive states" },
-    "good-soft":   { "dark": "#073527",  "light": "#dcf3ef",  "usage": "success background tint" },
-    "warn":        { "dark": "#ffb800",  "light": "#b3760a",  "usage": "warning / caution states" },
-    "warn-soft":   { "dark": "#3a2a04",  "light": "#faedd6",  "usage": "warning background tint" },
-    "skip":        { "dark": "#ff3d63",  "light": "#c62842",  "usage": "error / danger / destructive" },
-    "skip-soft":   { "dark": "#3a0f1a",  "light": "#fbe1e6",  "usage": "error background tint" },
-    "focus":       { "note": "alias of accent" }
-  },
-
-  "shadows": {
-    "shadow-card":  {
-      "dark":  "0 1px 2px rgba(0,0,0,0.5), 0 0 22px rgba(0,217,255,0.04)",
-      "light": "0 1px 2px rgba(0,0,0,0.08), 0 0 22px rgba(0,114,206,0.04)",
-      "usage": "default card resting shadow"
-    },
-    "shadow-hover": {
-      "dark":  "0 0 0 1px rgba(0,217,255,0.45), 0 0 26px rgba(0,217,255,0.18)",
-      "light": "0 0 0 1px rgba(0,114,206,0.20), 0 0 26px rgba(0,114,206,0.10)",
-      "usage": "interactive card hover / active shadow"
-    },
-    "shadow-glow":  {
-      "dark":  "0 0 14px rgba(0,217,255,0.35)",
-      "light": "0 0 14px rgba(0,114,206,0.28)",
-      "usage": "accent glow on key numbers / badges"
+  "_meta": {
+    "source": "Claude Artifact database — https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
+    "snapshot_generated": "2026-09-17",
+    "note": "This file is a point-in-time export. The artifact database is authoritative; re-export before relying on this for a decision.",
+    "scope": {
+      "regions_active": ["Europe (Nordic, DACH, Benelux, UK)", "Hong Kong", "Asia-Pacific"],
+      "asia_pacific_expansion": {
+        "added": "2026-09-17",
+        "countries": ["China", "South Korea", "New Zealand", "Australia"],
+        "new_portals": 12,
+        "portals": {
+          "China": ["Tsinghua University", "Peking University", "Fudan University"],
+          "South Korea": ["Seoul National University", "KAIST", "Yonsei University"],
+          "New Zealand": ["University of Auckland", "Victoria University of Wellington", "University of Otago"],
+          "Australia": ["Australian National University", "University of Melbourne", "University of Sydney"]
+        }
+      }
     }
   },
 
-  "typography": {
-    "fonts": {
-      "sans":  "'Varela Round', system-ui, sans-serif",
-      "mono":  "'IBM Plex Mono', ui-monospace, monospace"
+  "positions": [
+    {
+      "id": "kcl-gregory-jackson-2027",
+      "title": "MPhil/PhD in Management (Supervisor: Gregory Jackson — currently accepting students)",
+      "institution": "King's College London — King's Business School",
+      "country": "UK",
+      "deadline": "TBC — contact KBS-PhD@kcl.ac.uk; typical Jan/Feb intake",
+      "status": "open",
+      "relevance": 55,
+      "source": "auto",
+      "supervisorStatus": "actively accepting",
+      "fundingNote": "No funded position — requires external scholarship; HKPFS or Swiss Excellence would cover it",
+      "url": "https://www.kcl.ac.uk/study/postgraduate-research/areas/management-research-mphil-phd",
+      "notes": "Confirmed 17 Sept 2026 via profile page: Jackson currently accepting new PhD students. Comparative corporate governance, employment relations, CSR, comparative institutional analysis. International tuition £27,300/year.",
+      "addedAt": "2026-09-17"
     },
-    "scales": {
-      "heading": { "size": "30px", "lineHeight": "34px", "weight": 400,  "tracking": "0.01em", "family": "sans" },
-      "body":    { "size": "15px", "lineHeight": "23px", "weight": 400,  "family": "sans" },
-      "label":   { "size": "11px", "lineHeight": "14px", "weight": 600,  "tracking": "0.16em", "transform": "uppercase", "family": "mono" },
-      "data-lg": { "size": "24px", "lineHeight": "28px", "weight": 700,  "family": "mono" },
-      "data-sm": { "size": "11.5px","lineHeight": "16px", "weight": 500, "family": "mono" }
+    {
+      "id": "insead-phd-ob-2027",
+      "title": "PhD in Management — Organisational Behaviour Field",
+      "institution": "INSEAD",
+      "country": "France / Singapore (dual campus)",
+      "deadline": "2027-01-04",
+      "status": "open",
+      "relevance": 55,
+      "source": "auto",
+      "url": "https://www.insead.edu/phd",
+      "notes": "Fully funded 5-year scholarship. Deadline corrected 17 Sept 2026 (was 2026-12-15). GMAT/GRE mandatory (<5 years old). Interview rounds Jan–Mar 2027.",
+      "lastChecked": "2026-09-17",
+      "addedAt": "2026-09-15"
+    },
+    {
+      "id": "mpifg-imprs-2027",
+      "title": "Doctoral Positions — IMPRS-SPCE (Economic Sociology & Political Economy)",
+      "institution": "Max Planck Institute for the Study of Societies (MPIfG) / University of Cologne / University of Duisburg-Essen",
+      "country": "Germany",
+      "deadline": "2027-02-01",
+      "status": "open",
+      "relevance": 45,
+      "source": "auto",
+      "url": "https://imprs.mpifg.de/",
+      "notes": "Application window opens December 2026, exact deadline TBC. 3.5-year contract. Up to 8 students admitted per year.",
+      "addedAt": "2026-09-13"
+    },
+    {
+      "id": "nhh-accounting-pos-2026",
+      "title": "PhD Research Scholar — Department of Accounting, Auditing and Law",
+      "institution": "NHH Norwegian School of Economics",
+      "country": "Norway",
+      "deadline": "2026-09-15",
+      "status": "closed",
+      "relevance": 52,
+      "source": "auto",
+      "url": "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law",
+      "notes": "Deadline passed 15 Sept 2026. NOK 565,000/yr, fully funded 4-year position. Monitor NHH for next cycle.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "id": "nhh-strategy-pos-2026",
+      "title": "PhD Research Scholar — Department of Strategy and Management",
+      "institution": "NHH Norwegian School of Economics",
+      "country": "Norway",
+      "deadline": "2026-09-15",
+      "status": "closed",
+      "relevance": 48,
+      "source": "auto",
+      "url": "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management",
+      "notes": "Deadline passed 15 Sept 2026. NOK 565,000/yr (~EUR 48k). Monitor NHH for next cycle.",
+      "addedAt": "2026-09-10"
     }
-  },
+  ],
 
-  "spacing": [4, 8, 12, 16, 20, 24, 32],
+  "scholarships": [
+    {
+      "id": "hkpfs-2026",
+      "name": "Hong Kong PhD Fellowship Scheme (HKPFS)",
+      "provider": "Research Grants Council, Hong Kong",
+      "country": "Hong Kong",
+      "deadline": "2026-12-01",
+      "status": "open",
+      "amount": "HKD 28,700/month stipend + HKD 14,400/year travel allowance",
+      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+      "notes": "MOST URGENT after UNU-WIDER. 1 Dec 2026 12:00 noon HK time. Only one lifetime application across all HK universities.",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "id": "swiss-excellence-2027",
+      "name": "Swiss Government Excellence Scholarships",
+      "provider": "Swiss Federal Commission for Scholarships (FCS)",
+      "country": "Switzerland",
+      "deadline": "2026-11-10",
+      "status": "open",
+      "relevance": 60,
+      "amount": "Full tuition waiver + CHF 1,920–3,500/month stipend",
+      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
+      "notes": "Nepal is an eligible country. Apply via Swiss Embassy Kathmandu.",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "unu-wider-visiting-2026",
+      "name": "UNU-WIDER Visiting PhD Fellowship (September 2026 cycle)",
+      "provider": "United Nations University — World Institute for Development Economics Research (UNU-WIDER), Helsinki",
+      "country": "Finland",
+      "deadline": "2026-09-30",
+      "status": "open",
+      "relevance": 58,
+      "amount": "EUR 2,100/month stipend + return travel + medical insurance (3-month residency)",
+      "url": "https://www.wider.unu.edu/opportunity/visiting-phd-fellowship",
+      "notes": "CRITICAL — closes in days. Requires existing PhD enrolment. Priority to researchers from developing countries (Nepal qualifies).",
+      "addedAt": "2026-09-13"
+    },
+    {
+      "id": "rsm-erim-2027",
+      "name": "ERIM PhD Programme (Erasmus Research Institute of Management)",
+      "provider": "Rotterdam School of Management / Erasmus University",
+      "country": "Netherlands",
+      "deadline": "2027-01-15",
+      "status": "open",
+      "amount": "Full PhD fellowship (4 years), no GMAT/GRE required if other evidence of excellence shown",
+      "url": "https://www.erim.eur.nl/doctoral-programme/",
+      "notes": "Cycle opens 1 Nov 2026. No named faculty match found after two search passes.",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "id": "gothenburg-doctoral-2027",
+      "name": "Gothenburg University Doctoral Position (Stefan Tengblad)",
+      "provider": "University of Gothenburg — Department of Business Administration",
+      "country": "Sweden",
+      "deadline": "2027-03-15",
+      "status": "open",
+      "amount": "Swedish doctoral salary (employment-based, ~SEK 32,000/month gross)",
+      "url": "https://www.gu.se/en/business-economics",
+      "notes": "Highest-probability route. Tengblad replied positively 15 Sept 2026, offered a letter of recommendation. Watch gu.se from Jan 2027.",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "id": "daad-epos-2027",
+      "name": "DAAD EPOS — Development-Related Postgraduate Courses",
+      "provider": "German Academic Exchange Service (DAAD)",
+      "country": "Germany",
+      "deadline": "2027 cycle TBD — typically Oct–Nov",
+      "status": "open",
+      "relevance": 45,
+      "amount": "~EUR 1,000/month stipend + travel + health insurance + tuition support",
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
+      "notes": "INELIGIBLE FOR BIJ — DAAD's own 15-month prior-residency cap; Bij has lived in Germany 3 years. Kept for reference only.",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "fulbright-nepal-2027",
+      "name": "Fulbright Nepal Scholar Award",
+      "provider": "U.S. Department of State / Fulbright Program via USEF Nepal",
+      "country": "USA",
+      "deadline": "2027 cycle TBD — typically spring/summer",
+      "status": "open",
+      "relevance": 50,
+      "amount": "Full funding: tuition, monthly stipend, airfare, health insurance",
+      "url": "https://us.fulbrightonline.org/countries/south-and-central-asia/nepal",
+      "notes": "Nepali citizens only. Monitor USEF Nepal for 2027 cycle opening.",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "mext-japan-2027",
+      "name": "MEXT Research Student Scholarship (Japan)",
+      "provider": "Japanese Government — MEXT",
+      "country": "Japan",
+      "deadline": "2027-05-01",
+      "status": "open",
+      "relevance": 40,
+      "amount": "~JPY 145,000–152,000/month + tuition waiver + travel allowance",
+      "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm",
+      "notes": "Nepali citizens; verify 2027 cycle and current age-limit rule with Embassy Kathmandu.",
+      "addedAt": "2026-09-12"
+    },
+    {
+      "id": "kozminski-2027",
+      "name": "Kozminski University PhD Scholarship",
+      "provider": "Kozminski University Warsaw",
+      "country": "Poland",
+      "deadline": "2027-05-31",
+      "status": "open",
+      "amount": "Partial scholarship + tuition reduction",
+      "url": "https://www.kozminski.edu.pl/en/phd",
+      "notes": "WARNING: statutory doctoral-school stipend fails Bij's Warsaw funding floor at the base rate; a grant-attached (e.g. NCN) contract might change this, not confirmed.",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "id": "tilburg-phd-2027",
+      "name": "Tilburg University PhD (HR Studies)",
+      "provider": "Tilburg School of Social and Behavioral Sciences",
+      "country": "Netherlands",
+      "deadline": "2027-06-30",
+      "status": "open",
+      "amount": "Full fellowship (4 years, employment-based)",
+      "url": "https://www.tilburguniversity.edu/education/phd-programs",
+      "notes": "Contingent on vacancy advertisement. No vacancy currently posted.",
+      "addedAt": "2026-09-09"
+    }
+  ],
 
-  "radii": {
-    "sm":     "8px",
-    "md":     "14px",
-    "lg":     "16px",
-    "pill":   "999px",
-    "circle": "50%"
-  },
-
-  "css_custom_properties": {
-    "_note": "These are the actual --var names used in the PhD Tracker HTML",
-    "--bg":             "maps to paper",
-    "--surface":        "maps to surface",
-    "--surface2":       "maps to surface-2",
-    "--border":         "maps to line",
-    "--text":           "maps to ink",
-    "--muted":          "maps to ink-soft (dark) / muted (light)",
-    "--accent":         "maps to accent",
-    "--accent-dim":     "maps to accent-soft",
-    "--accent-glow":    "maps to accent-glow",
-    "--red / --red-bg / --red-border":   "maps to skip / skip-soft",
-    "--amber / --amber-bg / --amber-border": "maps to warn / warn-soft",
-    "--green / --green-bg / --green-border": "maps to good / good-soft",
-    "--shadow-sm":      "maps to shadow-card",
-    "--shadow":         "maps to shadow-hover",
-    "--radius":         "12px (between Stark sm=8px and md=14px)"
+  "watchlist_asia_pacific": {
+    "_note": "Added 2026-09-17 with the Asia-Pacific scanner expansion. These are well-known national scholarship schemes logged for monitoring, not yet independently re-verified against their current-cycle pages this run — I am not fully certain of the figures below, confirm on the official site before relying on any of them.",
+    "entries": [
+      {
+        "id": "csc-china-watchlist-2027",
+        "name": "Chinese Government Scholarship — China Scholarship Council (CSC)",
+        "country": "China",
+        "provider": "China Scholarship Council, via individual host universities (e.g. Tsinghua, Peking, Fudan)",
+        "deadline_note": "Varies by host university and track (university/bilateral/Great Wall programme); commonly falls roughly Feb–Apr for the following intake — verify per institution before treating any date as fixed",
+        "amount_note": "Approximately: tuition waiver + monthly stipend + accommodation + medical insurance (exact stipend tier varies by city/university — verify)",
+        "relevance_note": "Not yet scored — no confirmed link to institutional theory/HRM/Nepal criteria found this pass; would need a named supervisor and topic match to score",
+        "status": "watchlist",
+        "url": "https://www.campuschina.org/",
+        "added": "2026-09-17"
+      },
+      {
+        "id": "gks-korea-watchlist-2027",
+        "name": "Korean Government Scholarship Program (GKS) — Graduate track",
+        "country": "South Korea",
+        "provider": "National Institute for International Education (NIIED), via embassy or university track",
+        "deadline_note": "Embassy track typically ~Sept of the prior year; university track typically ~Feb–Mar — verify current cycle dates directly with NIIED or the host university (Seoul National, KAIST, Yonsei)",
+        "amount_note": "Approximately: tuition + monthly stipend (~KRW 1,000,000+/month reported historically) + settlement allowance + airfare — verify current figures",
+        "relevance_note": "Not yet scored — no named supervisor or topic match identified this pass",
+        "status": "watchlist",
+        "url": "https://www.studyinkorea.go.kr/",
+        "added": "2026-09-17"
+      },
+      {
+        "id": "nz-excellence-watchlist-2027",
+        "name": "New Zealand Excellence Awards / doctoral scholarships (host-university administered)",
+        "country": "New Zealand",
+        "provider": "Individual universities (e.g. University of Auckland, Victoria University of Wellington, University of Otago) and NZ government-linked award schemes",
+        "deadline_note": "Varies by university and scheme; some NZ award schemes have historically targeted Master's rather than PhD study — this needs confirming per scheme before treating it as a live PhD route",
+        "amount_note": "Domestic-equivalent doctoral stipend at PhD-scholarship universities reported historically around NZD 27,000–35,000/year tax-free plus tuition — verify current figures",
+        "relevance_note": "Not yet scored — flagged for verification of PhD (not Master's-only) eligibility before further work",
+        "status": "watchlist",
+        "url": "https://www.auckland.ac.nz/en/study/scholarships-and-awards.html",
+        "added": "2026-09-17"
+      },
+      {
+        "id": "australia-rtp-watchlist-2027",
+        "name": "Australian Government Research Training Program (RTP)",
+        "country": "Australia",
+        "provider": "Host university (e.g. ANU, University of Melbourne, University of Sydney), Australian Government-funded",
+        "deadline_note": "Set per university, commonly ~Aug–Oct of the prior year for the following intake — verify per institution",
+        "amount_note": "RTP stipend reported historically around AUD 35,000+/year tax-free plus tuition offset — see also the city-relative funding-floor note in the proposal's scholarship ledger, which found Australian RTP tends to fall short of Bij's stated funding floor once converted to EUR",
+        "relevance_note": "Not yet scored — no named supervisor or topic match identified this pass; prior funding-floor analysis flagged Australia as lowest-priority on funding grounds",
+        "status": "watchlist",
+        "url": "https://www.rtp.edu.au/",
+        "added": "2026-09-17"
+      }
+    ]
   }
 }

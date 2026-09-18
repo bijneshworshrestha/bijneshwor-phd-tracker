@@ -13,8 +13,9 @@ Personal PhD opportunity tracker for **Bijneshwor Shrestha** (Berlin, Nepal-orig
 ```
 bijneshwor-phd-tracker/
 ├── README.md                   ← this file
+├── index.html                  ← live dashboard (Stark Tech dark theme, reads/writes the artifact DB)
 ├── data/
-│   └── opportunities.json      ← full database dump (positions + scholarships + watchlist)
+│   └── opportunities.json      ← snapshot dump (positions + scholarships + watchlist + scope metadata)
 └── scan-logs/
     └── YYYY-MM-DD-daily-scan.md  ← one log per automated daily scan
 ```
@@ -23,22 +24,41 @@ bijneshwor-phd-tracker/
 
 ## Live opportunity database
 
-The authoritative database lives in a Claude Artifact:  
-**https://claude.ai/code/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8**
+The authoritative database lives in a Claude Artifact:
+**https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8**
 
-`data/opportunities.json` is a snapshot generated each day by the automated scanner.
+`data/opportunities.json` is a snapshot generated from that database each time the scanner or this repo is refreshed. Treat the artifact as the source of truth and this file as a point-in-time export.
 
 ---
 
 ## Automated scanner
 
 A daily scheduled task (Claude Cowork) runs every day and:
-1. Fetches ~20 university PhD portals directly
+1. Fetches university PhD portals directly
 2. Checks scholarship deadline pages
 3. Scans aggregator portals (Academic Positions, jobs.ac.uk, EURAXESS, scholars4dev)
-4. Runs 6 targeted web searches
+4. Runs targeted web searches
 5. Adds any new item scoring ≥ 40 on the relevance rubric to the artifact database
 6. Sends a push notification if anything new is found or urgent deadlines are approaching
+
+### Geographic scope
+
+| Region | Status | Portals monitored |
+|---|---|---|
+| Europe (Nordic, DACH, Benelux, UK) | Active since launch | ~14 university portals + 4 scholarship pages |
+| Hong Kong | Active | HKPFS + HKU/CUHK/HKUST |
+| **Asia-Pacific (China, South Korea, New Zealand, Australia)** | **Expanded 2026-09-17** | **12 new university portals** (see below) |
+
+**Asia-Pacific portals added 2026-09-17:**
+
+| Country | Portals |
+|---|---|
+| China | Tsinghua University, Peking University, Fudan University |
+| South Korea | Seoul National University, KAIST, Yonsei University |
+| New Zealand | University of Auckland, Victoria University of Wellington, University of Otago |
+| Australia | Australian National University, University of Melbourne, University of Sydney |
+
+This first pass added the portals to the monitoring list and logged the associated national scholarship schemes (China Scholarship Council, Korean Government Scholarship Program, New Zealand Excellence Awards, Australian Research Training Program) as **watchlist** entries — none has yet cleared the 40-point relevance threshold with a verified current-cycle deadline, so none is in the scored database yet. See `scan-logs/2026-09-17-daily-scan.md` for detail and I am not fully certain of every deadline/funding figure below — verify before relying on them.
 
 ---
 
@@ -53,7 +73,7 @@ A daily scheduled task (Claude Cowork) runs every day and:
 | Qualitative / mixed-methods / ethnographic approach | +10 |
 | Comparative institutional / VoC / Nordic management | +10 |
 
-Items scoring **40+** are saved. Items below 40 may appear in the scan log watchlist.
+Items scoring **40+** are saved to the scored `positions`/`scholarships` collections. Items below 40, or with an unconfirmed current-cycle deadline, are logged as **watchlist** entries instead.
 
 ---
 
@@ -63,12 +83,14 @@ Items scoring **40+** are saved. Items below 40 may appear in the scan log watch
 - **Fulbright Nepal:** opens Feb 2027 — flag only when deadline approaches
 - **MEXT Japan:** opens ~April 2027 — flag only when deadline approaches
 - **HKPFS:** only one lifetime application permitted across all HK universities
+- **Asia-Pacific national schemes (CSC, GKS, NZ Excellence, Australian RTP):** funding figures and deadlines below are drawn from general public knowledge of these programmes, not a fresh page fetch — confirm directly on the host university/agency site before treating any date as fixed.
 
 ---
 
 ## Last scan
 
-**Date:** 2026-09-17  
-**New items added:** 1 (`kcl-gregory-jackson-2027` — Gregory Jackson at KCL actively accepting students)  
-**Items updated:** 1 (`insead-phd-ob-2027` — deadline corrected to 2027-01-04)  
-**Urgent deadline:** UNU-WIDER closes **30 September 2026** (13 days)
+**Date:** 2026-09-17
+**New items added to scored database:** 1 (`kcl-gregory-jackson-2027` — Gregory Jackson at KCL actively accepting students)
+**Existing items updated:** 1 (`insead-phd-ob-2027` — deadline corrected to 2027-01-04)
+**Scope change:** Asia-Pacific scanner expansion — China, South Korea, New Zealand, Australia added; 12 new university portals now monitored; 4 national scholarship schemes logged to the watchlist pending verification
+**Urgent deadline:** UNU-WIDER closes **30 September 2026** (13 days as of last scan)

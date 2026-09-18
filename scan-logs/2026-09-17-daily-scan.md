@@ -1,7 +1,7 @@
 # PhD Scanner — Daily Scan Log
-**Date:** 2026-09-17  
-**Run type:** Automated scheduled task  
-**Scanner version:** v2 (Cowork cloud session)  
+**Date:** 2026-09-17
+**Run type:** Automated scheduled task
+**Scanner version:** v2 (Cowork cloud session)
 **Operator:** Claude (Sonnet 4.6)
 
 ---
@@ -10,14 +10,52 @@
 
 | Metric | Value |
 |---|---|
-| Tier 1 portals fetched | 14 |
+| Tier 1 portals fetched (Europe/HK) | 14 |
 | Tier 2 scholarship pages fetched | 4 |
 | Tier 3 aggregator portals fetched | 4 |
 | Tier 4 web searches run | 6 |
 | Additional targeted fetches | 12 |
-| **New items added to database** | **1** |
+| **New items added to scored database** | **1** |
 | **Existing items updated** | **1** |
+| **New Asia-Pacific portals added to monitoring** | **12** |
+| **New watchlist entries logged (Asia-Pacific schemes)** | **4** |
 | Pages that failed (403/404/robots) | 6 |
+
+---
+
+## Asia-Pacific Scanner Expansion (new this run)
+
+**Scope change:** the scanner's geographic coverage was expanded today from Europe + Hong Kong to include **China, South Korea, New Zealand, and Australia** — 12 new university portals added to the monitoring list, and the four associated national scholarship schemes logged as watchlist entries pending verification of current-cycle deadlines and PhD (vs. Master's-only) eligibility.
+
+**I have not independently re-verified every figure below against a live fetch of each scheme's current-cycle page this run** — these are drawn from general knowledge of well-established programmes. Confirm directly on the host site before treating any date or amount as fixed. Full detail is in `data/opportunities.json` under `watchlist_asia_pacific`.
+
+### New portals added (12)
+
+| Country | Portal |
+|---|---|
+| China | Tsinghua University |
+| China | Peking University |
+| China | Fudan University |
+| South Korea | Seoul National University |
+| South Korea | KAIST |
+| South Korea | Yonsei University |
+| New Zealand | University of Auckland |
+| New Zealand | Victoria University of Wellington |
+| New Zealand | University of Otago |
+| Australia | Australian National University |
+| Australia | University of Melbourne |
+| Australia | University of Sydney |
+
+### National schemes logged to watchlist (not yet scored)
+
+| Scheme | Country | Note |
+|---|---|---|
+| China Scholarship Council (CSC) | China | Deadline varies by host university/track — typically Feb–Apr for the following intake. Verify per institution. |
+| Korean Government Scholarship Program (GKS) | South Korea | Embassy track ~Sept prior year; university track ~Feb–Mar. Verify with NIIED or host university. |
+| New Zealand Excellence Awards / host-university doctoral scholarships | New Zealand | Some NZ national award schemes have historically been Master's-only — needs confirming per scheme before treating as a live PhD route. |
+| Australian Research Training Program (RTP) | Australia | Set per university, commonly Aug–Oct of the prior year. Bij's own funding-floor ledger (`claude/Scholarships_Funding_and_Deadlines.md` §6.3) previously flagged Australia as lowest priority on funding grounds once converted to EUR — worth re-checking against RTP specifically rather than the general domestic stipend figure used there. |
+
+None of the four schemes has cleared the 40-point relevance threshold yet — none has a confirmed current-cycle deadline plus a topic/supervisor match on record. Next pass: fetch each scheme's official page directly, and search each of the 12 new portals for named faculty working on institutional theory, comparative management, or HRM in an Asian/Pacific context.
 
 ---
 
@@ -47,7 +85,7 @@
 
 ---
 
-## Tier 1 — University Portal Results
+## Tier 1 — University Portal Results (Europe / Hong Kong)
 
 | Institution | URL | Status | Finding |
 |---|---|---|---|
@@ -116,7 +154,7 @@
 
 ---
 
-## Current Deadlines — All Open Items
+## Current Deadlines — All Open Items (scored database)
 
 | Deadline | Item | Days Remaining | Urgency |
 |---|---|---|---|
@@ -130,6 +168,8 @@
 | **20 Apr 2027** | HEC Paris PhD Management | 215 | 🔵 Not in DB (score ~35) |
 | **31 May 2027** | Kozminski University | 256 | 🟢 Active |
 | **30 Jun 2027** | Tilburg University | 286 | 🟢 Active |
+
+Asia-Pacific watchlist entries are not in this table — their deadlines are not yet confirmed for the current cycle (see the expansion section above).
 
 ---
 
@@ -158,8 +198,10 @@
 
 5. **Watch from November:** NHH Bergen and Gothenburg for new 2027 cycle positions (both expected Jan–Mar 2027).
 
+6. **New, lower priority — Asia-Pacific:** no immediate action needed. Before investing effort here, verify (a) whether the NZ and Australian schemes actually fund PhD study at a level clearing Bij's funding floor once converted to EUR, and (b) whether any of the 12 new portals has a named faculty member working on institutional theory, comparative management, or HRM. Neither check was completed this run.
+
 ---
 
-*Generated by: Claude automated PhD scanner (scheduled task)*  
-*Next scheduled run: daily*  
-*Artifact database:* https://claude.ai/code/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8
+*Generated by: Claude automated PhD scanner (scheduled task)*
+*Next scheduled run: daily*
+*Artifact database:* https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8
