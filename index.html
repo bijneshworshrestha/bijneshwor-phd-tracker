@@ -1,1497 +1,880 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PhD Tracker — Bijneshwor Shrestha</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <script>
-    const FIREBASE_CONFIG = {
-      apiKey:            "AIzaSyCVCxf6xlJb4vMBrTOQNs_xGTu3TbvTGBI",
-      authDomain:        "bijneshwor-phd-and-grant-hunt.firebaseapp.com",
-      databaseURL:       "https://bijneshwor-phd-and-grant-hunt-default-rtdb.firebaseio.com",
-      projectId:         "bijneshwor-phd-and-grant-hunt",
-      storageBucket:     "bijneshwor-phd-and-grant-hunt.firebasestorage.app",
-      messagingSenderId: "744026511745",
-      appId:             "1:744026511745:web:d46a5572f5c3d674e7b080"
-    };
-  </script>
-
+<meta charset="utf-8">
+<title>Bijneshwor PhD & Scholarship Search</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Varela+Round&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
 <style>
-:root {
-  --bg:          #f0f3fa;
-  --surface:     #ffffff;
-  --surface2:    #f5f7fc;
-  --border:      #dce3f0;
-  --text:        #141d35;
-  --muted:       #5a6a8a;
-  --sidebar-bg:  #141d35;
-  --sidebar-text:#8492b8;
-  --sidebar-act: #ffffff;
-  --sidebar-act-bg: rgba(255,255,255,0.10);
-  --accent:      #c87828;
-  --accent-dim:  rgba(200,120,40,0.12);
-  --red: #c0392b; --red-bg: #fef2f1; --red-border: #fbc9c5;
-  --amber: #92520c; --amber-bg: #fffbeb; --amber-border: #fde99b;
-  --green: #166534; --green-bg: #f0fdf4; --green-border: #bbf7d0;
-  --blue: #1d4ed8; --blue-bg: #eff6ff; --blue-border: #bfdbfe;
-  --purple: #5b21b6; --purple-bg: #f5f3ff; --purple-border: #ddd6fe;
-  --shadow-sm: 0 1px 3px rgba(20,29,53,0.08),0 1px 2px rgba(20,29,53,0.06);
-  --shadow:    0 4px 12px rgba(20,29,53,0.10),0 2px 4px rgba(20,29,53,0.06);
-  --radius: 10px;
-  --sidebar-w: 230px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg:#0c1424;--surface:#16243e;--surface2:#1c2d4a;--border:#1f3050;
-    --text:#e4ecff;--muted:#7a8fb8;--sidebar-bg:#09111f;--sidebar-text:#6a7da0;
-    --accent:#f5a623;--accent-dim:rgba(245,166,35,0.12);
-    --red:#fc8181;--red-bg:#2d1210;--red-border:#5c2320;
-    --amber:#fbbf24;--amber-bg:#2a1c06;--amber-border:#5c3a10;
-    --green:#4ade80;--green-bg:#062612;--green-border:#14532d;
-    --blue:#60a5fa;--blue-bg:#0d1f3f;--blue-border:#1e3a6e;
-    --purple:#a78bfa;--purple-bg:#1e1433;--purple-border:#3b1f6e;
-    --shadow-sm:0 1px 3px rgba(0,0,0,.30);--shadow:0 4px 16px rgba(0,0,0,.40);
+  :root {
+    --ink: #101825;
+    --ink-soft: #48576b;
+    --paper: #e7edf5;
+    --surface: #ffffff;
+    --surface-2: #eef3fa;
+    --line: #ccd7e6;
+    --accent: #0072ce;
+    --accent-soft: #dcedfc;
+    --accent-glow: rgba(0, 114, 206, 0.28);
+    --good: #00897b;
+    --good-soft: #dcf3ef;
+    --warn: #b3760a;
+    --warn-soft: #faedd6;
+    --muted: #647287;
+    --muted-soft: #e9eef5;
+    --skip: #c62842;
+    --skip-soft: #fbe1e6;
+    --focus: #0072ce;
+    --shadow: 0 1px 2px rgba(16,24,37,0.06), 0 1px 10px rgba(16,24,37,0.05);
+    --shadow-hover: 0 0 0 1px rgba(0,114,206,0.22), 0 8px 20px rgba(16,24,37,0.09);
   }
-}
-:root[data-theme="dark"] {
-  --bg:#0c1424;--surface:#16243e;--surface2:#1c2d4a;--border:#1f3050;
-  --text:#e4ecff;--muted:#7a8fb8;--sidebar-bg:#09111f;--sidebar-text:#6a7da0;
-  --accent:#f5a623;--accent-dim:rgba(245,166,35,0.12);
-  --red:#fc8181;--red-bg:#2d1210;--red-border:#5c2320;
-  --amber:#fbbf24;--amber-bg:#2a1c06;--amber-border:#5c3a10;
-  --green:#4ade80;--green-bg:#062612;--green-border:#14532d;
-  --blue:#60a5fa;--blue-bg:#0d1f3f;--blue-border:#1e3a6e;
-  --purple:#a78bfa;--purple-bg:#1e1433;--purple-border:#3b1f6e;
-  --shadow-sm:0 1px 3px rgba(0,0,0,.30);--shadow:0 4px 16px rgba(0,0,0,.40);
-}
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;font-size:.9rem;line-height:1.5;}
-button{font-family:inherit;cursor:pointer;}
-input,select,textarea{font-family:inherit;}
-a{color:var(--accent);text-decoration:none;}
-a:hover{text-decoration:underline;}
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #e7f3ff;
+      --ink-soft: #91acc7;
+      --paper: #04070c;
+      --surface: #0a1220;
+      --surface-2: #0f1b2d;
+      --line: #1c3049;
+      --accent: #00d9ff;
+      --accent-soft: #0a2d42;
+      --accent-glow: rgba(0, 217, 255, 0.35);
+      --good: #00e6a8;
+      --good-soft: #073527;
+      --warn: #ffb800;
+      --warn-soft: #3a2a04;
+      --muted: #6f88a3;
+      --muted-soft: #101c2c;
+      --skip: #ff3d63;
+      --skip-soft: #3a0f1a;
+      --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 0 22px rgba(0,217,255,0.04);
+      --shadow-hover: 0 0 0 1px rgba(0,217,255,0.45), 0 0 26px rgba(0,217,255,0.18);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e7f3ff;
+    --ink-soft: #91acc7;
+    --paper: #04070c;
+    --surface: #0a1220;
+    --surface-2: #0f1b2d;
+    --line: #1c3049;
+    --accent: #00d9ff;
+    --accent-soft: #0a2d42;
+    --accent-glow: rgba(0, 217, 255, 0.35);
+    --good: #00e6a8;
+    --good-soft: #073527;
+    --warn: #ffb800;
+    --warn-soft: #3a2a04;
+    --muted: #6f88a3;
+    --muted-soft: #101c2c;
+    --skip: #ff3d63;
+    --skip-soft: #3a0f1a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.5), 0 0 22px rgba(0,217,255,0.04);
+    --shadow-hover: 0 0 0 1px rgba(0,217,255,0.45), 0 0 26px rgba(0,217,255,0.18);
+  }
 
-/* ── SIDEBAR ── */
-#sidebar{width:var(--sidebar-w);min-height:100vh;background:var(--sidebar-bg);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;padding-block:0;}
-.sidebar-brand{padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,.07);}
-.sidebar-brand h1{font-family:'Crimson Pro',Georgia,serif;font-size:1.25rem;font-weight:600;color:#fff;line-height:1.2;}
-.sidebar-brand p{font-size:.72rem;color:var(--sidebar-text);margin-top:3px;letter-spacing:.03em;}
-.sidebar-nav{flex:1;padding:10px;overflow-y:auto;}
-.nav-group{margin-bottom:6px;}
-.nav-label{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(132,146,184,.55);padding:8px 10px 4px;font-weight:600;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:7px;cursor:pointer;color:var(--sidebar-text);font-size:.85rem;transition:background .15s,color .15s;border:none;background:none;width:100%;text-align:left;}
-.nav-item:hover{background:rgba(255,255,255,.06);color:#c8d3f0;}
-.nav-item.active{background:var(--sidebar-act-bg);color:var(--sidebar-act);}
-.nav-item .nav-icon{font-size:1rem;width:20px;text-align:center;}
-.nav-item .nav-badge{margin-left:auto;background:var(--accent);color:#fff;font-size:.65rem;font-weight:600;padding:1px 6px;border-radius:10px;min-width:18px;text-align:center;}
-.sidebar-footer{padding:14px 16px;border-top:1px solid rgba(255,255,255,.07);font-size:.72rem;color:var(--sidebar-text);}
-.sync-indicator{display:flex;align-items:center;gap:6px;}
-.sync-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;}
-.sync-dot.offline{background:var(--red);}
-.sync-dot.loading{background:var(--amber);animation:pulse 1s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Varela Round', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    padding-inline: 16px;
+    padding-block: 24px;
+    background-image: radial-gradient(ellipse 900px 500px at 15% -10%, var(--accent-glow) 0%, transparent 60%);
+    background-repeat: no-repeat;
+    margin: 0;
+  }
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+  .tabular { font-variant-numeric: tabular-nums; font-family: 'IBM Plex Mono', ui-monospace, monospace; }
 
-/* ── MAIN ── */
-#main{margin-left:var(--sidebar-w);flex:1;min-height:100vh;display:flex;flex-direction:column;}
-.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
-.topbar-title{font-family:'Crimson Pro',Georgia,serif;font-size:1.5rem;font-weight:600;}
-.topbar-actions{display:flex;gap:8px;align-items:center;}
+  .wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 760px) {
+    .wrap { grid-template-columns: 1fr; }
+  }
 
-/* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:7px;font-size:.82rem;font-weight:500;border:none;transition:all .15s;cursor:pointer;}
-.btn-primary{background:var(--accent);color:#fff;}
-.btn-primary:hover{filter:brightness(1.1);}
-.btn-secondary{background:var(--surface2);color:var(--text);border:1px solid var(--border);}
-.btn-secondary:hover{background:var(--border);}
-.btn-ghost{background:none;color:var(--muted);border:1px solid var(--border);}
-.btn-ghost:hover{background:var(--surface2);color:var(--text);}
-.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border);}
-.btn-danger:hover{background:var(--red);color:#fff;}
-.btn-sm{padding:4px 10px;font-size:.78rem;}
+  header.top {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 1px 0 0 var(--accent), 0 8px 20px -12px var(--accent-glow);
+    padding-bottom: 14px;
+    margin-bottom: 4px;
+  }
+  header.top .name {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 6px;
+  }
+  header.top h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-shadow: 0 0 18px var(--accent-glow);
+  }
+  header.top .meta {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    text-align: right;
+  }
 
-.content-area{padding:24px 28px;flex:1;max-width:1200px;}
+  .stats-bar {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 760px) {
+    .stats-bar { grid-template-columns: repeat(3, 1fr); }
+  }
+  .stat-tile {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+  .stat-tile:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: var(--accent); }
+  .stat-tile.active { border-color: var(--accent); box-shadow: 0 0 0 1.5px var(--accent) inset, 0 0 18px var(--accent-glow); }
+  .stat-tile .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .stat-tile .l {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin-top: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .stat-tile.c-good .n { color: var(--good); }
+  .stat-tile.c-warn .n { color: var(--warn); }
+  .stat-tile.c-muted .n { color: var(--muted); }
+  .stat-tile.c-skip .n { color: var(--skip); }
+  .stat-tile.c-accent .n { color: var(--accent); }
 
-/* ── CARDS ── */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm);}
-.card-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 12px;border-bottom:1px solid var(--border);}
-.card-title{font-family:'Crimson Pro',Georgia,serif;font-size:1.05rem;font-weight:600;}
-.card-body{padding:16px 20px;}
+  .controls {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .controls input[type="search"] {
+    flex: 1;
+    min-width: 180px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .controls input[type="search"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); outline: none; }
+  .controls input[type="search"]::placeholder { color: var(--muted); }
+  .controls select {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink);
+  }
+  .controls .result-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
 
-/* ── STAT TILES ── */
-.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:20px;}
-.stat-tile{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-sm);}
-.stat-tile .stat-num{font-size:2rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;font-family:'Crimson Pro',Georgia,serif;}
-.stat-tile .stat-label{font-size:.75rem;color:var(--muted);margin-top:4px;font-weight:500;}
-.stat-tile.urgent{border-left:3px solid var(--red);}
-.stat-tile.warning{border-left:3px solid var(--accent);}
-.stat-tile.ok{border-left:3px solid var(--green);}
-.stat-tile.info{border-left:3px solid var(--blue);}
+  aside { display: flex; flex-direction: column; gap: 20px; }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+  .panel h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+    font-weight: 600;
+  }
+  .pillar-row {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 12.5px;
+  }
+  .pillar-row:last-child { border-bottom: none; }
+  .pillar-row .p-name { font-weight: 600; }
+  .pillar-row .p-note { color: var(--muted); font-size: 11.5px; margin-top: 2px; }
 
-/* ── COUNTDOWN ── */
-.countdown-card{background:var(--sidebar-bg);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-.countdown-left{}
-.countdown-label{font-size:.78rem;color:rgba(255,255,255,.5);letter-spacing:.04em;text-transform:uppercase;}
-.countdown-name{font-family:'Crimson Pro',Georgia,serif;font-size:1.3rem;color:#fff;margin-top:2px;}
-.countdown-desc{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:3px;}
-.countdown-tiles{display:flex;gap:8px;flex-wrap:wrap;}
-.cd-tile{text-align:center;background:rgba(255,255,255,.08);border-radius:8px;padding:10px 14px;min-width:58px;}
-.cd-num{font-size:1.9rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1;color:var(--accent);}
-.cd-unit{font-size:.62rem;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase;margin-top:3px;}
+  .rule-box {
+    font-size: 12px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--accent);
+    padding-left: 10px;
+    margin-bottom: 8px;
+  }
+  .rule-box:last-child { margin-bottom: 0; }
 
-/* ── DEADLINE LIST ── */
-.deadline-days{font-size:1.4rem;font-weight:700;font-variant-numeric:tabular-nums;font-family:'Crimson Pro',Georgia,serif;min-width:48px;text-align:right;}
-.deadline-days.urgent{color:var(--red);}
-.deadline-days.warning{color:var(--accent);}
-.deadline-days.ok{color:var(--green);}
+  main { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
 
-/* ── ITEM LISTS ── */
-.item-list{display:flex;flex-direction:column;gap:8px;}
-.item-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:flex-start;gap:14px;box-shadow:var(--shadow-sm);transition:border-color .15s,box-shadow .15s;}
-.item-card:hover{border-color:var(--accent);box-shadow:var(--shadow);}
-.item-card.urgent{border-left:3px solid var(--red);}
-.item-card.warning{border-left:3px solid var(--accent);}
-.item-card.ok{border-left:3px solid var(--green);}
-.item-main{flex:1;min-width:0;}
-.item-title{font-weight:600;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.item-sub{font-size:.78rem;color:var(--muted);margin-top:2px;}
-.item-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;align-items:center;}
-.item-actions{display:flex;gap:6px;flex-shrink:0;align-items:flex-start;}
+  details.tier-section { background: transparent; }
+  details.tier-section > summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  details.tier-section > summary::-webkit-details-marker { display: none; }
+  details.tier-section > summary .chevron {
+    display: inline-block;
+    width: 9px; height: 9px;
+    border-right: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+  }
+  details[open].tier-section > summary .chevron { transform: rotate(45deg); }
+  details.tier-section > summary .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  details.tier-section > summary .dot.good { background: var(--good); }
+  details.tier-section > summary .dot.warn { background: var(--warn); }
+  details.tier-section > summary .dot.muted { background: var(--muted); }
+  details.tier-section > summary .dot.skip { background: var(--skip); }
+  details.tier-section > summary .count {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  details.tier-section > summary .dash { flex: 1; height: 1px; background: var(--line); }
+  .posting-list { display: flex; flex-direction: column; gap: 8px; padding-bottom: 4px; }
 
-/* ── BADGES ── */
-.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:.7rem;font-weight:600;letter-spacing:.02em;border:1px solid transparent;}
-.badge-red{background:var(--red-bg);color:var(--red);border-color:var(--red-border);}
-.badge-amber{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-border);}
-.badge-green{background:var(--green-bg);color:var(--green);border-color:var(--green-border);}
-.badge-blue{background:var(--blue-bg);color:var(--blue);border-color:var(--blue-border);}
-.badge-purple{background:var(--purple-bg);color:var(--purple);border-color:var(--purple-border);}
-.badge-muted{background:var(--surface2);color:var(--muted);border-color:var(--border);}
-.badge-accent{background:var(--accent-dim);color:var(--accent);border-color:rgba(200,120,40,.25);}
+  .posting {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  }
+  .posting:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .posting.tone-good { border-left-color: var(--good); }
+  .posting.tone-warn { border-left-color: var(--warn); }
+  .posting.tone-muted { border-left-color: var(--muted); }
+  .posting.tone-skip { border-left-color: var(--skip); }
+  @media (max-width: 620px) {
+    .posting { grid-template-columns: 1fr; }
+    .posting .score-badge { justify-self: flex-start; }
+  }
+  .posting .score-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 13px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid transparent;
+  }
+  .score-badge.good { background: var(--good-soft); color: var(--good); border-color: var(--good); box-shadow: 0 0 10px color-mix(in srgb, var(--good) 35%, transparent); }
+  .score-badge.warn { background: var(--warn-soft); color: var(--warn); border-color: var(--warn); box-shadow: 0 0 10px color-mix(in srgb, var(--warn) 35%, transparent); }
+  .score-badge.muted { background: var(--muted-soft); color: var(--muted); border-color: var(--muted); }
+  .score-badge.skip { background: var(--skip-soft); color: var(--skip); border-color: var(--skip); box-shadow: 0 0 10px color-mix(in srgb, var(--skip) 35%, transparent); }
 
-/* ── RELEVANCE BAR ── */
-.relevance-bar{display:flex;align-items:center;gap:8px;min-width:100px;}
-.relevance-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
-.relevance-fill{height:100%;border-radius:2px;background:var(--green);transition:width .3s;}
-.relevance-fill.mid{background:var(--accent);}
-.relevance-fill.low{background:var(--muted);}
-.relevance-pct{font-size:.72rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--muted);min-width:30px;}
+  .posting .title { font-weight: 400; font-size: 14.5px; }
+  .posting .sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .posting .sub .src { font-family: 'IBM Plex Mono', monospace; font-size: 11px; }
 
-/* ── EMPTY STATE ── */
-.empty-state{text-align:center;padding:48px 24px;color:var(--muted);}
-.empty-state .empty-icon{font-size:2.5rem;margin-bottom:12px;opacity:.5;}
-.empty-state p{font-size:.88rem;}
-.empty-state .empty-actions{margin-top:16px;}
+  .kind-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 1px 8px;
+    border-radius: 99px;
+    margin-right: 6px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .kind-chip.position { background: var(--accent-soft); color: var(--accent); }
+  .kind-chip.scholarship { background: var(--good-soft); color: var(--good); }
 
-/* ── SECTIONS ── */
-.section{display:none;}
-.section.active{display:block;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.section-header{margin-bottom:20px;}
-.section-title{font-family:'Crimson Pro',Georgia,serif;font-size:1.8rem;font-weight:600;}
-.section-subtitle{color:var(--muted);font-size:.82rem;margin-top:2px;}
+  .status-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+  .status-chip.chip-good { background: var(--good-soft); color: var(--good); }
+  .status-chip.chip-warn { background: var(--warn-soft); color: var(--warn); }
+  .status-chip.chip-muted { background: var(--muted-soft); color: var(--muted); }
+  .status-chip.chip-skip { background: var(--skip-soft); color: var(--skip); }
 
-/* ── LIST HEADER ── */
-.list-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;}
-.list-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.search-input{padding:7px 12px;border:1px solid var(--border);border-radius:7px;background:var(--surface);color:var(--text);font-size:.82rem;width:200px;}
-.search-input:focus{outline:none;border-color:var(--accent);}
-.filter-select{padding:6px 10px;border:1px solid var(--border);border-radius:7px;background:var(--surface);color:var(--text);font-size:.82rem;}
+  .posting a.view {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .posting a.view:hover { text-decoration: underline; text-shadow: 0 0 8px var(--accent-glow); }
 
-/* ── SUPERVISOR GRID ── */
-.supervisor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;}
-.supervisor-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-sm);transition:border-color .15s,box-shadow .15s;}
-.supervisor-card:hover{border-color:var(--accent);box-shadow:var(--shadow);}
-.sup-name{font-weight:600;font-size:.95rem;margin-bottom:2px;}
-.sup-uni{font-size:.78rem;color:var(--muted);}
-.sup-spec{font-size:.78rem;color:var(--muted);margin-top:6px;font-style:italic;}
-.sup-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid var(--border);}
+  .note-line {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    padding-left: 14px;
+    border-left: 2px solid var(--line);
+  }
 
-/* ── KANBAN ── */
-.kanban-board{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;}
-.kanban-col{min-width:185px;width:185px;flex-shrink:0;}
-.kanban-col-header{font-size:.73rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding:8px 12px;background:var(--surface2);border-radius:7px 7px 0 0;border:1px solid var(--border);border-bottom:none;}
-.kanban-col-body{border:1px solid var(--border);border-top:none;border-radius:0 0 7px 7px;min-height:80px;padding:8px;background:var(--surface2);display:flex;flex-direction:column;gap:6px;}
-.kanban-item{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-size:.8rem;cursor:pointer;box-shadow:var(--shadow-sm);transition:border-color .15s;}
-.kanban-item:hover{border-color:var(--accent);}
-.k-title{font-weight:600;margin-bottom:2px;}
-.k-sub{color:var(--muted);font-size:.72rem;}
+  .empty-tier, .no-match {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 14px;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    background: var(--surface-2);
+  }
 
-/* ── BIBLIOGRAPHY ── */
-.bib-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px 16px;box-shadow:var(--shadow-sm);margin-bottom:8px;}
-.bib-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;}
-.bib-tag{font-size:.67rem;padding:1px 7px;border-radius:10px;background:var(--accent-dim);color:var(--accent);font-weight:500;}
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+  }
+  .company-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--muted);
+    border-radius: 14px;
+    padding: 12px 16px;
+    box-shadow: var(--shadow);
+  }
+  .company-card .cname { font-weight: 400; font-size: 14px; margin-bottom: 3px; }
+  .company-card .cmeta { font-size: 11.5px; color: var(--muted); }
+  .company-card .view { display: inline-block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent); text-decoration: none; }
+  .company-card .view:hover { text-decoration: underline; }
 
-/* ── NOTES BOX ── */
-.notes-box{background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:8px 12px;font-size:.78rem;color:var(--muted);margin-top:6px;font-style:italic;white-space:pre-wrap;word-break:break-word;}
+  /* Detail overlay */
+  .detail-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4, 7, 12, 0.55);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 32px 16px;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .detail-overlay.open { display: flex; }
+  .detail-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow-hover);
+    max-width: 780px;
+    width: 100%;
+    padding: 24px 28px 28px;
+    position: relative;
+  }
+  .detail-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--ink-soft);
+    font-size: 16px;
+    font-family: inherit;
+  }
+  .detail-close:hover { border-color: var(--accent); color: var(--accent); }
+  .detail-header { padding-right: 40px; margin-bottom: 6px; }
+  .detail-header .dtitle { font-size: 19px; font-weight: 400; color: var(--ink); margin: 0 0 4px; }
+  .detail-header .dmeta { font-size: 13px; color: var(--muted); }
+  .detail-badges { display: flex; align-items: center; gap: 10px; margin: 14px 0 18px; flex-wrap: wrap; }
+  .detail-section { margin-top: 20px; }
+  .detail-section h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 8px;
+    font-weight: 600;
+  }
+  .detail-pre {
+    white-space: pre-wrap;
+    font-family: 'Varela Round', system-ui, sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .detail-actions { display: flex; align-items: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:hover { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+  .btn-primary { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+  .btn-applied { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+  .btn-link { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--accent); text-decoration: none; }
+  .btn-link:hover { text-decoration: underline; }
+  .detail-note { font-size: 11.5px; color: var(--muted); margin-top: 10px; }
 
-/* ── MODAL ── */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px);}
-.modal-overlay.open{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;}
-.modal-header{display:flex;align-items:center;justify-content:space-between;padding:18px 22px 14px;border-bottom:1px solid var(--border);}
-.modal-title{font-family:'Crimson Pro',Georgia,serif;font-size:1.2rem;font-weight:600;}
-.modal-close{background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;padding:4px 8px;border-radius:6px;line-height:1;}
-.modal-close:hover{background:var(--surface2);color:var(--text);}
-.modal-body{padding:20px 22px;}
-.modal-footer{display:flex;justify-content:flex-end;gap:8px;padding:14px 22px 18px;border-top:1px solid var(--border);}
+  footer {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  footer a { color: var(--accent); }
 
-/* ── FORMS ── */
-.form-group{margin-bottom:14px;}
-.form-label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:5px;letter-spacing:.02em;}
-.form-input,.form-select,.form-textarea{width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:7px;background:var(--surface2);color:var(--text);font-size:.85rem;transition:border-color .15s;}
-.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--accent);background:var(--surface);}
-.form-textarea{resize:vertical;min-height:70px;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
 
-/* ── TOAST ── */
-#toast-container{position:fixed;bottom:20px;right:20px;z-index:500;display:flex;flex-direction:column;gap:8px;}
-.toast{background:var(--sidebar-bg);color:#fff;padding:10px 16px;border-radius:8px;font-size:.82rem;box-shadow:var(--shadow);animation:slideIn .2s ease-out;max-width:300px;}
-.toast.success{border-left:3px solid #4ade80;}
-.toast.error{border-left:3px solid var(--red);}
-@keyframes slideIn{from{transform:translateX(20px);opacity:0}to{transform:none;opacity:1}}
-
-/* ── LOADING ── */
-.loading-spinner{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem;padding:32px;justify-content:center;}
-
-/* ── DARK TOGGLE ── */
-.theme-btn{background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);padding:5px 10px;border-radius:6px;font-size:.75rem;cursor:pointer;}
-.theme-btn:hover{background:rgba(255,255,255,.08);color:#fff;}
-
-/* ── RESPONSIVE ── */
-@media (max-width:700px) {
-  :root{--sidebar-w:0px;}
-  #sidebar{display:none;}
-  #main{margin-left:0;}
-  .two-col{grid-template-columns:1fr;}
-  .form-row{grid-template-columns:1fr;}
-  .content-area{padding:16px;}
-  .supervisor-grid{grid-template-columns:1fr;}
-  .countdown-card{flex-direction:column;}
-}
+  #load-error {
+    grid-column: 1 / -1;
+    background: var(--skip-soft);
+    color: var(--skip);
+    border: 1px solid var(--skip);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
 </style>
 
-<!-- SIDEBAR -->
-<div id="sidebar">
-  <div class="sidebar-brand">
-    <h1>PhD Tracker</h1>
-    <p>Bijneshwor Shrestha · Berlin</p>
-    <div style="margin-top:10px;">
-      <button class="theme-btn" onclick="toggleTheme()">🌙 Theme</button>
+<div class="wrap" id="app">
+  <header class="top">
+    <div>
+      <p class="name">Bijneshwor Shrestha</p>
+      <h1>PhD &amp; Scholarship Search</h1>
     </div>
-  </div>
-  <nav class="sidebar-nav">
-    <div class="nav-group">
-      <div class="nav-label">Overview</div>
-      <button class="nav-item active" onclick="navigate('dashboard')">
-        <span class="nav-icon">📊</span> Dashboard
-      </button>
-    </div>
-    <div class="nav-group">
-      <div class="nav-label">Opportunities</div>
-      <button class="nav-item" onclick="navigate('positions')">
-        <span class="nav-icon">🔍</span> Open Positions
-        <span class="nav-badge" id="badge-positions">0</span>
-      </button>
-      <button class="nav-item" onclick="navigate('scholarships')">
-        <span class="nav-icon">🎓</span> Scholarships
-        <span class="nav-badge" id="badge-scholarships">0</span>
-      </button>
-    </div>
-    <div class="nav-group">
-      <div class="nav-label">Progress</div>
-      <button class="nav-item" onclick="navigate('supervisors')">
-        <span class="nav-icon">👥</span> Supervisors
-        <span class="nav-badge" id="badge-supervisors">0</span>
-      </button>
-      <button class="nav-item" onclick="navigate('applications')">
-        <span class="nav-icon">📋</span> Applications
-        <span class="nav-badge" id="badge-applications">0</span>
-      </button>
-    </div>
-    <div class="nav-group">
-      <div class="nav-label">Research</div>
-      <button class="nav-item" onclick="navigate('bibliography')">
-        <span class="nav-icon">📚</span> Bibliography
-        <span class="nav-badge" id="badge-bibliography">0</span>
-      </button>
-    </div>
-  </nav>
-  <div class="sidebar-footer">
-    <div class="sync-indicator">
-      <div class="sync-dot loading" id="sync-dot"></div>
-      <span id="sync-label">Connecting…</span>
-    </div>
-    <div style="margin-top:6px;font-size:.68rem;opacity:.5;" id="last-scanned-label"></div>
-  </div>
+    <div class="meta" id="last-updated"></div>
+  </header>
 </div>
 
-<!-- MAIN -->
-<div id="main">
-  <div class="topbar">
-    <div class="topbar-title" id="topbar-title">Dashboard</div>
-    <div class="topbar-actions" id="topbar-actions"></div>
-  </div>
-
-  <div class="content-area">
-
-    <!-- ── DASHBOARD ── -->
-    <div class="section active" id="section-dashboard">
-      <div id="dashboard-countdown"></div>
-      <div class="stat-grid" id="dashboard-stats"></div>
-      <div class="two-col">
-        <div>
-          <div class="card">
-            <div class="card-header"><span class="card-title">Upcoming Deadlines</span></div>
-            <div class="card-body" id="dash-deadlines"><div class="loading-spinner">Loading…</div></div>
-          </div>
-        </div>
-        <div>
-          <div class="card">
-            <div class="card-header"><span class="card-title">Supervisor Pipeline</span></div>
-            <div class="card-body" id="dash-supervisors"><div class="loading-spinner">Loading…</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── POSITIONS ── -->
-    <div class="section" id="section-positions">
-      <div class="section-header">
-        <div class="section-title">Open Positions</div>
-        <div class="section-subtitle">PhD positions matched to your research topic — auto-updated daily by the scanner</div>
-      </div>
-      <div class="list-header">
-        <div class="list-controls">
-          <input type="text" class="search-input" placeholder="Search positions…" id="search-positions" oninput="renderPositions()">
-          <select class="filter-select" id="filter-positions-status" onchange="renderPositions()">
-            <option value="">All status</option>
-            <option value="open">Open</option>
-            <option value="applied">Applied</option>
-            <option value="closed">Closed</option>
-          </select>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="openModal('position')">＋ Add Position</button>
-      </div>
-      <div id="positions-list" class="item-list"><div class="loading-spinner">Loading…</div></div>
-    </div>
-
-    <!-- ── SCHOLARSHIPS ── -->
-    <div class="section" id="section-scholarships">
-      <div class="section-header">
-        <div class="section-title">Scholarships &amp; Funding</div>
-        <div class="section-subtitle">Sorted by deadline — most urgent first</div>
-      </div>
-      <div class="list-header">
-        <div class="list-controls">
-          <input type="text" class="search-input" placeholder="Search…" id="search-scholarships" oninput="renderScholarships()">
-          <select class="filter-select" id="filter-scholarships-status" onchange="renderScholarships()">
-            <option value="">All status</option>
-            <option value="open">Open</option>
-            <option value="applied">Applied</option>
-            <option value="awarded">Awarded</option>
-            <option value="closed">Closed</option>
-          </select>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="openModal('scholarship')">＋ Add Scholarship</button>
-      </div>
-      <div id="scholarships-list" class="item-list"><div class="loading-spinner">Loading…</div></div>
-    </div>
-
-    <!-- ── SUPERVISORS ── -->
-    <div class="section" id="section-supervisors">
-      <div class="section-header">
-        <div class="section-title">Target Supervisors</div>
-        <div class="section-subtitle">Contact status and outreach tracking</div>
-      </div>
-      <div class="list-header">
-        <div class="list-controls">
-          <input type="text" class="search-input" placeholder="Search supervisors…" id="search-supervisors" oninput="renderSupervisors()">
-          <select class="filter-select" id="filter-sup-status" onchange="renderSupervisors()">
-            <option value="">All status</option>
-            <option value="active-lead">Active Lead</option>
-            <option value="sent">Sent</option>
-            <option value="pending">Pending</option>
-            <option value="feedback">Feedback</option>
-            <option value="declined">Declined</option>
-            <option value="closed">Closed</option>
-          </select>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="openModal('supervisor')">＋ Add Supervisor</button>
-      </div>
-      <div id="supervisors-grid" class="supervisor-grid"><div class="loading-spinner">Loading…</div></div>
-    </div>
-
-    <!-- ── APPLICATIONS ── -->
-    <div class="section" id="section-applications">
-      <div class="section-header">
-        <div class="section-title">Application Tracker</div>
-        <div class="section-subtitle">End-to-end application pipeline — click any card to edit</div>
-      </div>
-      <div class="list-header">
-        <div></div>
-        <button class="btn btn-primary btn-sm" onclick="openModal('application')">＋ Add Application</button>
-      </div>
-      <div id="applications-kanban" class="kanban-board"></div>
-      <div style="margin-top:20px;" id="applications-list"></div>
-    </div>
-
-    <!-- ── BIBLIOGRAPHY ── -->
-    <div class="section" id="section-bibliography">
-      <div class="section-header">
-        <div class="section-title">Bibliography</div>
-        <div class="section-subtitle">Key papers, books and sources for the proposal</div>
-      </div>
-      <div class="list-header">
-        <div class="list-controls">
-          <input type="text" class="search-input" placeholder="Search authors, titles…" id="search-bib" oninput="renderBibliography()">
-          <select class="filter-select" id="filter-bib-tag" onchange="renderBibliography()">
-            <option value="">All tags</option>
-            <option value="institutions">Institutions</option>
-            <option value="contingency">Contingency</option>
-            <option value="mintzberg">Mintzberg</option>
-            <option value="voc">VoC</option>
-            <option value="hrm">HRM</option>
-            <option value="nepal">Nepal</option>
-            <option value="methods">Methods</option>
-            <option value="emerging-economies">Emerging Economies</option>
-          </select>
-        </div>
-        <button class="btn btn-primary btn-sm" onclick="openModal('bibliography')">＋ Add Reference</button>
-      </div>
-      <div id="bibliography-list" class="item-list"><div class="loading-spinner">Loading…</div></div>
-    </div>
-
-  </div><!-- /content-area -->
-</div><!-- /main -->
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
-  <div class="modal" id="modal">
-    <div class="modal-header">
-      <span class="modal-title" id="modal-title">Add</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-body" id="modal-body"></div>
-    <div class="modal-footer" id="modal-footer"></div>
-  </div>
+<div class="detail-overlay" id="detail-overlay">
+  <div class="detail-panel" id="detail-panel"></div>
 </div>
-
-<!-- TOAST -->
-<div id="toast-container"></div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════
-//  SEED DATA  (shown immediately; Firebase overwrites live)
-// ═══════════════════════════════════════════════════════════════
-const SEED = {
-  positions: {
-    "nhh-accounting-pos-2026": {
-      title: "PhD Research Scholar — Accounting, Auditing and Law",
-      institution: "NHH Norwegian School of Economics", country: "Norway",
-      deadline: "2026-09-15", relevance: 52, status: "open",
-      url: "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law",
-      notes: "Fully funded 4-year position (NOK 565,000/yr ≈ EUR 48k). Management control research group. Scandinavian language NOT required.",
-      source: "auto", addedAt: "2026-09-10"
-    },
-    "nhh-strategy-pos-2026": {
-      title: "PhD Research Scholar — Strategy and Management",
-      institution: "NHH Norwegian School of Economics", country: "Norway",
-      deadline: "2026-09-15", relevance: 48, status: "open",
-      url: "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management",
-      notes: "Fully funded 4-year position (NOK 565,000/yr). Future of HRM, AI & Professional Services. Strong qualitative/mixed-methods tradition.",
-      source: "auto", addedAt: "2026-09-10"
-    }
-  },
-  scholarships: {
-    "hkpfs-2026": {
-      name: "Hong Kong PhD Fellowship Scheme (HKPFS)",
-      provider: "Research Grants Council, Hong Kong",
-      amount: "HKD 27,600/month + HKD 13,800/year travel",
-      deadline: "2026-12-01", status: "open",
-      url: "https://cerg1.ugc.edu.hk/hkpfs/index.html",
-      notes: "MOST URGENT MAJOR DEADLINE (Dec 1). ~270 awarded globally. Identify supervisor at HKUST/HKU/CUHK/PolyU first.",
-      eligibility: "Outstanding candidates regardless of nationality. Highly competitive.",
-      addedAt: "2026-09-01"
-    },
-    "rsm-erim-2027": {
-      name: "ERIM PhD Programme",
-      provider: "Rotterdam School of Management / Erasmus University",
-      amount: "Full fellowship — 4 years", deadline: "2027-01-15", status: "open",
-      url: "https://www.erim.eur.nl/doctoral-programme/",
-      notes: "Paul Boselie linked; ERIM has HRM/organisation cluster. Cycle opens Nov 2026.",
-      eligibility: "Research Master or equivalent.", addedAt: "2026-09-01"
-    },
-    "gothenburg-doctoral-2027": {
-      name: "Gothenburg University Doctoral Position",
-      provider: "University of Gothenburg — Department of Business Administration",
-      amount: "Swedish doctoral salary ~SEK 32,000/month",
-      deadline: "2027-03-15", status: "open",
-      url: "https://www.gu.se/en/business-economics",
-      notes: "HIGHEST PROBABILITY ROUTE if Tengblad engagement progresses. Employment-based. Monitor department job board Jan 2027.",
-      eligibility: "Linked to supervisor engagement.", addedAt: "2026-09-01"
-    },
-    "kozminski-2027": {
-      name: "Kozminski University PhD Scholarship",
-      provider: "Kozminski University Warsaw",
-      amount: "Partial scholarship + tuition reduction",
-      deadline: "2027-05-31", status: "open",
-      url: "https://www.kozminski.edu.pl/en/phd",
-      notes: "English-language programme. May 2027 deadline. International applicants welcome.",
-      eligibility: "International applicants. English proficiency required.", addedAt: "2026-09-01"
-    },
-    "tilburg-phd-2027": {
-      name: "Tilburg University PhD — HR Studies",
-      provider: "Tilburg School of Social and Behavioral Sciences",
-      amount: "Full fellowship — 4 years, employment-based",
-      deadline: "2027-06-30", status: "open",
-      url: "https://www.tilburguniversity.edu/education/phd-programs",
-      notes: "Brigitte Kroon and Charissa Freese faculty connections. Monitor for vacancy advertisements from Jan 2027.",
-      eligibility: "Employment-based. Monitor for open calls.", addedAt: "2026-09-01"
-    }
-  },
-  supervisors: {
-    "tengblad-gothenburg": {
-      name: "Stefan Tengblad",
-      institution: "University of Gothenburg",
-      department: "Centre for Global HRM (CGHRM)",
-      country: "Sweden",
-      email: "stefan.tengblad@gu.se",
-      status: "active-lead",
-      fit: 90,
-      researchFocus: "HRM in institutional context, Nordic model of HRM, bounded change, industrial democracy",
-      notes: "MOST ADVANCED LEAD. Warm reply received 21 July 2026 — invited proposal. Full proposal sent 1 Sept 2026 (6-week gap acknowledged in covering note). Feb–March 2027 doctoral position expected on gu.se (doktorandtjänst model — applied like a job posting). Director of CGHRM. Research anchors: Nordic bounded-change paper 2025, calculative/collaborative HRM-performance paper. HKPFS Dec 2026 is the near-term hard deadline; GU position is the primary Feb 2027 target.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-01"
-    },
-    "boselie-utrecht": {
-      name: "Paul Boselie",
-      institution: "Utrecht University",
-      department: "School of Governance",
-      country: "Netherlands",
-      email: "p.boselie@uu.nl",
-      status: "sent",
-      fit: 88,
-      researchFocus: "Institutional theory + HRM, contextual SHRM, HRM across institutional settings",
-      notes: "First contact 26 June 2026 (no reply). Follow-up sent 1 Sept 2026 referencing completed proposal, anchored to his Indonesian-judiciary outsourcing supervision project. Awaiting reply. Foundational work on RBV + new institutionalism (2003, 2009) directly maps to proposal's institutional argument. NL Plan A lead.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-12"
-    },
-    "nicklich-fu-berlin": {
-      name: "Manuel Nicklich",
-      institution: "Freie Universität Berlin",
-      department: "Chair of Personalpolitik (Labour & Employment)",
-      country: "Germany",
-      email: "manuel.nicklich@fu-berlin.de",
-      status: "sent",
-      fit: 82,
-      researchFocus: "Comparative institutional methods, service-sector/peripheral work, employment relations",
-      notes: "SENT 1 Sept 2026. Took over Jackson's FU Berlin chair. Berlin-local (no relocation). Strongest fit for Berlin constraint — comparative institutional method already demonstrated, service-sector focus present. Capacity unconfirmed (team page blocked); email asked directly. Awaiting reply.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-01"
-    },
-    "hopner-mpifg": {
-      name: "Martin Höpner",
-      institution: "Max Planck Institute for the Study of Societies (MPIfG)",
-      department: "IMPRS-SPCE doctoral programme",
-      country: "Germany",
-      email: "martin.hoepner@mpifg.de",
-      status: "sent",
-      fit: 80,
-      researchFocus: "Comparative capitalism, institutional change, corporate governance",
-      notes: "SENT 1 Sept 2026. Strongest MPIfG option. Confirmed active IMPRS-SPCE faculty since 2008, explicitly on doctoral supervisory committees. Email mentions IMPRS-SPCE (joint programme with Uni Cologne & Duisburg-Essen, cotutelle option with Sciences Po Paris) as named application route. Awaiting reply.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-01"
-    },
-    "schramm-hamburg": {
-      name: "Florian Schramm",
-      institution: "Universität Hamburg",
-      department: "Work and Organisational Psychology",
-      country: "Germany",
-      email: "Florian.Schramm@uni-hamburg.de",
-      status: "sent",
-      fit: 78,
-      researchFocus: "HRM, work organisation, employment relations",
-      notes: "SENT 1 Sept 2026. Strongest topical fit in Hamburg department. Has 'supervised dissertations' page on profile (couldn't read, robots-blocked). Awaiting reply.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-01"
-    },
-    "kroon-tilburg": {
-      name: "Brigitte Kroon",
-      institution: "Tilburg University",
-      department: "HR Studies",
-      country: "Netherlands",
-      email: "b.kroon@tilburguniversity.edu",
-      status: "sent",
-      fit: 78,
-      researchFocus: "HRM and employee outcomes, Paauwe contextual SHRM lineage",
-      notes: "SENT 8 Sept 2026. Carries forward Paauwe's Contextual SHRM tradition. Same dept as van de Voorde (declined) — her decline note explicitly confirmed topical fit with HRS dept. Awaiting reply.",
-      contactDate: "2026-09-08",
-      addedAt: "2026-09-12"
-    },
-    "haakonsson-cbs": {
-      name: "Stine Haakonsson",
-      institution: "Copenhagen Business School",
-      department: "Department of Organization (IOA)",
-      country: "Denmark",
-      email: "",
-      status: "sent",
-      fit: 72,
-      researchFocus: "International business, global value chains, institutional context",
-      notes: "SENT 8 Sept 2026. CBS alternate following Bévort decline. Same IOA department as Bévort — his decline confirmed CBS runs position-based PhD (cbs.dk vacancy board). Monitor cbs.dk around Feb–April 2027 for repeat IOA scholarship posting (previous: DKK 29,691–36,180/month, 3 years). Awaiting reply.",
-      contactDate: "2026-09-08",
-      addedAt: "2026-09-08"
-    },
-    "yimin-lin-hkust": {
-      name: "Yi-min Lin",
-      institution: "HKUST",
-      department: "Division of Social Science (School of Humanities & Social Science)",
-      country: "Hong Kong",
-      email: "",
-      status: "sent",
-      fit: 70,
-      researchFocus: "Economic sociology, institutional change, China/Asia comparative",
-      notes: "SENT 8 Sept 2026 via HKPFS route. Sociology dept route avoids GMAT requirement. HKPFS deadline: 1 Dec 2026 (CRITICAL). Awaiting reply. Exact email wording not captured — only the send confirmed.",
-      contactDate: "2026-09-08",
-      addedAt: "2026-09-08"
-    },
-    "zhu-ling-cuhk": {
-      name: "Zhu Ling",
-      institution: "Chinese University of Hong Kong (CUHK)",
-      department: "Department of Sociology",
-      country: "Hong Kong",
-      email: "",
-      status: "sent",
-      fit: 68,
-      researchFocus: "Labour, organisations, institutional context in Chinese/Asian settings",
-      notes: "SENT 8 Sept 2026 via HKPFS route. CUHK Sociology dept avoids GMAT requirement (requires 3 academic referees vs HKU's 2). HKPFS deadline: 1 Dec 2026 (CRITICAL). Awaiting reply.",
-      contactDate: "2026-09-08",
-      addedAt: "2026-09-08"
-    },
-    "jackson-kcl": {
-      name: "Gregory Jackson",
-      institution: "King's College London",
-      department: "Department of Management (moved from FU Berlin Aug 2026)",
-      country: "UK",
-      email: "",
-      status: "pending",
-      fit: 85,
-      researchFocus: "Comparative capitalism, VoC, Jackson & Deeg 2008 citation lineage",
-      notes: "Moved to King's College London before Sept 2026 — FU Berlin chair now held by Nicklich. Original email sent 27 June 2026 to LS-Jackson@wiwiss.fu-berlin.de (old address, likely lapsed). No reply on file. OPEN DECISION: send fresh email to KCL address, or treat old unanswered attempt as closed? Not yet resolved.",
-      contactDate: "2026-06-27",
-      addedAt: "2026-09-12"
-    },
-    "bevort-cbs": {
-      name: "Frans Bévort",
-      institution: "Copenhagen Business School",
-      department: "Department of Organization (IOA)",
-      country: "Denmark",
-      email: "fb.ioa@cbs.dk",
-      status: "declined",
-      fit: 92,
-      researchFocus: "Institutional logics, Nordic HRM, ethnographic methods, professional service firms",
-      notes: "DECLINED 1 Sept 2026 (same day as follow-up). Verbatim: 'I am not in a position to hire PhD-students. Please look out for relevant positions at CBS.dk.' Redirected to CBS position board — confirms CBS runs advertised/salaried PhD model. Original contact: 25 June 2026. Follow-up with completed proposal: 1 Sept 2026. CLOSED.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-12"
-    },
-    "vandevoorde-tilburg": {
-      name: "Karina van de Voorde",
-      institution: "Tilburg University",
-      department: "HR Studies",
-      country: "Netherlands",
-      email: "F.C.v.d.Voorde@tilburguniversity.edu",
-      status: "declined",
-      fit: 75,
-      researchFocus: "HRM and employee wellbeing, Paauwe lineage",
-      notes: "DECLINED 3 Sept 2026. Verbatim: 'I am not currently accepting PhD students due to other work commitments.' Capacity-based; explicitly confirmed topical fit with HRS dept — useful framing for Kroon approach. Courtesy close sent 3 Sept 2026. CLOSED.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-12"
-    },
-    "meyer-wu-cbs": {
-      name: "Renate Meyer",
-      institution: "WU Vienna",
-      department: "Institute for Organisation Studies",
-      country: "Austria",
-      email: "renate.meyer@wu.ac.at",
-      status: "declined",
-      fit: 70,
-      researchFocus: "Organisation / institutional theory, former EGOS chair, former editor of Organization Studies",
-      notes: "DECLINED 2 Sept 2026. Verbatim: 'I currently have no capacity to accept additional students.' Capacity-based, no proposal feedback. Referral-ask follow-up drafted 2 Sept 2026, SENT 8 Sept 2026. CLOSED.",
-      contactDate: "2026-09-01",
-      addedAt: "2026-09-12"
-    }
-  },
-  applications: {},
-  bibliography: {}
-};
+const PILLARS = [
+  { name: 'North (1990)', note: 'Institutional framework — formal vs. informal constraints, path dependency' },
+  { name: 'Tosi & Slocum (1984)', note: 'Contingency theory and managerial control' },
+  { name: 'Mintzberg (1979/1983)', note: 'Coordinating mechanisms, organisational configurations' },
+  { name: 'Hall & Soskice (2001)', note: 'Varieties of Capitalism, comparative institutional analysis' },
+];
+const CONSTRAINTS = [
+  'DAAD EPOS: ineligible — prior German residency exceeds the 15-month cap',
+  'HKPFS: only one lifetime application permitted across all Hong Kong universities',
+  'Fulbright Nepal: opens ~Feb 2027 — flag only as deadline approaches',
+  'MEXT Japan: opens ~April 2027 — flag only as deadline approaches',
+];
 
-// ═══════════════════════════════════════════════════════════════
-//  STATE
-// ═══════════════════════════════════════════════════════════════
-const state = {
-  positions: {}, scholarships: {}, supervisors: {},
-  applications: {}, bibliography: {},
-  currentSection: 'dashboard',
-  modalType: null, modalEditId: null,
-  firebaseDb: null
-};
+let ALL_ITEMS = [];
+let ALL_WATCHLIST = [];
+const state = { query: '', tierFilter: 'all', sort: 'deadline-asc' };
 
-// ═══════════════════════════════════════════════════════════════
-//  THEME
-// ═══════════════════════════════════════════════════════════════
-function toggleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  if (current === 'dark') {
-    html.removeAttribute('data-theme');
-    localStorage.setItem('theme','light');
-  } else {
-    html.setAttribute('data-theme','dark');
-    localStorage.setItem('theme','dark');
-  }
-}
-(function(){
-  const t = localStorage.getItem('theme');
-  if (t === 'dark') document.documentElement.setAttribute('data-theme','dark');
-})();
-
-// ═══════════════════════════════════════════════════════════════
-//  UTILITIES
-// ═══════════════════════════════════════════════════════════════
 function daysUntil(dateStr) {
-  if (!dateStr) return null;
-  const target = new Date(dateStr + 'T00:00:00');
-  const now = new Date(); now.setHours(0,0,0,0);
-  return Math.round((target - now) / 86400000);
+  const m = /^\d{4}-\d{2}-\d{2}/.exec(dateStr || '');
+  if (!m) return null;
+  const d = new Date(m[0] + 'T00:00:00Z');
+  if (isNaN(d.getTime())) return null;
+  const today = new Date();
+  const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  return Math.round((d.getTime() - todayUTC) / 86400000);
 }
 
-function urgencyClass(days) {
-  if (days === null) return '';
-  if (days < 0) return 'closed';
-  if (days <= 30) return 'urgent';
-  if (days <= 90) return 'warning';
-  return 'ok';
+function deadlineChip(deadline, status) {
+  if (status === 'closed') return `<span class="status-chip chip-muted">Closed</span>`;
+  const days = daysUntil(deadline);
+  if (days == null) return `<span class="status-chip chip-muted">${escapeHtml(deadline || 'TBD')}</span>`;
+  if (days < 0) return `<span class="status-chip chip-muted">Deadline passed</span>`;
+  if (days <= 21) return `<span class="status-chip chip-skip">${days}d — ${escapeHtml(deadline)}</span>`;
+  if (days <= 60) return `<span class="status-chip chip-warn">${days}d — ${escapeHtml(deadline)}</span>`;
+  return `<span class="status-chip chip-good">${escapeHtml(deadline)}</span>`;
 }
 
-function urgencyBadgeCls(days) {
-  if (days === null || days < 0) return 'badge-muted';
-  if (days <= 30) return 'badge-red';
-  if (days <= 90) return 'badge-amber';
-  return 'badge-green';
+function tierOf(item) {
+  if (item.status === 'closed') return 'closed';
+  const r = item.relevance;
+  if (r == null) return 'consider';
+  if (r >= 50) return 'apply';
+  if (r >= 40) return 'consider';
+  return 'consider';
 }
 
-function fmtDate(dateStr) {
-  if (!dateStr) return '—';
-  try { return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'}); }
-  catch { return dateStr; }
+const TIER_DEFS = [
+  { key: 'apply', label: 'Apply', cls: 'good', open: true },
+  { key: 'consider', label: 'Consider', cls: 'warn', open: true },
+  { key: 'closed', label: 'Closed / deadline passed', cls: 'muted', open: false },
+];
+
+function openDetail(id) {
+  const p = ALL_ITEMS.find(x => x.id === id);
+  if (!p) return;
+  const overlay = document.getElementById('detail-overlay');
+  const panel = document.getElementById('detail-panel');
+  overlay.dataset.openId = id;
+  const isScholarship = p.kind === 'scholarship';
+  panel.innerHTML = `
+    <button type="button" class="detail-close" id="detail-close" aria-label="Close">✕</button>
+    <div class="detail-header">
+      <p class="dtitle"><span class="kind-chip ${p.kind}">${isScholarship ? 'Scholarship' : 'Position'}</span>${escapeHtml(p.title)}</p>
+      <p class="dmeta">${escapeHtml(p.institution)} · ${escapeHtml(p.country || '')}</p>
+    </div>
+    <div class="detail-badges">
+      <div class="score-badge tabular ${badgeCls(p)}">${p.relevance != null ? p.relevance : '—'}</div>
+      ${deadlineChip(p.deadline, p.status)}
+      <a class="btn-link" href="${escapeAttr(p.url)}" target="_blank" rel="noreferrer">Open source ↗</a>
+    </div>
+    ${p.fundingNote ? `<div class="note-line">${escapeHtml(p.fundingNote)}</div>` : ''}
+    ${p.amount ? `<div class="detail-section"><h3>Funding</h3><div class="detail-pre">${escapeHtml(p.amount)}</div></div>` : ''}
+    ${p.eligibility ? `<div class="detail-section"><h3>Eligibility</h3><div class="detail-pre">${escapeHtml(p.eligibility)}</div></div>` : ''}
+    ${p.notes ? `<div class="detail-section"><h3>Notes</h3><div class="detail-pre">${escapeHtml(p.notes)}</div></div>` : ''}
+    <p class="detail-note">Source: data/opportunities.json, generated by the daily automated scanner into the <a class="btn-link" href="https://claude.ai/code/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8" target="_blank" rel="noreferrer">Claude artifact database</a>. This dashboard is read-only.</p>
+  `;
+  document.getElementById('detail-close').addEventListener('click', closeDetail);
+  overlay.classList.add('open');
+}
+function closeDetail() {
+  const overlay = document.getElementById('detail-overlay');
+  overlay.classList.remove('open');
+  delete overlay.dataset.openId;
+}
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDetail(); });
+document.getElementById('detail-overlay').addEventListener('click', (e) => {
+  if (e.target.id === 'detail-overlay') closeDetail();
+});
+
+function badgeCls(p) {
+  if (p.status === 'closed') return 'muted';
+  const r = p.relevance;
+  if (r == null) return 'muted';
+  if (r >= 50) return 'good';
+  if (r >= 40) return 'warn';
+  return 'skip';
 }
 
-function statusBadge(status) {
-  const map = {
-    'active-lead':['badge-green','Active Lead'],
-    'sent':['badge-blue','Sent'],'pending':['badge-amber','Pending'],
-    'feedback':['badge-purple','Feedback'],'declined':['badge-red','Declined'],
-    'closed':['badge-muted','Closed'],'open':['badge-green','Open'],
-    'applied':['badge-blue','Applied'],'awarded':['badge-purple','Awarded'],
-    'shortlisted':['badge-blue','Shortlisted'],'interview':['badge-purple','Interview'],
-    'offer':['badge-green','Offer'],'rejected':['badge-red','Rejected'],
-    'auto':['badge-accent','Auto-scan'],'manual':['badge-muted','Manual'],
-  };
-  const [cls, label] = map[status] || ['badge-muted', status || '?'];
-  return `<span class="badge ${cls}">${label}</span>`;
-}
+async function render() {
+  const wrap = document.getElementById('app');
 
-function relevanceBadge(pct) {
-  if (pct == null) return '';
-  const cls = pct >= 70 ? '' : pct >= 50 ? 'mid' : 'low';
-  return `<div class="relevance-bar">
-    <div class="relevance-track"><div class="relevance-fill ${cls}" style="width:${Math.min(100,pct)}%"></div></div>
-    <span class="relevance-pct">${pct}%</span>
-  </div>`;
-}
+  let data;
+  try {
+    const res = await fetch('data/opportunities.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    data = await res.json();
+  } catch (err) {
+    const box = document.createElement('div');
+    box.id = 'load-error';
+    box.textContent = 'Could not load data/opportunities.json (' + err.message + ').';
+    wrap.appendChild(box);
+    return;
+  }
 
-function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function genId() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+  const positions = (data.positions || []).map(p => ({ ...p, kind: 'position' }));
+  const scholarships = (data.scholarships || []).map(s => ({ ...s, kind: 'scholarship', title: s.name, institution: s.provider }));
+  ALL_ITEMS = positions.concat(scholarships);
+  ALL_WATCHLIST = data.watchlist || [];
 
-function objToArr(obj) {
-  if (!obj || typeof obj !== 'object') return [];
-  return Object.entries(obj).map(([id, data]) => ({id, ...data}));
-}
+  document.getElementById('last-updated').textContent =
+    'Updated ' + (data.metadata && data.metadata.lastUpdated ? data.metadata.lastUpdated : '—');
 
-// ═══════════════════════════════════════════════════════════════
-//  COUNTDOWN — live ticking for dashboard hero card
-// ═══════════════════════════════════════════════════════════════
-function getNextDeadline() {
-  const all = [
-    ...objToArr(state.scholarships).filter(s => s.deadline && s.status !== 'closed'),
-    ...objToArr(state.positions).filter(p => p.deadline && p.status !== 'closed'),
-  ].filter(x => daysUntil(x.deadline) >= 0)
-   .sort((a,b) => new Date(a.deadline) - new Date(b.deadline));
-  return all[0] || null;
-}
+  const counts = { all: ALL_ITEMS.length, apply: 0, consider: 0, closed: 0 };
+  ALL_ITEMS.forEach(p => { counts[tierOf(p)] = (counts[tierOf(p)] || 0) + 1; });
 
-function cdText(dateStr) {
-  const target = new Date(dateStr + 'T23:59:59');
-  const diff = target - new Date();
-  if (diff <= 0) return {d:0,h:0,m:0,s:0,total:0};
-  return {
-    d: Math.floor(diff / 86400000),
-    h: Math.floor((diff % 86400000) / 3600000),
-    m: Math.floor((diff % 3600000) / 60000),
-    s: Math.floor((diff % 60000) / 1000),
-    total: diff
-  };
-}
-
-function renderCountdown() {
-  const el = document.getElementById('dashboard-countdown');
-  if (!el) return;
-  const item = getNextDeadline();
-  if (!item) { el.innerHTML = ''; return; }
-  const name = item.name || item.title || 'Upcoming Deadline';
-  const {d,h,m,s} = cdText(item.deadline);
-  el.innerHTML = `
-    <div class="countdown-card">
-      <div class="countdown-left">
-        <div class="countdown-label">Next Critical Deadline</div>
-        <div class="countdown-name">🎯 ${esc(name)}</div>
-        <div class="countdown-desc">${esc(item.provider || item.institution || '')} · ${fmtDate(item.deadline)}</div>
-      </div>
-      <div class="countdown-tiles">
-        <div class="cd-tile"><div class="cd-num" id="cd-d">${d}</div><div class="cd-unit">Days</div></div>
-        <div class="cd-tile"><div class="cd-num" id="cd-h">${String(h).padStart(2,'0')}</div><div class="cd-unit">Hours</div></div>
-        <div class="cd-tile"><div class="cd-num" id="cd-m">${String(m).padStart(2,'0')}</div><div class="cd-unit">Mins</div></div>
-        <div class="cd-tile"><div class="cd-num" id="cd-s">${String(s).padStart(2,'0')}</div><div class="cd-unit">Secs</div></div>
-      </div>
-    </div>`;
-  // store deadline for interval
-  el.dataset.cdDate = item.deadline;
-}
-
-// Global tick — updates countdown tiles every second
-setInterval(() => {
-  const el = document.getElementById('dashboard-countdown');
-  if (!el || !el.dataset.cdDate) return;
-  const {d,h,m,s,total} = cdText(el.dataset.cdDate);
-  if (total <= 0) { renderCountdown(); return; }
-  const $d = document.getElementById('cd-d');
-  const $h = document.getElementById('cd-h');
-  const $m = document.getElementById('cd-m');
-  const $s = document.getElementById('cd-s');
-  if ($d) $d.textContent = d;
-  if ($h) $h.textContent = String(h).padStart(2,'0');
-  if ($m) $m.textContent = String(m).padStart(2,'0');
-  if ($s) $s.textContent = String(s).padStart(2,'0');
-}, 1000);
-
-// ═══════════════════════════════════════════════════════════════
-//  NAVIGATION
-// ═══════════════════════════════════════════════════════════════
-function navigate(section) {
-  state.currentSection = section;
-  document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
-  document.getElementById('section-' + section).classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(el => {
-    el.classList.toggle('active', el.getAttribute('onclick')?.includes("'"+section+"'"));
+  const statsBar = document.createElement('div');
+  statsBar.className = 'stats-bar';
+  const statDefs = [
+    { key: 'all', label: 'All opportunities', cls: 'accent' },
+    { key: 'apply', label: 'Apply', cls: 'good' },
+    { key: 'consider', label: 'Consider', cls: 'warn' },
+    { key: 'closed', label: 'Closed', cls: 'muted' },
+    { key: 'watchlist', label: 'Watchlist', cls: 'muted', count: ALL_WATCHLIST.length },
+  ];
+  statDefs.forEach(sd => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'stat-tile c-' + sd.cls + (sd.key === 'all' ? ' active' : '');
+    btn.dataset.tier = sd.key;
+    const n = sd.count != null ? sd.count : (counts[sd.key] || 0);
+    btn.innerHTML = `<div class="n tabular">${n}</div><div class="l">${escapeHtml(sd.label)}</div>`;
+    btn.addEventListener('click', () => {
+      if (sd.key === 'watchlist') { document.getElementById('watchlist-section').scrollIntoView({ behavior: 'smooth' }); return; }
+      state.tierFilter = sd.key;
+      document.querySelectorAll('.stat-tile').forEach(t => t.classList.toggle('active', t.dataset.tier === sd.key));
+      applyFilters();
+    });
+    statsBar.appendChild(btn);
   });
-  const titles = {
-    dashboard:'Dashboard', positions:'Open Positions', scholarships:'Scholarships',
-    supervisors:'Supervisors', applications:'Applications', bibliography:'Bibliography'
-  };
-  document.getElementById('topbar-title').textContent = titles[section] || section;
-  renderCurrent();
-}
+  wrap.appendChild(statsBar);
 
-function renderCurrent() {
-  const s = state.currentSection;
-  if (s==='dashboard') renderDashboard();
-  else if (s==='positions') renderPositions();
-  else if (s==='scholarships') renderScholarships();
-  else if (s==='supervisors') renderSupervisors();
-  else if (s==='applications') renderApplications();
-  else if (s==='bibliography') renderBibliography();
-}
+  const controls = document.createElement('div');
+  controls.className = 'controls';
+  controls.innerHTML = `
+    <input type="search" id="search-box" placeholder="Search title, institution, country…" aria-label="Search opportunities">
+    <select id="sort-select" aria-label="Sort opportunities">
+      <option value="deadline-asc">Deadline: soonest first</option>
+      <option value="score-desc">Relevance: high to low</option>
+      <option value="institution">Institution A–Z</option>
+    </select>
+    <span class="result-count" id="result-count"></span>
+  `;
+  wrap.appendChild(controls);
 
-// ═══════════════════════════════════════════════════════════════
-//  BADGE UPDATES
-// ═══════════════════════════════════════════════════════════════
-function updateBadges() {
-  ['positions','scholarships','supervisors','applications','bibliography'].forEach(col => {
-    const el = document.getElementById('badge-' + col);
-    if (el) el.textContent = Object.keys(state[col] || {}).length;
+  const aside = document.createElement('aside');
+  const pillarsPanel = document.createElement('div');
+  pillarsPanel.className = 'panel';
+  pillarsPanel.innerHTML = '<h2>Theoretical pillars</h2>';
+  PILLARS.forEach(p => {
+    const row = document.createElement('div');
+    row.className = 'pillar-row';
+    row.innerHTML = `<div class="p-name">${escapeHtml(p.name)}</div><div class="p-note">${escapeHtml(p.note)}</div>`;
+    pillarsPanel.appendChild(row);
   });
+  aside.appendChild(pillarsPanel);
+
+  const constraintsPanel = document.createElement('div');
+  constraintsPanel.className = 'panel';
+  constraintsPanel.innerHTML = '<h2>Key constraints</h2>';
+  CONSTRAINTS.forEach(c => {
+    const box = document.createElement('div');
+    box.className = 'rule-box';
+    box.textContent = c;
+    constraintsPanel.appendChild(box);
+  });
+  aside.appendChild(constraintsPanel);
+  wrap.appendChild(aside);
+
+  const main = document.createElement('main');
+  TIER_DEFS.forEach(td => {
+    const details = document.createElement('details');
+    details.className = 'tier-section';
+    details.dataset.tier = td.key;
+    if (td.open) details.open = true;
+    details.innerHTML = `
+      <summary>
+        <span class="chevron"></span>
+        <span class="dot ${td.cls}"></span>
+        <span>${escapeHtml(td.label)}</span>
+        <span class="count tabular" data-role="count"></span>
+        <span class="dash"></span>
+      </summary>
+      <div class="posting-list" data-role="list"></div>
+    `;
+    main.appendChild(details);
+  });
+
+  const watchlistSection = document.createElement('section');
+  watchlistSection.className = 'tier-section';
+  watchlistSection.id = 'watchlist-section';
+  watchlistSection.innerHTML = `<h2 style="display:flex;align-items:center;gap:10px;font-size:15px;margin:0 0 10px;font-weight:600;">Watchlist — future cycles, not yet actionable <span class="count tabular" style="font-size:12px;color:var(--muted);font-weight:500;">${ALL_WATCHLIST.length}</span><span class="dash" style="flex:1;height:1px;background:var(--line);"></span></h2>`;
+  const watchGrid = document.createElement('div');
+  watchGrid.className = 'companies-grid';
+  ALL_WATCHLIST.forEach(w => {
+    const card = document.createElement('div');
+    card.className = 'company-card';
+    card.innerHTML = `
+      <div class="cname">${escapeHtml(w.institution)}</div>
+      <div class="cmeta">${escapeHtml(w.note)}</div>
+      ${w.url ? `<a class="view" href="${escapeAttr(w.url)}" target="_blank" rel="noreferrer">source →</a>` : ''}
+    `;
+    watchGrid.appendChild(card);
+  });
+  watchlistSection.appendChild(watchGrid);
+  main.appendChild(watchlistSection);
+
+  wrap.appendChild(main);
+
+  const footer = document.createElement('footer');
+  footer.innerHTML = `
+    <span>View-only — the scanner and scoring run in a Claude conversation, not from this page.</span>
+    <span>Data: <span class="mono">data/opportunities.json</span>, generated from the <a href="https://claude.ai/code/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8" target="_blank" rel="noreferrer">artifact database</a>.</span>
+  `;
+  wrap.appendChild(footer);
+
+  document.getElementById('search-box').addEventListener('input', (e) => {
+    state.query = e.target.value.trim().toLowerCase();
+    applyFilters();
+  });
+  document.getElementById('sort-select').addEventListener('change', (e) => {
+    state.sort = e.target.value;
+    applyFilters();
+  });
+
+  applyFilters();
 }
 
-// ═══════════════════════════════════════════════════════════════
-//  DASHBOARD
-// ═══════════════════════════════════════════════════════════════
-function renderDashboard() {
-  renderCountdown();
-  renderDashStats();
-  renderDashDeadlines();
-  renderDashSupervisors();
-}
+function applyFilters() {
+  const q = state.query;
+  let visibleTotal = 0;
 
-function renderDashStats() {
-  const el = document.getElementById('dashboard-stats');
-  if (!el) return;
-  const pos = objToArr(state.positions);
-  const sch = objToArr(state.scholarships);
-  const sup = objToArr(state.supervisors);
-  const bib = objToArr(state.bibliography);
+  TIER_DEFS.forEach(td => {
+    const section = document.querySelector(`details.tier-section[data-tier="${td.key}"]`);
+    if (!section) return;
 
-  const openPos = pos.filter(p => p.status === 'open').length;
-  const highRelev = pos.filter(p => (p.relevance||0) >= 70).length;
-  const openSch = sch.filter(s => s.status === 'open').length;
-  const activeLead = sup.filter(s => s.status === 'active-lead').length;
-  const sent = sup.filter(s => ['sent','active-lead','feedback'].includes(s.status)).length;
+    const matchesTierFilter = state.tierFilter === 'all' || state.tierFilter === td.key;
+    section.style.display = matchesTierFilter ? '' : 'none';
+    if (!matchesTierFilter) return;
 
-  const allDays = [
-    ...sch.filter(s=>s.deadline&&s.status!=='closed').map(s=>daysUntil(s.deadline)),
-    ...pos.filter(p=>p.deadline&&p.status!=='closed').map(p=>daysUntil(p.deadline)),
-  ].filter(d=>d!==null&&d>=0);
-  const nearest = allDays.length ? Math.min(...allDays) : null;
-  const nearCls = nearest===null?'info':nearest<=30?'urgent':nearest<=90?'warning':'ok';
+    let items = ALL_ITEMS.filter(p => tierOf(p) === td.key);
+    if (q) {
+      items = items.filter(p =>
+        (p.title || '').toLowerCase().includes(q) ||
+        (p.institution || '').toLowerCase().includes(q) ||
+        (p.country || '').toLowerCase().includes(q)
+      );
+    }
+    items = sortItems(items, state.sort);
+    visibleTotal += items.length;
 
-  el.innerHTML = `
-    <div class="stat-tile ${nearCls}">
-      <div class="stat-num">${nearest!==null?nearest:'—'}</div>
-      <div class="stat-label">Days to nearest deadline</div>
-    </div>
-    <div class="stat-tile info">
-      <div class="stat-num">${openPos}</div>
-      <div class="stat-label">Open positions (${pos.length} total)</div>
-    </div>
-    <div class="stat-tile ${highRelev>0?'ok':'info'}">
-      <div class="stat-num">${highRelev}</div>
-      <div class="stat-label">High-relevance ≥70%</div>
-    </div>
-    <div class="stat-tile ${openSch>0?'ok':'info'}">
-      <div class="stat-num">${openSch}</div>
-      <div class="stat-label">Open scholarships</div>
-    </div>
-    <div class="stat-tile ${activeLead>0?'ok':'warning'}">
-      <div class="stat-num">${activeLead}</div>
-      <div class="stat-label">Active supervisor leads</div>
-    </div>
-    <div class="stat-tile info">
-      <div class="stat-num">${sent}</div>
-      <div class="stat-label">Supervisors contacted</div>
-    </div>
-    <div class="stat-tile info">
-      <div class="stat-num">${bib.length}</div>
-      <div class="stat-label">Bibliography entries</div>
-    </div>`;
-}
+    section.querySelector('[data-role="count"]').textContent = items.length;
+    const list = section.querySelector('[data-role="list"]');
+    list.innerHTML = '';
 
-function renderDashDeadlines() {
-  const el = document.getElementById('dash-deadlines');
-  if (!el) return;
-  const items = [
-    ...objToArr(state.scholarships).filter(s=>s.deadline).map(s=>({name:s.name,date:s.deadline,type:'Scholarship',status:s.status})),
-    ...objToArr(state.positions).filter(p=>p.deadline).map(p=>({name:p.title,date:p.deadline,type:'Position',status:p.status})),
-  ].sort((a,b)=>new Date(a.date)-new Date(b.date)).slice(0,8);
+    if (items.length === 0) {
+      const empty = document.createElement('div');
+      empty.className = q ? 'no-match' : 'empty-tier';
+      empty.textContent = q ? 'No opportunities in this tier match your search.' : 'Nothing here right now.';
+      list.appendChild(empty);
+      return;
+    }
 
-  if (!items.length) { el.innerHTML='<div class="empty-state"><div class="empty-icon">📅</div><p>No deadlines yet</p></div>'; return; }
-
-  el.innerHTML = '<div class="item-list">'+items.map(item=>{
-    const days = daysUntil(item.date);
-    const cls = urgencyClass(days);
-    const label = days===null?'?':days<0?'Passed':days===0?'Today!':days+'d';
-    return `<div class="item-card ${cls}">
-      <div class="item-main">
-        <div class="item-title">${esc(item.name||'—')}</div>
-        <div class="item-sub">${esc(item.type)} · ${fmtDate(item.date)}</div>
-      </div>
-      <div class="deadline-days ${cls}">${label}</div>
-    </div>`;
-  }).join('')+'</div>';
-}
-
-function renderDashSupervisors() {
-  const el = document.getElementById('dash-supervisors');
-  if (!el) return;
-  const order = ['active-lead','feedback','sent','pending','declined','closed'];
-  const items = objToArr(state.supervisors).sort((a,b)=>order.indexOf(a.status)-order.indexOf(b.status));
-  if (!items.length) { el.innerHTML='<div class="empty-state"><div class="empty-icon">👥</div><p>No supervisors tracked yet.<br><button class="btn btn-primary btn-sm" onclick="navigate(\'supervisors\')" style="margin-top:8px">Add Supervisor</button></p></div>'; return; }
-
-  const groups = {};
-  order.forEach(s=>groups[s]=[]);
-  items.forEach(s=>{ (groups[s.status]||groups['pending']).push(s); });
-  const labels = {'active-lead':'Active Lead','feedback':'Feedback','sent':'Sent','pending':'Pending','declined':'Declined','closed':'Closed'};
-  el.innerHTML = order.filter(k=>groups[k].length).map(k=>`
-    <div style="margin-bottom:8px">
-      <div style="font-size:.72rem;color:var(--muted);font-weight:600;margin-bottom:3px">${labels[k]} (${groups[k].length})</div>
-      ${groups[k].map(s=>`<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:.82rem">
-        <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(s.name)}</span>
-        <span style="font-size:.72rem;color:var(--muted)">${esc(s.university||'')}</span>
-      </div>`).join('')}
-    </div>`).join('') || '<div class="empty-state"><p>No supervisors yet</p></div>';
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  POSITIONS
-// ═══════════════════════════════════════════════════════════════
-function renderPositions() {
-  const el = document.getElementById('positions-list');
-  if (!el) return;
-  const q = (document.getElementById('search-positions')?.value||'').toLowerCase();
-  const statusF = document.getElementById('filter-positions-status')?.value||'';
-  let items = objToArr(state.positions);
-  if (q) items = items.filter(p=>(p.title||'').toLowerCase().includes(q)||(p.institution||'').toLowerCase().includes(q)||(p.notes||'').toLowerCase().includes(q));
-  if (statusF) items = items.filter(p=>p.status===statusF);
-  items.sort((a,b)=>(b.relevance||0)-(a.relevance||0));
-
-  if (!items.length) {
-    el.innerHTML=`<div class="empty-state"><div class="empty-icon">🔍</div><p>No positions found. The daily auto-scan adds new ones each morning.</p><div class="empty-actions"><button class="btn btn-primary btn-sm" onclick="openModal('position')">＋ Add manually</button></div></div>`;
-    return;
-  }
-  el.innerHTML = items.map(p=>{
-    const days = daysUntil(p.deadline);
-    const cls = urgencyClass(days);
-    const dLabel = days!==null?(days<0?'Expired':days===0?'Today':days+' days'):'';
-    const safeUrl = (p.url||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    return `<div class="item-card ${cls}">
-      <div class="item-main">
-        <div class="item-title">${esc(p.title||'Untitled')}</div>
-        <div class="item-sub">${esc(p.institution||'')}${p.country?' · '+esc(p.country):''}</div>
-        <div class="item-meta">
-          ${p.status?statusBadge(p.status):''}
-          ${p.source?statusBadge(p.source):''}
-          ${p.deadline?`<span class="badge ${urgencyBadgeCls(days)}">${dLabel?dLabel+' · ':''}${fmtDate(p.deadline)}</span>`:''}
-          ${p.relevance!=null?relevanceBadge(p.relevance):''}
-        </div>
-        ${p.notes?`<div class="notes-box">${esc(p.notes)}</div>`:''}
-        ${p.url?`<div style="margin-top:5px;font-size:.7rem;color:var(--accent);word-break:break-all;cursor:pointer" onclick="copyLink('${safeUrl}')">${esc(p.url)}</div>`:''}
-      </div>
-      <div class="item-actions">
-        ${p.url?`<button class="btn btn-ghost btn-sm" onclick="copyLink('${safeUrl}')">↗ Link</button>`:''}
-        <button class="btn btn-secondary btn-sm" onclick="openModal('position','${esc(p.id)}')">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('positions','${esc(p.id)}')">✕</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  SCHOLARSHIPS
-// ═══════════════════════════════════════════════════════════════
-function renderScholarships() {
-  const el = document.getElementById('scholarships-list');
-  if (!el) return;
-  const q = (document.getElementById('search-scholarships')?.value||'').toLowerCase();
-  const statusF = document.getElementById('filter-scholarships-status')?.value||'';
-  let items = objToArr(state.scholarships);
-  if (q) items = items.filter(s=>(s.name||'').toLowerCase().includes(q)||(s.provider||'').toLowerCase().includes(q));
-  if (statusF) items = items.filter(s=>s.status===statusF);
-  items.sort((a,b)=>(!a.deadline?1:!b.deadline?-1:new Date(a.deadline)-new Date(b.deadline)));
-
-  if (!items.length) {
-    el.innerHTML=`<div class="empty-state"><div class="empty-icon">🎓</div><p>No scholarships tracked yet.</p><div class="empty-actions"><button class="btn btn-primary btn-sm" onclick="openModal('scholarship')">＋ Add Scholarship</button></div></div>`;
-    return;
-  }
-  el.innerHTML = items.map(s=>{
-    const days = daysUntil(s.deadline);
-    const cls = urgencyClass(days);
-    const safeUrl = (s.url||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    return `<div class="item-card ${cls}">
-      <div class="item-main">
-        <div class="item-title">${esc(s.name||'—')}</div>
-        <div class="item-sub">${esc(s.provider||'')}${s.amount?' · '+esc(s.amount):''}</div>
-        <div class="item-meta">
-          ${s.status?statusBadge(s.status):''}
-          ${s.openDate?`<span class="badge badge-muted">Opens: ${fmtDate(s.openDate)}</span>`:''}
-          ${s.deadline?`<span class="badge ${urgencyBadgeCls(days)}">Due: ${fmtDate(s.deadline)}${days!==null&&days>=0?' · '+days+'d':''}</span>`:''}
-        </div>
-        ${s.eligibility?`<div class="notes-box">${esc(s.eligibility)}</div>`:''}
-        ${s.notes?`<div class="notes-box" style="margin-top:4px">${esc(s.notes)}</div>`:''}
-        ${s.url?`<div style="margin-top:5px;font-size:.7rem;color:var(--accent);cursor:pointer" onclick="copyLink('${safeUrl}')">${esc(s.url)}</div>`:''}
-      </div>
-      <div class="item-actions">
-        ${s.url?`<button class="btn btn-ghost btn-sm" onclick="copyLink('${safeUrl}')">↗ Link</button>`:''}
-        <button class="btn btn-secondary btn-sm" onclick="openModal('scholarship','${esc(s.id)}')">Edit</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteItem('scholarships','${esc(s.id)}')">✕</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  SUPERVISORS
-// ═══════════════════════════════════════════════════════════════
-function renderSupervisors() {
-  const el = document.getElementById('supervisors-grid');
-  if (!el) return;
-  const q = (document.getElementById('search-supervisors')?.value||'').toLowerCase();
-  const statusF = document.getElementById('filter-sup-status')?.value||'';
-  const ORDER = ['active-lead','feedback','sent','pending','declined','closed'];
-  let items = objToArr(state.supervisors);
-  if (q) items = items.filter(s=>(s.name||'').toLowerCase().includes(q)||(s.university||'').toLowerCase().includes(q)||(s.specialization||'').toLowerCase().includes(q));
-  if (statusF) items = items.filter(s=>s.status===statusF);
-  items.sort((a,b)=>ORDER.indexOf(a.status||'pending')-ORDER.indexOf(b.status||'pending'));
-
-  if (!items.length) {
-    el.innerHTML=`<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">👥</div><p>No supervisors tracked yet.</p><div class="empty-actions"><button class="btn btn-primary btn-sm" onclick="openModal('supervisor')">＋ Add Supervisor</button></div></div>`;
-    return;
-  }
-  el.innerHTML = items.map(s=>`
-    <div class="supervisor-card">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+    items.forEach(p => {
+      const row = document.createElement('div');
+      const cls = badgeCls(p);
+      row.className = 'posting tone-' + cls;
+      row.dataset.id = p.id;
+      row.innerHTML = `
+        <div class="score-badge tabular ${cls}">${p.relevance != null ? p.relevance : '—'}</div>
         <div>
-          <div class="sup-name">${esc(s.name)}</div>
-          <div class="sup-uni">${esc(s.university||'')}${s.country?', '+esc(s.country):''}</div>
+          <div class="title"><span class="kind-chip ${p.kind}">${p.kind === 'scholarship' ? 'Scholarship' : 'Position'}</span>${escapeHtml(p.title)}</div>
+          <div class="sub">${escapeHtml(p.institution)} <span class="src">· ${escapeHtml(p.country || '')}</span></div>
         </div>
-        ${statusBadge(s.status)}
-      </div>
-      ${s.specialization?`<div class="sup-spec">${esc(s.specialization)}</div>`:''}
-      ${s.notes?`<div class="notes-box" style="margin-top:8px">${esc(s.notes)}</div>`:''}
-      <div class="sup-footer">
-        <span style="font-size:.72rem;color:var(--muted)">${s.contactDate?'Contacted: '+fmtDate(s.contactDate):''}</span>
-        <div style="display:flex;gap:4px">
-          ${s.email?`<a href="mailto:${esc(s.email)}" class="btn btn-ghost btn-sm" style="padding:3px 8px">✉</a>`:''}
-          <button class="btn btn-secondary btn-sm" onclick="openModal('supervisor','${esc(s.id)}')">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteItem('supervisors','${esc(s.id)}')">✕</button>
-        </div>
-      </div>
-    </div>`).join('');
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  APPLICATIONS
-// ═══════════════════════════════════════════════════════════════
-const APP_STAGES = ['Preparing','Submitted','Under Review','Interview','Decision','Outcome'];
-function renderApplications() {
-  const kanban = document.getElementById('applications-kanban');
-  const list   = document.getElementById('applications-list');
-  if (!kanban) return;
-
-  const groups = {};
-  APP_STAGES.forEach(s=>groups[s]=[]);
-  objToArr(state.applications).forEach(a=>{
-    const stage = a.stage||'Preparing';
-    (groups[stage]||(groups[stage]=[])).push(a);
+        ${deadlineChip(p.deadline, p.status)}
+        <a class="view" href="${escapeAttr(p.url)}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">View →</a>
+      `;
+      row.addEventListener('click', () => openDetail(p.id));
+      list.appendChild(row);
+    });
   });
 
-  kanban.innerHTML = APP_STAGES.map(stage=>`
-    <div class="kanban-col">
-      <div class="kanban-col-header">${esc(stage)} <span style="opacity:.6">(${(groups[stage]||[]).length})</span></div>
-      <div class="kanban-col-body">
-        ${(groups[stage]||[]).map(a=>`
-          <div class="kanban-item" onclick="openModal('application','${esc(a.id)}')">
-            <div class="k-title">${esc(a.institution||'Institution')}</div>
-            <div class="k-sub">${esc(a.supervisor||'')}${a.deadline?' · '+fmtDate(a.deadline):''}</div>
-          </div>`).join('')}
-      </div>
-    </div>`).join('');
-
-  if (list) {
-    list.innerHTML = objToArr(state.applications).length
-      ? '' : `<div class="empty-state"><div class="empty-icon">📋</div><p>No applications tracked yet.</p><div class="empty-actions"><button class="btn btn-primary btn-sm" onclick="openModal('application')">＋ Add Application</button></div></div>`;
+  const resultCount = document.getElementById('result-count');
+  if (resultCount) {
+    resultCount.textContent = q || state.tierFilter !== 'all'
+      ? `${visibleTotal} of ${ALL_ITEMS.length} shown`
+      : `${ALL_ITEMS.length} total`;
   }
 }
 
-// ═══════════════════════════════════════════════════════════════
-//  BIBLIOGRAPHY
-// ═══════════════════════════════════════════════════════════════
-function renderBibliography() {
-  const el = document.getElementById('bibliography-list');
-  if (!el) return;
-  const q = (document.getElementById('search-bib')?.value||'').toLowerCase();
-  const tagF = document.getElementById('filter-bib-tag')?.value||'';
-  let items = objToArr(state.bibliography);
-  if (q) items = items.filter(b=>(b.title||'').toLowerCase().includes(q)||(b.authors||'').toLowerCase().includes(q)||(b.journal||'').toLowerCase().includes(q)||String(b.year||'').includes(q));
-  if (tagF) items = items.filter(b=>(b.tags||[]).includes(tagF));
-  items.sort((a,b)=>(a.year||9999)-(b.year||9999)||(a.authors||'').localeCompare(b.authors||''));
-
-  if (!items.length) {
-    el.innerHTML=`<div class="empty-state"><div class="empty-icon">📚</div><p>No bibliography entries yet.</p><div class="empty-actions"><button class="btn btn-primary btn-sm" onclick="openModal('bibliography')">＋ Add Reference</button></div></div>`;
-    return;
-  }
-  el.innerHTML = items.map(b=>{
-    const safeDoi = (b.doi||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    const safeUrl = (b.url||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    return `<div class="bib-item">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:600;font-size:.88rem">${esc(b.title||'Untitled')}</div>
-          <div style="font-size:.78rem;color:var(--muted);margin-top:2px">${esc(b.authors||'')}${b.year?' ('+b.year+')':''}</div>
-          ${b.journal?`<div style="font-size:.75rem;color:var(--muted);font-style:italic">${esc(b.journal)}</div>`:''}
-          <div class="bib-tags">${(b.tags||[]).map(t=>`<span class="bib-tag">${esc(t)}</span>`).join('')}</div>
-          ${b.notes?`<div class="notes-box" style="margin-top:6px">${esc(b.notes)}</div>`:''}
-        </div>
-        <div style="display:flex;gap:4px;flex-shrink:0">
-          ${b.doi?`<button class="btn btn-ghost btn-sm" onclick="copyLink('https://doi.org/${safeDoi}')">DOI</button>`:''}
-          ${b.url?`<button class="btn btn-ghost btn-sm" onclick="copyLink('${safeUrl}')">↗</button>`:''}
-          <button class="btn btn-secondary btn-sm" onclick="openModal('bibliography','${esc(b.id)}')">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteItem('bibliography','${esc(b.id)}')">✕</button>
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  LINK HELPER
-// ═══════════════════════════════════════════════════════════════
-function copyLink(url) {
-  if (navigator.clipboard?.writeText) {
-    navigator.clipboard.writeText(url).then(()=>toast('Link copied!','success')).catch(()=>showUrlPopup(url));
-  } else { showUrlPopup(url); }
-}
-function showUrlPopup(url) {
-  let ov = document.getElementById('url-popup-overlay');
-  if (ov) ov.remove();
-  ov = document.createElement('div');
-  ov.id = 'url-popup-overlay';
-  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:800;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)';
-  ov.innerHTML = `<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px;max-width:520px;width:100%;box-shadow:var(--shadow)">
-    <div style="font-weight:600;font-size:.95rem;margin-bottom:4px">Open this link</div>
-    <div style="font-size:.78rem;color:var(--muted);margin-bottom:10px">Select all and copy, then paste into your browser</div>
-    <input id="url-popup-input" type="text" value="${url.replace(/"/g,'&quot;')}" readonly
-      style="width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:7px;font-size:.8rem;background:var(--surface2);color:var(--text);box-sizing:border-box" onclick="this.select()">
-    <div style="display:flex;gap:8px;margin-top:14px;justify-content:flex-end">
-      <button onclick="const i=document.getElementById('url-popup-input');i.select();document.execCommand('copy');toast('Copied!','success')"
-        style="padding:7px 16px;border:none;border-radius:7px;background:var(--accent);color:#fff;font-size:.82rem;cursor:pointer;font-weight:500">Copy</button>
-      <button onclick="document.getElementById('url-popup-overlay').remove()"
-        style="padding:7px 16px;border:1px solid var(--border);border-radius:7px;background:none;color:var(--text);font-size:.82rem;cursor:pointer">Close</button>
-    </div>
-  </div>`;
-  document.body.appendChild(ov);
-  ov.addEventListener('click',e=>{if(e.target===ov)ov.remove();});
-  setTimeout(()=>{document.getElementById('url-popup-input')?.select();},60);
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  MODAL FORMS
-// ═══════════════════════════════════════════════════════════════
-const MODAL_FORMS = {
-  position:{title:'Position',fields:[
-    {key:'title',label:'Position Title',type:'text',required:true},
-    {key:'institution',label:'Institution / University',type:'text'},
-    {key:'country',label:'Country',type:'text'},
-    {key:'deadline',label:'Application Deadline',type:'date'},
-    {key:'status',label:'Status',type:'select',options:['open','applied','closed']},
-    {key:'relevance',label:'Relevance % (0–100)',type:'number',placeholder:'e.g. 75'},
-    {key:'url',label:'URL',type:'url',placeholder:'https://…'},
-    {key:'notes',label:'Notes',type:'textarea'},
-  ]},
-  scholarship:{title:'Scholarship',fields:[
-    {key:'name',label:'Scholarship Name',type:'text',required:true},
-    {key:'provider',label:'Provider / Funder',type:'text'},
-    {key:'amount',label:'Amount / Coverage',type:'text',placeholder:'e.g. Full stipend + tuition'},
-    {key:'openDate',label:'Opens',type:'date'},
-    {key:'deadline',label:'Final Deadline',type:'date'},
-    {key:'status',label:'Status',type:'select',options:['open','applied','awarded','closed']},
-    {key:'eligibility',label:'Eligibility',type:'textarea'},
-    {key:'url',label:'URL',type:'url',placeholder:'https://…'},
-    {key:'notes',label:'Notes',type:'textarea'},
-  ]},
-  supervisor:{title:'Supervisor',fields:[
-    {key:'name',label:'Full Name',type:'text',required:true},
-    {key:'university',label:'University / Institution',type:'text'},
-    {key:'country',label:'Country',type:'text'},
-    {key:'department',label:'Department / Faculty',type:'text'},
-    {key:'specialization',label:'Research Specialization',type:'text'},
-    {key:'email',label:'Email',type:'email'},
-    {key:'status',label:'Contact Status',type:'select',options:['pending','sent','active-lead','feedback','declined','closed']},
-    {key:'contactDate',label:'Date First Contacted',type:'date'},
-    {key:'notes',label:'Notes / Activity Log',type:'textarea'},
-  ]},
-  application:{title:'Application',fields:[
-    {key:'institution',label:'Institution',type:'text',required:true},
-    {key:'supervisor',label:'Supervisor',type:'text'},
-    {key:'program',label:'Program',type:'text',placeholder:'e.g. PhD in Management'},
-    {key:'deadline',label:'Application Deadline',type:'date'},
-    {key:'stage',label:'Stage',type:'select',options:APP_STAGES},
-    {key:'notes',label:'Notes / Documents',type:'textarea'},
-  ]},
-  bibliography:{title:'Reference',fields:[
-    {key:'authors',label:'Author(s)',type:'text',required:true,placeholder:'e.g. North, D.C.'},
-    {key:'year',label:'Year',type:'number',placeholder:'e.g. 1990'},
-    {key:'title',label:'Title',type:'text',required:true},
-    {key:'journal',label:'Journal / Book',type:'text'},
-    {key:'doi',label:'DOI',type:'text',placeholder:'10.xxxx/…'},
-    {key:'url',label:'URL',type:'url',placeholder:'https://…'},
-    {key:'tags',label:'Tags (comma-separated)',type:'text',placeholder:'institutions, contingency, nepal…'},
-    {key:'notes',label:'Notes / Relevance',type:'textarea'},
-  ]}
-};
-
-function colName(type) {
-  const m={position:'positions',scholarship:'scholarships',supervisor:'supervisors',application:'applications',bibliography:'bibliography'};
-  return m[type]||type;
-}
-
-function openModal(type, editId) {
-  const cfg = MODAL_FORMS[type]; if (!cfg) return;
-  state.modalType = type; state.modalEditId = editId||null;
-  const existing = editId ? (state[colName(type)]||{})[editId] : null;
-  document.getElementById('modal-title').textContent = (editId?'Edit ':'Add ') + cfg.title;
-
-  document.getElementById('modal-body').innerHTML = cfg.fields.map(f=>{
-    const val = existing?.[f.key] ?? '';
-    const dv = (f.key==='tags'&&Array.isArray(val)) ? val.join(', ') : val;
-    if (f.type==='select') {
-      const opts = f.options.map(o=>`<option value="${esc(o)}" ${dv===o?'selected':''}>${esc(o.charAt(0).toUpperCase()+o.slice(1).replace(/-/g,' '))}</option>`).join('');
-      return `<div class="form-group"><label class="form-label">${esc(f.label)}</label><select class="form-select" id="field-${f.key}"><option value="">— Select —</option>${opts}</select></div>`;
-    }
-    if (f.type==='textarea') {
-      return `<div class="form-group"><label class="form-label">${esc(f.label)}</label><textarea class="form-textarea" id="field-${f.key}" rows="3">${esc(dv)}</textarea></div>`;
-    }
-    return `<div class="form-group"><label class="form-label">${esc(f.label)}${f.required?' *':''}</label><input type="${f.type}" class="form-input" id="field-${f.key}" value="${esc(dv)}" placeholder="${esc(f.placeholder||'')}"></div>`;
-  }).join('');
-
-  document.getElementById('modal-footer').innerHTML = editId
-    ? `<button class="btn btn-danger" onclick="deleteItem('${colName(type)}','${esc(editId)}');closeModal()">Delete</button>
-       <div style="flex:1"></div>
-       <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-       <button class="btn btn-primary" onclick="saveModal()">Save</button>`
-    : `<button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-       <button class="btn btn-primary" onclick="saveModal()">Save</button>`;
-
-  document.getElementById('modal-overlay').classList.add('open');
-}
-
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  state.modalType=null; state.modalEditId=null;
-}
-function handleOverlayClick(e) { if (e.target===document.getElementById('modal-overlay')) closeModal(); }
-
-async function saveModal() {
-  const type = state.modalType, editId = state.modalEditId;
-  const cfg = MODAL_FORMS[type]; if (!cfg) return;
-  const data = {};
-  for (const f of cfg.fields) {
-    const el = document.getElementById('field-'+f.key); if (!el) continue;
-    let val = el.value.trim();
-    if (f.required&&!val) { el.focus(); toast('Please fill in: '+f.label,'error'); return; }
-    if (f.key==='tags') val = val?val.split(',').map(t=>t.trim()).filter(Boolean):[];
-    else if (f.type==='number') val = val?Number(val):null;
-    if (val!==null&&val!=='') data[f.key]=val;
-  }
-  data.updatedAt = new Date().toISOString();
-
-  const col = colName(type);
-  if (state.firebaseDb) {
-    try {
-      if (editId) {
-        await state.firebaseDb.ref('phd-tracker/'+col+'/'+editId).update(data);
-      } else {
-        data.addedAt = new Date().toISOString().slice(0,10);
-        await state.firebaseDb.ref('phd-tracker/'+col).push(data);
-      }
-      closeModal(); toast((editId?'Updated':'Added')+' successfully','success');
-    } catch(e) { toast('Firebase error: '+e.message,'error'); }
-  } else {
-    // Offline — update local state only
-    if (editId) {
-      state[col][editId] = {...(state[col][editId]||{}), ...data};
-    } else {
-      const id = genId(); state[col][id] = {id,...data};
-    }
-    closeModal(); renderCurrent(); updateBadges(); toast('Saved (offline — not synced to Firebase)','success');
+function sortItems(items, sort) {
+  const copy = items.slice();
+  switch (sort) {
+    case 'score-desc':
+      return copy.sort((a, b) => (b.relevance ?? -1) - (a.relevance ?? -1));
+    case 'institution':
+      return copy.sort((a, b) => (a.institution || '').localeCompare(b.institution || ''));
+    case 'deadline-asc':
+    default:
+      return copy.sort((a, b) => {
+        const da = daysUntil(a.deadline); const db = daysUntil(b.deadline);
+        if (da == null && db == null) return 0;
+        if (da == null) return 1;
+        if (db == null) return -1;
+        return da - db;
+      });
   }
 }
 
-async function deleteItem(col, id) {
-  if (!confirm('Delete this item?')) return;
-  if (state.firebaseDb) {
-    try {
-      await state.firebaseDb.ref('phd-tracker/'+col+'/'+id).remove();
-      toast('Deleted','success');
-    } catch(e) { toast('Error: '+e.message,'error'); }
-  } else {
-    delete state[col][id];
-    renderCurrent(); updateBadges(); toast('Deleted (offline)','success');
-  }
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+function escapeAttr(s) { return escapeHtml(s); }
 
-// ═══════════════════════════════════════════════════════════════
-//  TOAST
-// ═══════════════════════════════════════════════════════════════
-function toast(msg, type='success') {
-  const c = document.getElementById('toast-container');
-  const el = document.createElement('div');
-  el.className = 'toast '+type;
-  el.textContent = msg;
-  c.appendChild(el);
-  setTimeout(()=>el.remove(), 3500);
-}
-
-// ═══════════════════════════════════════════════════════════════
-//  FIREBASE INIT
-// ═══════════════════════════════════════════════════════════════
-function setSyncStatus(status, label) {
-  const dot = document.getElementById('sync-dot');
-  const lbl = document.getElementById('sync-label');
-  if (dot) dot.className = 'sync-dot' + (status==='offline'?' offline':status==='loading'?' loading':'');
-  if (lbl) lbl.textContent = label;
-}
-
-function initFromData(data) {
-  const d = data || {};
-  // Merge seed + Firebase data (Firebase takes priority)
-  state.positions    = {...SEED.positions,    ...(d.positions    ||{})};
-  state.scholarships = {...SEED.scholarships, ...(d.scholarships ||{})};
-  state.supervisors  = {...SEED.supervisors,  ...(d.supervisors  ||{})};
-  state.applications = {...SEED.applications, ...(d.applications ||{})};
-  state.bibliography = {...SEED.bibliography, ...(d.bibliography ||{})};
-
-  updateBadges();
-  renderCurrent();
-
-  const lastScan = d.meta?.lastScanned;
-  const lbl = document.getElementById('last-scanned-label');
-  if (lbl && lastScan) {
-    lbl.textContent = 'Last scan: ' + (lastScan.length===10 ? lastScan : new Date(lastScan).toLocaleDateString('en-GB'));
-  }
-}
-
-function loadFirebase() {
-  setSyncStatus('loading','Loading…');
-  const s1 = document.createElement('script');
-  s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-app-compat.min.js';
-  s1.onload = () => {
-    const s2 = document.createElement('script');
-    s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/firebase/9.23.0/firebase-database-compat.min.js';
-    s2.onload = () => {
-      try {
-        firebase.initializeApp(FIREBASE_CONFIG);
-        const db = firebase.database();
-        state.firebaseDb = db;
-
-        db.ref('.info/connected').on('value', snap => {
-          setSyncStatus(snap.val()?'connected':'offline', snap.val()?'🟢 Live — Firebase':'⚪ Reconnecting…');
-        });
-
-        db.ref('phd-tracker').on('value', snap => {
-          initFromData(snap.val());
-        }, err => {
-          console.warn('Firebase read error:', err);
-          setSyncStatus('offline','Read error — using seed data');
-          initFromData(null);
-        });
-      } catch(err) {
-        console.warn('Firebase init error:', err);
-        setSyncStatus('offline','Error — using seed data');
-        initFromData(null);
-      }
-    };
-    s2.onerror = () => { setSyncStatus('offline','CDN error'); initFromData(null); };
-    document.head.appendChild(s2);
-  };
-  s1.onerror = () => { setSyncStatus('offline','CDN error'); initFromData(null); };
-  document.head.appendChild(s1);
-}
-
-// ── KEYBOARD ──
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
-
-// ── START ──
-loadFirebase();
+render();
 </script>
