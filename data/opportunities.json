@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "snapshot_generated": "2026-09-17",
+    "snapshot_generated": "2026-09-19",
     "source": "Claude Artifact database export, merged with Asia-Pacific scanner expansion",
     "artifact_url": "https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
     "counts": {
@@ -22,7 +22,7 @@
       "Japan"
     ],
     "scope_expanded_date": "2026-09-17",
-    "note": "positions/scholarships verified against live artifact DB (IDs match). watchlist_asia_pacific entries are unverified — see uncertainty_note on each."
+    "note": "positions/scholarships verified against live artifact DB (IDs match). mext-japan-2027 deadline corrected 19 Sept 2026. watchlist_asia_pacific entries verified 19 Sept 2026 against official/embassy sources (CSC, GKS, NZ doctoral scholarships, Australian RTP) -- GKS and MEXT deadlines were corrected from earlier wrong estimates. None of the four watchlist items is in the scored positions/scholarships collections yet."
   },
   "positions": [
     {
@@ -205,12 +205,12 @@
       "name": "MEXT Research Student Scholarship (Japan)",
       "provider": "Japanese Government — Ministry of Education, Culture, Sports, Science and Technology",
       "amount": "Approx. JPY 145,000–152,000/month + tuition waiver + travel allowance",
-      "deadline": "2027-05-01",
+      "deadline": "2026-05-31",
       "status": "open",
       "relevance": 40,
       "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm",
       "addedAt": "2026-09-12",
-      "notes": "Japanese government scholarship available specifically to Nepali students. Japan has a strong tradition of comparative management and work organisation research (Dore on enterprise society, comparative institutionalism in East Asian economies). Hitotsubashi, Waseda, Osaka, Kyushu have relevant management schools. Opens ~April 2027 — only flag when deadline approaches per standing instructions. Verify 2027 cycle with Japanese Embassy Kathmandu.",
+      "notes": "Japanese government scholarship available specifically to Nepali students. Japan has a strong tradition of comparative management and work organisation research (Dore on enterprise society, comparative institutionalism in East Asian economies). Hitotsubashi, Waseda, Osaka, Kyushu have relevant management schools. Score: 40 — lower comparative/Nordic fit but Nepal-specific eligibility is a major plus. VERIFIED 19 Sept 2026 directly on the Embassy of Japan in Nepal's official page: the Nepal embassy-track deadline for the 2027 intake is 31 May 2026 (24:00 NST) — nearly a year before study starts, not '~2027-05-01' as previously estimated. Stipend amount (previously estimated JPY 145,000-152,000/month) not confirmed on this pass — official page did not state the figure; treat as approximate pending a further check.",
       "eligibility": "Nepali citizens; under 35 years old; bachelor's degree held. Application through Japanese Embassy in Kathmandu. Initial placement as research student, then formal PhD enrollment."
     },
     {
@@ -980,32 +980,36 @@
   ],
   "watchlist_asia_pacific": [
     {
-      "institution": "Chinese Government Scholarship (CSC) — PhD at CEIBS / Tsinghua / Fudan",
-      "note": "Added to scan scope 2026-09-17. CSC covers full tuition + CNY 3,000–3,500/month stipend + accommodation. Nepal is eligible. Typical deadline March–April each year. 2027 cycle not yet announced. Only pursue if a relevant English-language management programme confirmed. Contact: Chinese Embassy Kathmandu.",
+      "institution": "China Scholarship Council (CSC) — PhD at CEIBS / Tsinghua SEM / Fudan",
+      "note": "VERIFIED 19 Sept 2026 on the CSC's own site: PhD included, stipend CNY 3,500/month + free tuition + free accommodation (confirmed at the top of the previously-estimated 3,000-3,500 range). Application window runs December-April, exact deadline set per host university/track. Nepal's specific eligibility for the China-Kathmandu embassy nomination route was not independently re-confirmed this pass (long-standing bilateral programme, very likely open to Nepal, but that specific pairing was not re-checked today).",
       "url": "https://www.campuschina.org/content/details3_74776.html",
       "region": "China",
-      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
+      "verified_date": "2026-09-19",
+      "verification_note": "Stipend and PhD-inclusion verified against the CSC's own site 19 Sept 2026. Nepal-specific eligibility and exact per-university deadlines not independently re-confirmed this pass."
     },
     {
       "institution": "Global Korea Scholarship (GKS / KGSP) — PhD in South Korea",
-      "note": "Added to scan scope 2026-09-17. Full tuition + KRW 1,000,000/month stipend (~EUR 700). Nepal is eligible. Embassy-recommended track: deadline typically March. University-recommended track opens separately. Check SKKU, Korea University, KAIST business schools for management research alignment. Korean institutional theory (Chang/Lee on Chaebol dynamics) has comparative relevance.",
-      "url": "https://www.studyinkorea.go.kr/en/sub/gks/allnew_invite.do",
+      "note": "VERIFIED, AND CORRECTED, 19 Sept 2026: the Embassy of Korea in Nepal's own 2026 notice gives the embassy-track deadline as 12-25 February (14:45 NST close) — not '~Sept prior year' as previously logged. PhD applicants are explicitly welcome ('1 year Korean language + 3 years Doctoral study'). Monthly stipend (previously estimated KRW 1,000,000/month, ~EUR 700) was NOT confirmed or contradicted this pass — studyinkorea.go.kr's benefits page returned a 404 — treat stipend as still unverified.",
+      "url": "https://np.mofa.go.kr/np-en/brd/m_25533/view.do?seq=164",
       "region": "South Korea",
-      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
+      "verified_date": "2026-09-19",
+      "verification_note": "Deadline verified and corrected directly against the Embassy of Korea in Nepal's official notice, 19 Sept 2026. Stipend still unverified."
     },
     {
-      "institution": "New Zealand Excellence Awards — University of Auckland / Victoria Wellington",
-      "note": "Added to scan scope 2026-09-17. NZ Excellence Awards cover tuition + NZD 25,000/year living allowance. Nepal is eligible. Check 2027 cycle deadline (typically opens mid-year for following intake). NZ universities have Pacific-Asia management research streams. RTP-equivalent stipend: NZD 28,000–32,000/year for funded PhDs. Auckland Business School and Victoria Wellington School of Management are primary targets.",
-      "url": "https://www.universitiesnz.ac.nz/scholarships/new-zealand-excellence-awards",
+      "institution": "New Zealand doctoral scholarships — University of Auckland / Victoria University of Wellington",
+      "note": "VERIFIED, PhD-only, 19 Sept 2026 — the earlier Master's-only concern does not apply to these two. University of Auckland Doctoral Scholarship: NZD 35,468/year, automatic consideration on doctoral admission, 4 rounds/year (1 Nov, 1 Feb, 1 May, 1 Aug). Wellington Doctoral Scholarship: NZD 32,000/year + tuition, open to international students, 3 rounds/year (1 Mar, 1 Jul, 1 Nov). CORRECTION: the 'NZD 25,000/year' figure logged 17 Sept 2026 was too low; replaced with these verified, higher figures, which match the NZD 35,468/year already on record in the project's funding-floor doc from the 1 Sept 2026 pull. Both fall short of Bij's Auckland/Wellington funding floor (~EUR 2,450-2,500/month) once converted to EUR.",
+      "url": "https://www.auckland.ac.nz/en/study/scholarships-and-awards/scholarship-types/postgraduate-scholarships/doctoral-scholarships.html",
       "region": "New Zealand",
-      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
+      "verified_date": "2026-09-19",
+      "verification_note": "Stipend and eligibility verified directly against University of Auckland and Victoria University of Wellington's own pages, 19 Sept 2026."
     },
     {
-      "institution": "Australian RTP (Research Training Program) — Melbourne / Monash / UNSW / ANU / Sydney",
-      "note": "Added to scan scope 2026-09-17. RTP funded PhDs: tuition waiver + AUD 32,192–34,000/year stipend. Applications are per-university, not centralised. Priority targets: ANU (strong developing economies research), Monash (international HRM), University of Melbourne (management & marketing). Some universities top up RTP for international students. Applications typically open throughout the year with rolling or semester deadlines.",
+      "institution": "Australian Research Training Program (RTP) — Melbourne / Monash / UNSW / ANU / Sydney",
+      "note": "VERIFIED, AND CORRECTED, 19 Sept 2026: University of Melbourne's own 2026 RTP page states the current full-time stipend as AUD 39,500/year — higher than the 'AUD 32,192-34,000/year' logged 17 Sept 2026. International students are eligible, subject to a 10% overseas-student cap on each university's RTP allocation. Deadlines are set per university/programme, not centrally. Still falls short of Bij's Melbourne funding floor (~EUR 2,387/month) once converted to EUR, though by less than previously estimated (~EUR 357/month short, not ~EUR 560).",
       "url": "https://www.education.gov.au/research-training-program",
       "region": "Australia",
-      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
+      "verified_date": "2026-09-19",
+      "verification_note": "Melbourne's current RTP stipend verified directly against the university's own scholarship page, 19 Sept 2026. Other universities' rates not individually re-checked."
     }
   ]
 }
