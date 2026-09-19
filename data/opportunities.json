@@ -240,7 +240,8 @@
       "notes": "DECLINED 12 Sept 2026 — fit-drift decline. Research has moved to HRM/common good, circular economy, SDGs; proposal's core claim now too well-established for her. Three contacts (Jul, Aug 10, Sept 8). Recommended CRANET network for comparative HRM contacts. Closed, no follow-up appropriate.",
       "specialization": "Sustainable HRM, HRM and common good, CSR, employee wellbeing as organisational outcome",
       "status": "declined",
-      "university": "UCLouvain (Louvain School of Management / LouRiM)"
+      "university": "UCLouvain (Louvain School of Management / LouRiM)",
+      "url": "https://uclouvain.be"
     },
     {
       "id": "bevort-franz",
@@ -253,7 +254,8 @@
       "notes": "DECLINED 1 Sept 2026 — same day as follow-up. Said he is not hiring and redirected directly to cbs.dk job board. CBS runs position-based model, not supervisor-first. IOA PhD scholarships run on annual cycle — check cbs.dk Feb–Apr 2027 for repeat posting. Contact: Ursula Plesner (up.ioa@cbs.dk). No further cold-email follow-up needed.",
       "specialization": "Identity, professions, institutional logics",
       "status": "declined",
-      "university": "Copenhagen Business School"
+      "university": "Copenhagen Business School",
+      "url": "https://www.cbs.dk"
     },
     {
       "id": "blagoev-blagoy",
@@ -266,7 +268,8 @@
       "notes": "DECLINED 3 Sept 2026 — leaving HSG (not a capacity issue). Referral-ask follow-up sent 8 Sept 2026. Strongest managerial-control/bureaucracy fit found in the entire search. Antoinette Weibel (same institution, Director of Blagoev's institute) flagged as potential alternate — not yet actioned.",
       "specialization": "Bureaucracy and control configurations, formalisation as actively constructed, resistance-led participation in innovation control",
       "status": "declined",
-      "university": "University of St. Gallen (HSG)"
+      "university": "University of St. Gallen (HSG)",
+      "url": "https://www.unisg.ch"
     },
     {
       "id": "boselie-paul",
@@ -279,7 +282,8 @@
       "notes": "Original cold email 26 Jun 2026. Follow-up sent 1 Sept 2026 with completed proposal. Confirmed currently supervising PhD on outsourcing/organisational effectiveness in Indonesian judiciary — strong capacity signal for non-Western institutional research. Awaiting reply to follow-up.",
       "specialization": "Strategic HRM, institutionalism, HRM in public-sector and non-Western contexts, HR models and institutional transfer",
       "status": "sent",
-      "university": "Utrecht University"
+      "university": "Utrecht University",
+      "url": "https://www.uu.nl"
     },
     {
       "id": "freese-charissa",
@@ -292,7 +296,8 @@
       "notes": "DECLINED.",
       "specialization": "Flexible work, psychological contracts",
       "status": "declined",
-      "university": "Tilburg University"
+      "university": "Tilburg University",
+      "url": "https://www.tilburguniversity.edu"
     },
     {
       "id": "gumusay-ali",
@@ -305,7 +310,8 @@
       "notes": "Replied 8 Sept 2026: 'no openings at the moment' but sent detailed application guide — not a flat decline. Currently most promising fresh German lead. Pathways: open slot (none now), funded RA on project, LMU-external scholarship, or scholarship-funded. Next: write exposé, then email asking if funded RA position exists. Under Germany-specific floor (€1,700/month), 65% TV-L E13 (~€2,100-2,250 net) clears comfortably.",
       "specialization": "Hybrid organisations, purpose-driven organisations, institutional theory, innovation",
       "status": "feedback",
-      "university": "LMU Munich"
+      "university": "LMU Munich",
+      "url": "https://www.lmu.de"
     },
     {
       "id": "haakonsson-dorthe",
@@ -318,7 +324,8 @@
       "notes": "CBS alternate after Bévort's decline. Associate Professor. Email sent 8 Sept 2026. Out-of-office autoresponder only so far. Strong capacity signal: reportedly supervising ~20 PhD students via Sino-Danish Center. Fit via institutional environments in developing economies — lens is evolutionary economics / industry-level, not North's triad directly.",
       "specialization": "Institutional environments in developing economies shaping firm behaviour, global value chains, innovation systems; Principal Coordinator Social Sciences at Sino-Danish Center",
       "status": "sent",
-      "university": "Copenhagen Business School"
+      "university": "Copenhagen Business School",
+      "url": "https://www.cbs.dk"
     },
     {
       "id": "hopner-martin",
@@ -331,7 +338,8 @@
       "notes": "Exposé sent. VoC expert, highly relevant comparator framework.",
       "specialization": "Varieties of Capitalism, German capitalism, institutional change",
       "status": "sent",
-      "university": "Max Planck Institute for the Study of Societies"
+      "university": "Max Planck Institute for the Study of Societies",
+      "url": "https://www.mpifg.de"
     },
     {
       "id": "jackson-gregory",
@@ -344,7 +352,8 @@
       "notes": "Moved from FU Berlin to King's College London (discovered 30 Aug 2026). Email sent 27 Jun 2026 to old FU Berlin address (LS-Jackson@wiwiss.fu-berlin.de) — likely landed in lapsing mailbox, no reply. Confirmed actively accepting PhD students at KCL. Decision pending: send fresh email to KCL address, or treat as citation-only given UK = relocation.",
       "specialization": "Comparative capitalism, corporate governance, institutional theory",
       "status": "pending",
-      "university": "King's College London"
+      "university": "King's College London",
+      "url": "https://www.kcl.ac.uk/people/gregory-jackson"
     },
     {
       "id": "kroon-brigitte",
@@ -357,7 +366,8 @@
       "notes": "Exposé sent. Relevant on SME and informal contexts.",
       "specialization": "HRM in SMEs, informal employment, employee wellbeing",
       "status": "sent",
-      "university": "Tilburg University"
+      "university": "Tilburg University",
+      "url": "https://www.tilburguniversity.edu"
     },
     {
       "id": "ladegaard-isak",
@@ -370,7 +380,8 @@
       "notes": "DECLINED 8 Sept 2026 (same day) — 'maxed out my student quota for a few years ahead.' Warm reply. Referral-ask drafted, not yet confirmed sent. Next HKU target: Duoduo Xu (Associate Professor, sociology of work and precarity — #8 on ranked list). HKU requires supervisor contact before applying — Xu is the live follow-up.",
       "specialization": "Economic sociology, governance across organisations and markets when formal oversight is weak, informal norms",
       "status": "declined",
-      "university": "University of Hong Kong (HKU)"
+      "university": "University of Hong Kong (HKU)",
+      "url": "https://www.hku.hk"
     },
     {
       "id": "lin-yimin",
@@ -383,7 +394,8 @@
       "notes": "Email sent 8 Sept 2026 (exact wording not captured). Best institutional-economics/organisational match across entire HK sociology search — monograph on firm-level institutional change in China. Full Professor, Associate Dean. Note: HKUST does NOT follow supervisor-first model — apply to programme regardless of Lin's reply. HKPFS deadline via HKUST: 1 Dec 2026 11:59pm. Regular deadline: 3 Jan 2027. HKUST bar high: prefers quantitative background (harder fit for qualitative proposal).",
       "specialization": "Political economy, organisations and institutions, governance structures and firm-level institutional change in post-Mao China",
       "status": "sent",
-      "university": "Hong Kong University of Science and Technology (HKUST)"
+      "university": "Hong Kong University of Science and Technology (HKUST)",
+      "url": "https://www.hkust.edu.hk"
     },
     {
       "id": "meyer-renate",
@@ -396,7 +408,8 @@
       "notes": "DECLINED.",
       "specialization": "Institutional theory, organisational fields, Neo-institutionalism",
       "status": "declined",
-      "university": "WU Vienna"
+      "university": "WU Vienna",
+      "url": "https://www.wu.ac.at"
     },
     {
       "id": "nicklich-manuel",
@@ -409,7 +422,8 @@
       "notes": "Email sent 1 Sept 2026. Best Berlin / no-relocation lead. Took over Gregory Jackson's chair at FU Berlin. Work on repurposing institutions in peripheral service industries speaks directly to proposal's service-sector setting. Awaiting reply.",
       "specialization": "Comparative institutional method, institutional change in peripheral service sectors, relational distance and skill formation across Germany and Japan",
       "status": "sent",
-      "university": "Freie Universität Berlin"
+      "university": "Freie Universität Berlin",
+      "url": "https://www.fu-berlin.de"
     },
     {
       "id": "polzer-thorsten",
@@ -422,7 +436,8 @@
       "notes": "WU Vienna alternate after Renate Meyer's decline. Sent 8 Sept 2026. DECLINED 12 Sept 2026 — capacity, no redirect offered. WU Vienna now exhausted (both Meyer and Polzer declined). Open decision: research a fresh WU Vienna name or treat institution as closed.",
       "specialization": "Institutional logics, public sector, managerial accountability",
       "status": "declined",
-      "university": "WU Vienna"
+      "university": "WU Vienna",
+      "url": "https://www.wu.ac.at"
     },
     {
       "id": "schramm-dominik",
@@ -435,7 +450,8 @@
       "notes": "Email sent 1 Sept 2026. Cross-national work on formal entitlement vs. workplace practice gap directly parallels proposal's question for Nepal. Awaiting reply.",
       "specialization": "Labour law implementation, dismissal protection, platform/crowdwork employment, cross-national career resilience (28 countries)",
       "status": "sent",
-      "university": "University of Hamburg"
+      "university": "University of Hamburg",
+      "url": "https://www.uni-hamburg.de"
     },
     {
       "id": "tengblad-stefan",
@@ -448,7 +464,8 @@
       "notes": "REPLY RECEIVED 15 SEPT 2026 — positive and substantive. Praised the proposal and its method. Flagged informant access and financing as the two critical practical risks. Offered a letter of recommendation 'when you apply.' Cannot commit to supervision right now. Keep watching gu.se for Feb–Mar 2027 doctoral position. Next: draft brief thank-you taking up the LoR offer. Also: document informant-access plan before a supervisor asks it less warmly.",
       "specialization": "Managerial work, employee-driven innovation, Nordic management, practice-based organisation studies",
       "status": "feedback",
-      "university": "University of Gothenburg"
+      "university": "University of Gothenburg",
+      "url": "https://www.gu.se"
     },
     {
       "id": "van-de-voorde-karina",
@@ -461,7 +478,8 @@
       "notes": "DECLINED.",
       "specialization": "HRM and employee wellbeing, AMO theory",
       "status": "declined",
-      "university": "Tilburg University"
+      "university": "Tilburg University",
+      "url": "https://www.tilburguniversity.edu"
     },
     {
       "id": "vaszkun-balazs",
@@ -474,7 +492,8 @@
       "notes": "CLOSED by Bij's decision — funding fails. Stipendium Hungaricum PhD: ~€450-560/month all-in vs Budapest floor ~€1,350/month (shortfall ~€800-1,200/month). Strong theoretical fit (co-authored 'Contingency Theory' chapter). He invited a full research plan but Bij declined to invest the effort given the funding gap. Worth revisiting only if financial situation changes.",
       "specialization": "Contingency theory, cross-cultural management, American vs Japanese management paradigms",
       "status": "closed",
-      "university": "Corvinus University Budapest"
+      "university": "Corvinus University Budapest",
+      "url": "https://www.uni-corvinus.hu"
     },
     {
       "id": "weibel-antoinette",
@@ -487,7 +506,8 @@
       "notes": "Pending outreach decision.",
       "specialization": "Trust in organisations, motivation, institutional contexts",
       "status": "pending",
-      "university": "University of St.Gallen"
+      "university": "University of St.Gallen",
+      "url": "https://www.unisg.ch"
     },
     {
       "id": "zhu-ling",
@@ -500,7 +520,8 @@
       "notes": "Email sent 8 Sept 2026. Associate Professor. Economic Sociology, organisations and work. Methods lean quantitative/computational vs. proposal's qualitative design — worth discussion, not a blocker. Also asked directly whether Global MBA meets CUHK's social-science background preference. Awaiting reply. CUHK requires 3 academic referees for full-time research doctoral applicants.",
       "specialization": "Economic sociology, organisations and work, institutional mechanisms of governance, inequality in political institutions",
       "status": "sent",
-      "university": "Chinese University of Hong Kong (CUHK)"
+      "university": "Chinese University of Hong Kong (CUHK)",
+      "url": "https://www.cuhk.edu.hk"
     }
   ],
   "applications": [],
