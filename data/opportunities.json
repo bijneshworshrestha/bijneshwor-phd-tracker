@@ -10,7 +10,8 @@
       "applications": 0,
       "bibliography": 30,
       "watchlist_general": 5,
-      "watchlist_asia_pacific": 4
+      "watchlist_asia_pacific": 4,
+      "verification_tasks": 5
     },
     "geographic_scope": [
       "Europe",
@@ -985,7 +986,8 @@
       "url": "https://www.campuschina.org/content/details3_74776.html",
       "region": "China",
       "verified_date": "2026-09-19",
-      "verification_note": "Stipend and PhD-inclusion verified against the CSC's own site 19 Sept 2026. Nepal-specific eligibility and exact per-university deadlines not independently re-confirmed this pass."
+      "verification_note": "Stipend and PhD-inclusion verified against the CSC's own site 19 Sept 2026. Nepal-specific eligibility and exact per-university deadlines not independently re-confirmed this pass.",
+      "status": "partially-verified"
     },
     {
       "institution": "Global Korea Scholarship (GKS / KGSP) — PhD in South Korea",
@@ -993,7 +995,8 @@
       "url": "https://np.mofa.go.kr/np-en/brd/m_25533/view.do?seq=164",
       "region": "South Korea",
       "verified_date": "2026-09-19",
-      "verification_note": "Deadline verified and corrected directly against the Embassy of Korea in Nepal's official notice, 19 Sept 2026. Stipend still unverified."
+      "verification_note": "Deadline verified and corrected directly against the Embassy of Korea in Nepal's official notice, 19 Sept 2026. Stipend still unverified.",
+      "status": "partially-verified"
     },
     {
       "institution": "New Zealand doctoral scholarships — University of Auckland / Victoria University of Wellington",
@@ -1001,7 +1004,8 @@
       "url": "https://www.auckland.ac.nz/en/study/scholarships-and-awards/scholarship-types/postgraduate-scholarships/doctoral-scholarships.html",
       "region": "New Zealand",
       "verified_date": "2026-09-19",
-      "verification_note": "Stipend and eligibility verified directly against University of Auckland and Victoria University of Wellington's own pages, 19 Sept 2026."
+      "verification_note": "Stipend and eligibility verified directly against University of Auckland and Victoria University of Wellington's own pages, 19 Sept 2026.",
+      "status": "verified"
     },
     {
       "institution": "Australian Research Training Program (RTP) — Melbourne / Monash / UNSW / ANU / Sydney",
@@ -1009,7 +1013,50 @@
       "url": "https://www.education.gov.au/research-training-program",
       "region": "Australia",
       "verified_date": "2026-09-19",
-      "verification_note": "Melbourne's current RTP stipend verified directly against the university's own scholarship page, 19 Sept 2026. Other universities' rates not individually re-checked."
+      "verification_note": "Melbourne's current RTP stipend verified directly against the university's own scholarship page, 19 Sept 2026. Other universities' rates not individually re-checked.",
+      "status": "partially-verified"
+    }
+  ],
+  "verification_tasks": [
+    {
+      "id": "gks-stipend",
+      "title": "GKS (Korea) monthly stipend amount",
+      "detail": "Deadline is now verified (12-25 Feb, embassy track), but the monthly stipend figure is still unconfirmed — the official studyinkorea.go.kr benefits page returned a 404 on 19 Sept 2026.",
+      "suggestedAction": "Check the GKS Guidelines PDF (published annually by NIIED) or contact the Embassy of Korea in Nepal directly.",
+      "status": "unverified",
+      "region": "South Korea"
+    },
+    {
+      "id": "mext-stipend",
+      "title": "MEXT (Japan) monthly stipend amount",
+      "detail": "Deadline is now verified (31 May 2026, embassy track), but the monthly stipend figure is still unconfirmed — the Embassy of Japan in Nepal's page did not state a figure.",
+      "suggestedAction": "Check the MEXT Research Student guidelines PDF or contact the Embassy of Japan in Nepal directly.",
+      "status": "unverified",
+      "region": "Japan"
+    },
+    {
+      "id": "csc-nepal-eligibility",
+      "title": "CSC (China) Nepal-specific embassy nomination eligibility",
+      "detail": "CSC's stipend and PhD-inclusion are verified (CNY 3,500/month + free tuition/housing), but Nepal's specific eligibility for the China-Kathmandu embassy nomination route was not independently re-confirmed this pass.",
+      "suggestedAction": "Contact the Chinese Embassy in Kathmandu directly, or check campuschina.org's country-specific page for Nepal.",
+      "status": "unverified",
+      "region": "China"
+    },
+    {
+      "id": "rtp-other-universities",
+      "title": "Australian RTP deadlines and stipends at Monash, Sydney, UNSW, ANU",
+      "detail": "Only University of Melbourne's RTP rate (AUD 39,500/year) was directly verified. The other four universities' rates and deadlines were not individually checked and may differ.",
+      "suggestedAction": "Check each university's own RTP/scholarships page directly: Monash, Sydney, UNSW, ANU.",
+      "status": "unverified",
+      "region": "Australia"
+    },
+    {
+      "id": "asia-pacific-faculty-check",
+      "title": "Named faculty check across the 14 Asia-Pacific portals",
+      "detail": "Only one light search was run (surfaced Anne S. Tsui at Peking University/CEIBS as a lead, not further verified). The other 13 portals have not had the same one-by-one check done for the European supervisor list.",
+      "suggestedAction": "Search each institution's management/sociology faculty pages for institutional theory, comparative management, or HRM researchers currently accepting PhD students.",
+      "status": "unverified",
+      "region": "Asia-Pacific"
     }
   ]
 }

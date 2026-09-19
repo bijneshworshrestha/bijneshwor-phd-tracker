@@ -300,35 +300,71 @@ a:hover { text-decoration: underline; }
 
 /* ─── COUNTDOWN ─── */
 .countdown-card {
-  background: var(--sidebar-bg);
+  position: relative;
+  background: linear-gradient(135deg, var(--surface2) 0%, var(--sidebar-bg) 100%);
   color: #fff;
   border-radius: var(--radius);
-  padding: 20px 24px;
-  margin-bottom: 20px;
+  padding: 22px 26px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
+  border: 1px solid var(--border);
+  overflow: hidden;
 }
-.countdown-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; text-transform: uppercase; }
-.countdown-name { font-family: 'Varela Round', system-ui, sans-serif; font-size: 1.3rem; color: #fff; margin-top: 2px; }
+/* Urgency-colored ring + glow so this card visually dominates the dashboard instead of
+   blending into the near-identical dark background — the more urgent, the brighter. */
+.countdown-card.closed,
+.countdown-card.urgent {
+  border-color: var(--red);
+  box-shadow: 0 0 0 1px var(--red-border), 0 0 40px rgba(255,61,99,0.38), 0 0 90px rgba(255,61,99,0.14);
+  animation: countdown-pulse-red 2.4s ease-in-out infinite;
+}
+.countdown-card.warning {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 1px var(--amber-border), 0 0 36px rgba(255,184,0,0.30);
+}
+.countdown-card.ok {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green-border), 0 0 28px rgba(0,230,168,0.22);
+}
+@keyframes countdown-pulse-red {
+  0%, 100% { box-shadow: 0 0 0 1px var(--red-border), 0 0 40px rgba(255,61,99,0.38), 0 0 90px rgba(255,61,99,0.14); }
+  50%      { box-shadow: 0 0 0 1px var(--red-border), 0 0 56px rgba(255,61,99,0.55), 0 0 110px rgba(255,61,99,0.22); }
+}
+.countdown-urgency-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+.countdown-urgency-tag.urgent { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+.countdown-urgency-tag.warning { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.countdown-urgency-tag.ok { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+.countdown-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+.countdown-name { font-family: 'Varela Round', system-ui, sans-serif; font-size: 1.55rem; font-weight: 700; color: #fff; margin-top: 3px; }
 .countdown-tiles { display: flex; gap: 10px; }
 .cd-tile {
   text-align: center;
   background: rgba(255,255,255,0.08);
   border-radius: 8px;
-  padding: 10px 14px;
-  min-width: 60px;
+  padding: 12px 16px;
+  min-width: 66px;
 }
 .cd-num {
-  font-size: 2rem;
+  font-size: 2.3rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   line-height: 1;
   color: var(--accent);
-  text-shadow: 0 0 14px var(--accent-glow);
+  text-shadow: 0 0 16px var(--accent-glow);
 }
 .cd-unit { font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
 
@@ -1246,7 +1282,7 @@ function renderCountdown() {
   const primary = candidates[0];
   if (!primary) {
     el.innerHTML = `
-      <div class="countdown-card">
+      <div class="countdown-card ok">
         <div>
           <div class="countdown-label">Next Critical Deadline</div>
           <div class="countdown-name">🎯 No open deadlines tracked</div>
@@ -1258,12 +1294,19 @@ function renderCountdown() {
   const months = Math.floor(d / 30);
   const weeks = Math.floor((d % 30) / 7);
   const daysR = d % 7;
+  // Urgency drives the card's visual treatment (glow/pulse), not just a badge — this is the
+  // one thing on the dashboard that must be impossible to miss.
+  const cls = urgencyClass(d); // 'urgent' (<=30d), 'warning' (<=90d), or 'ok'
+  const tagText = cls === 'urgent' ? `🔴 URGENT — ${d} day${d === 1 ? '' : 's'} left`
+    : cls === 'warning' ? `🟡 Coming up — ${d} days left`
+    : `🟢 ${d} days left`;
   el.innerHTML = `
-    <div class="countdown-card">
+    <div class="countdown-card ${cls}">
       <div>
+        <div class="countdown-urgency-tag ${cls}">${tagText}</div>
         <div class="countdown-label">Next Critical Deadline</div>
         <div class="countdown-name">🎯 ${esc(primary.name)}</div>
-        <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:3px">${esc(primary.desc)} · ${fmtDate(primary.date)}</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.55);margin-top:3px">${esc(primary.desc)} · ${fmtDate(primary.date)}</div>
       </div>
       <div class="countdown-tiles">
         <div class="cd-tile"><div class="cd-num">${months}</div><div class="cd-unit">Months</div></div>
@@ -1580,7 +1623,7 @@ function renderSupervisors() {
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
         <div>
           <div class="sup-name">${esc(s.name)}</div>
-          <div class="sup-uni">${esc(s.university||'')}${s.country ? ', '+esc(s.country) : ''}</div>
+          <div class="sup-uni">${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="Open ${esc(s.university||'university')} ↗">${esc(s.university||'')}</a>` : esc(s.university||'')}${s.country ? ', '+esc(s.country) : ''}</div>
         </div>
         ${statusBadge(s.status)}
       </div>
@@ -1589,6 +1632,7 @@ function renderSupervisors() {
       <div class="sup-footer">
         <span style="font-size:0.72rem;color:var(--muted)">${s.contactDate ? 'Contacted: '+fmtDate(s.contactDate) : (s.lastActivity ? 'Updated: '+fmtDate(s.lastActivity) : '')}</span>
         <div style="display:flex;gap:4px">
+          ${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="padding:3px 8px" title="Open university site">🔗</a>` : ''}
           ${s.email ? `<a href="mailto:${esc(s.email)}" class="btn btn-ghost btn-sm" style="padding:3px 8px">✉</a>` : ''}
           <button class="btn btn-secondary btn-sm" onclick="openModal('supervisor','${esc(s.id)}')">Edit</button>
           <button class="btn btn-danger btn-sm" onclick="deleteItem('supervisors','${esc(s.id)}')">✕</button>

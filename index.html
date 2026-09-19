@@ -793,6 +793,10 @@ a:hover { text-decoration: underline; }
         <span class="nav-icon">⏰</span> Passed Deadlines
         <span class="nav-badge" id="badge-deadlines">0</span>
       </button>
+      <button class="nav-item" onclick="navigate('unverified')">
+        <span class="nav-icon">🔎</span> Unverified
+        <span class="nav-badge" id="badge-unverified">0</span>
+      </button>
     </div>
     <div class="nav-group">
       <div class="nav-label">Progress</div>
@@ -901,6 +905,19 @@ a:hover { text-decoration: underline; }
       <div id="deadlines-list" class="item-list"><div class="loading-spinner">Loading…</div></div>
     </div>
 
+    <!-- UNVERIFIED -->
+    <div class="section" id="section-unverified">
+      <div class="section-header">
+        <div class="section-title">Unverified</div>
+        <div class="section-subtitle">Asia-Pacific watchlist entries and specific facts still needing a manual check — not yet confirmed enough to score or act on</div>
+      </div>
+      <div id="unverified-watchlist" class="item-list"><div class="loading-spinner">Loading…</div></div>
+      <div style="margin-top:22px">
+        <div class="card-title" style="margin-bottom:10px">Specific items to verify</div>
+        <div id="unverified-tasks" class="item-list"><div class="loading-spinner">Loading…</div></div>
+      </div>
+    </div>
+
     <!-- SUPERVISORS -->
     <div class="section" id="section-supervisors">
       <div class="section-header">
@@ -995,6 +1012,8 @@ const state = {
   supervisors: [],
   applications: [],
   bibliography: [],
+  watchlist_asia_pacific: [],
+  verification_tasks: [],
   currentSection: 'dashboard',
   modalType: null,
   modalEditId: null,
@@ -1026,6 +1045,8 @@ const subs = [];
     state.supervisors = snap.supervisors || [];
     state.applications = snap.applications || [];
     state.bibliography = snap.bibliography || [];
+    state.watchlist_asia_pacific = snap.watchlist_asia_pacific || [];
+    state.verification_tasks = snap.verification_tasks || [];
     ['positions','scholarships','supervisors','applications','bibliography'].forEach(col => updateBadge(col, state[col].length));
     const asof = snap._meta?.snapshot_generated;
     setSyncStatus('offline', asof ? ('Static snapshot · ' + asof) : 'Static snapshot');
@@ -1045,11 +1066,12 @@ function setSyncStatus(status, label) {
 }
 
 function setupSubscriptions() {
-  const cols = ['positions','scholarships','supervisors','applications','bibliography'];
+  const cols = ['positions','scholarships','supervisors','applications','bibliography','watchlist_asia_pacific','verification_tasks'];
   cols.forEach(col => {
     const unsub = db.collection(col).onSnapshot(snap => {
       state[col] = snap.docs.filter(d => d.exists).map(d => ({ id: d.id, ...d.data() }));
       updateBadge(col, state[col].length);
+      if (col === 'watchlist_asia_pacific' || col === 'verification_tasks') updateUnverifiedBadge();
       renderCurrent();
     }, err => {
       console.warn('Snapshot error', col, err);
@@ -1069,6 +1091,7 @@ function renderCurrent() {
   else if (s === 'positions') renderPositions();
   else if (s === 'scholarships') renderScholarships();
   else if (s === 'deadlines') renderDeadlinesPassed();
+  else if (s === 'unverified') renderUnverified();
   else if (s === 'supervisors') renderSupervisors();
   else if (s === 'applications') renderApplications();
   else if (s === 'bibliography') renderBibliography();
@@ -1079,6 +1102,7 @@ function renderAll() {
   renderPositions();
   renderScholarships();
   renderDeadlinesPassed();
+  renderUnverified();
   renderSupervisors();
   renderApplications();
   renderBibliography();
@@ -1095,7 +1119,7 @@ function navigate(section) {
   });
   const titles = {
     dashboard: 'Dashboard', positions: 'Open Positions', scholarships: 'Scholarships',
-    deadlines: 'Passed Deadlines',
+    deadlines: 'Passed Deadlines', unverified: 'Unverified',
     supervisors: 'Supervisors', applications: 'Applications', bibliography: 'Bibliography'
   };
   document.getElementById('topbar-title').textContent = titles[section] || section;
@@ -1353,6 +1377,66 @@ function renderDeadlinesPassed() {
         ${item.url ? `<div style="margin-top:5px;font-size:0.7rem;color:var(--muted);word-break:break-all;user-select:all;cursor:text">${esc(item.url)}</div>` : ''}
       </div>
     </div>`).join('');
+}
+
+// ─── UNVERIFIED ───
+function updateUnverifiedBadge() {
+  const watchlistOpen = state.watchlist_asia_pacific.filter(w => w.status !== 'verified').length;
+  const tasksOpen = state.verification_tasks.filter(t => t.status !== 'verified').length;
+  updateBadge('unverified', watchlistOpen + tasksOpen);
+}
+
+function verifiedStatusBadge(status) {
+  const map = {
+    'verified': ['badge-green', 'Verified'],
+    'partially-verified': ['badge-amber', 'Partially verified'],
+    'unverified': ['badge-red', 'Unverified'],
+  };
+  const [cls, label] = map[status] || ['badge-muted', status || 'Unverified'];
+  return `<span class="badge ${cls}">${label}</span>`;
+}
+
+function renderUnverified() {
+  updateUnverifiedBadge();
+
+  const watchlistEl = document.getElementById('unverified-watchlist');
+  if (watchlistEl) {
+    const items = [...state.watchlist_asia_pacific].sort((a, b) => (a.status === 'verified' ? 1 : 0) - (b.status === 'verified' ? 1 : 0));
+    if (!items.length) {
+      watchlistEl.innerHTML = '<div class="empty-state"><div class="empty-icon">🔎</div><p>No watchlist entries logged yet.</p></div>';
+    } else {
+      watchlistEl.innerHTML = items.map(w => `
+        <div class="item-card ${w.status === 'verified' ? '' : 'warning'}">
+          <div class="item-main">
+            <div class="item-title">${esc(w.institution || 'Untitled')}</div>
+            <div class="item-sub">${esc(w.region || '')}${w.verified_date ? ' · last checked ' + fmtDate(w.verified_date) : ''}</div>
+            <div class="item-meta">${verifiedStatusBadge(w.status)}</div>
+            ${w.note ? `<div class="notes-box">${esc(w.note)}</div>` : ''}
+            ${w.verification_note ? `<div class="notes-box" style="margin-top:4px;border-left:3px solid var(--accent)">${esc(w.verification_note)}</div>` : ''}
+            ${w.url ? `<div style="margin-top:5px;font-size:0.7rem;color:var(--muted);word-break:break-all;user-select:all;cursor:text">${esc(w.url)}</div>` : ''}
+          </div>
+        </div>`).join('');
+    }
+  }
+
+  const tasksEl = document.getElementById('unverified-tasks');
+  if (tasksEl) {
+    const tasks = [...state.verification_tasks].sort((a, b) => (a.status === 'verified' ? 1 : 0) - (b.status === 'verified' ? 1 : 0));
+    if (!tasks.length) {
+      tasksEl.innerHTML = '<div class="empty-state"><div class="empty-icon">✅</div><p>No open verification tasks.</p></div>';
+    } else {
+      tasksEl.innerHTML = tasks.map(t => `
+        <div class="item-card ${t.status === 'verified' ? '' : 'warning'}">
+          <div class="item-main">
+            <div class="item-title">${esc(t.title || 'Untitled task')}</div>
+            <div class="item-sub">${esc(t.region || '')}</div>
+            <div class="item-meta">${verifiedStatusBadge(t.status)}</div>
+            ${t.detail ? `<div class="notes-box">${esc(t.detail)}</div>` : ''}
+            ${t.suggestedAction ? `<div class="notes-box" style="margin-top:4px;border-left:3px solid var(--accent)">Suggested: ${esc(t.suggestedAction)}</div>` : ''}
+          </div>
+        </div>`).join('');
+    }
+  }
 }
 
 function renderDashSupervisors() {
