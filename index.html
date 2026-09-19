@@ -789,6 +789,10 @@ a:hover { text-decoration: underline; }
         <span class="nav-icon">🎓</span> Scholarships
         <span class="nav-badge" id="badge-scholarships">0</span>
       </button>
+      <button class="nav-item" onclick="navigate('deadlines')">
+        <span class="nav-icon">⏰</span> Passed Deadlines
+        <span class="nav-badge" id="badge-deadlines">0</span>
+      </button>
     </div>
     <div class="nav-group">
       <div class="nav-label">Progress</div>
@@ -886,6 +890,15 @@ a:hover { text-decoration: underline; }
         <button class="btn btn-primary btn-sm" onclick="openModal('scholarship')">＋ Add Scholarship</button>
       </div>
       <div id="scholarships-list" class="item-list"><div class="loading-spinner">Loading…</div></div>
+    </div>
+
+    <!-- PASSED DEADLINES -->
+    <div class="section" id="section-deadlines">
+      <div class="section-header">
+        <div class="section-title">Passed Deadlines</div>
+        <div class="section-subtitle">Positions and scholarships whose deadline has already gone by — most recently passed first</div>
+      </div>
+      <div id="deadlines-list" class="item-list"><div class="loading-spinner">Loading…</div></div>
     </div>
 
     <!-- SUPERVISORS -->
@@ -1055,6 +1068,7 @@ function renderCurrent() {
   if (s === 'dashboard') renderDashboard();
   else if (s === 'positions') renderPositions();
   else if (s === 'scholarships') renderScholarships();
+  else if (s === 'deadlines') renderDeadlinesPassed();
   else if (s === 'supervisors') renderSupervisors();
   else if (s === 'applications') renderApplications();
   else if (s === 'bibliography') renderBibliography();
@@ -1064,6 +1078,7 @@ function renderAll() {
   renderDashboard();
   renderPositions();
   renderScholarships();
+  renderDeadlinesPassed();
   renderSupervisors();
   renderApplications();
   renderBibliography();
@@ -1080,6 +1095,7 @@ function navigate(section) {
   });
   const titles = {
     dashboard: 'Dashboard', positions: 'Open Positions', scholarships: 'Scholarships',
+    deadlines: 'Passed Deadlines',
     supervisors: 'Supervisors', applications: 'Applications', bibliography: 'Bibliography'
   };
   document.getElementById('topbar-title').textContent = titles[section] || section;
@@ -1194,10 +1210,27 @@ function renderDashboard() {
 
 function renderCountdown() {
   const el = document.getElementById('dashboard-countdown');
-  // Primary: HKPFS Dec 1 2026, then next scholarship deadline
-  const primary = { name: 'HKPFS Deadline', date: '2026-12-01', desc: 'Hong Kong PhD Fellowship Scheme — most urgent' };
-  const days = daysUntil(primary.date);
-  const d = days !== null ? Math.max(0, days) : 0;
+  // Primary: the single nearest still-open deadline across positions + scholarships —
+  // computed live from state, not hardcoded, so this always matches actual priority order.
+  const candidates = [
+    ...state.scholarships.filter(s => s.deadline && s.status === 'open').map(s => ({ name: s.name, date: s.deadline, desc: s.provider || 'Scholarship' })),
+    ...state.positions.filter(p => p.deadline && p.status === 'open').map(p => ({ name: p.title, date: p.deadline, desc: p.institution || 'Position' })),
+  ].map(item => ({ ...item, days: daysUntil(item.date) }))
+   .filter(item => item.days !== null && item.days >= 0)
+   .sort((a, b) => a.days - b.days);
+
+  const primary = candidates[0];
+  if (!primary) {
+    el.innerHTML = `
+      <div class="countdown-card">
+        <div>
+          <div class="countdown-label">Next Critical Deadline</div>
+          <div class="countdown-name">🎯 No open deadlines tracked</div>
+        </div>
+      </div>`;
+    return;
+  }
+  const d = Math.max(0, primary.days);
   const months = Math.floor(d / 30);
   const weeks = Math.floor((d % 30) / 7);
   const daysR = d % 7;
@@ -1270,13 +1303,17 @@ function renderDashDeadlines() {
   const items = [
     ...state.scholarships.filter(s => s.deadline).map(s => ({ name: s.name, date: s.deadline, type: 'Scholarship', status: s.status })),
     ...state.positions.filter(p => p.deadline).map(p => ({ name: p.title, date: p.deadline, type: 'Position', status: p.status })),
-  ].sort((a,b) => new Date(a.date) - new Date(b.date)).slice(0, 8);
+  ].map(item => ({ ...item, days: daysUntil(item.date) }))
+   // Upcoming widget shows only what's still actionable — passed deadlines have their own
+   // "Passed Deadlines" view in the left nav instead of being mixed in here.
+   .filter(item => item.days !== null && item.days >= 0)
+   .sort((a, b) => a.days - b.days)
+   .slice(0, 8);
 
-  if (!items.length) { el.innerHTML = '<div class="empty-state"><div class="empty-icon">📅</div><p>No deadlines tracked yet</p></div>'; return; }
+  if (!items.length) { el.innerHTML = '<div class="empty-state"><div class="empty-icon">📅</div><p>No upcoming deadlines. Check <a href="#" onclick="navigate(\'deadlines\');return false;">Passed Deadlines</a>.</p></div>'; return; }
   el.innerHTML = '<div class="item-list">' + items.map(item => {
-    const days = daysUntil(item.date);
-    const cls = urgencyClass(days);
-    const badge = days !== null ? (days < 0 ? 'Passed' : days === 0 ? 'Today!' : days + 'd') : '?';
+    const cls = urgencyClass(item.days);
+    const badge = item.days === 0 ? 'Today!' : item.days + 'd';
     return `<div class="item-card ${cls}">
       <div class="item-main">
         <div class="item-title">${esc(item.name)}</div>
@@ -1285,6 +1322,37 @@ function renderDashDeadlines() {
       <div class="deadline-days ${cls}">${badge}</div>
     </div>`;
   }).join('') + '</div>';
+}
+
+// ─── PASSED DEADLINES ───
+function renderDeadlinesPassed() {
+  const el = document.getElementById('deadlines-list');
+  if (!el) return;
+  const items = [
+    ...state.scholarships.filter(s => s.deadline).map(s => ({ name: s.name, date: s.deadline, type: 'Scholarship', status: s.status, url: s.url })),
+    ...state.positions.filter(p => p.deadline).map(p => ({ name: p.title, date: p.deadline, type: 'Position', status: p.status, url: p.url })),
+  ].map(item => ({ ...item, days: daysUntil(item.date) }))
+   .filter(item => item.days !== null && item.days < 0)
+   .sort((a, b) => b.days - a.days); // most recently passed first
+
+  updateBadge('deadlines', items.length);
+
+  if (!items.length) {
+    el.innerHTML = '<div class="empty-state"><div class="empty-icon">✅</div><p>Nothing passed without a decision recorded.</p></div>';
+    return;
+  }
+  el.innerHTML = items.map(item => `
+    <div class="item-card closed">
+      <div class="item-main">
+        <div class="item-title">${esc(item.name)}</div>
+        <div class="item-sub">${esc(item.type)} · Deadline was ${fmtDate(item.date)}</div>
+        <div class="item-meta">
+          ${item.status ? statusBadge(item.status) : ''}
+          <span class="badge badge-muted">${Math.abs(item.days)}d ago</span>
+        </div>
+        ${item.url ? `<div style="margin-top:5px;font-size:0.7rem;color:var(--muted);word-break:break-all;user-select:all;cursor:text">${esc(item.url)}</div>` : ''}
+      </div>
+    </div>`).join('');
 }
 
 function renderDashSupervisors() {
