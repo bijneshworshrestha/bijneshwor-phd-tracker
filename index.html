@@ -302,7 +302,7 @@ a:hover { text-decoration: underline; }
 .countdown-card {
   position: relative;
   background: linear-gradient(135deg, var(--surface2) 0%, var(--sidebar-bg) 100%);
-  color: #fff;
+  color: var(--text);
   border-radius: var(--radius);
   padding: 22px 26px;
   margin-bottom: 22px;
@@ -347,12 +347,14 @@ a:hover { text-decoration: underline; }
 .countdown-urgency-tag.urgent { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
 .countdown-urgency-tag.warning { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
 .countdown-urgency-tag.ok { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
-.countdown-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
-.countdown-name { font-family: 'Varela Round', system-ui, sans-serif; font-size: 1.55rem; font-weight: 700; color: #fff; margin-top: 3px; }
+.countdown-label { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+.countdown-name { font-family: 'Varela Round', system-ui, sans-serif; font-size: 1.55rem; font-weight: 700; color: var(--text); margin-top: 3px; }
+.countdown-desc { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
 .countdown-tiles { display: flex; gap: 10px; }
 .cd-tile {
   text-align: center;
-  background: rgba(255,255,255,0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px 16px;
   min-width: 66px;
@@ -366,7 +368,7 @@ a:hover { text-decoration: underline; }
   color: var(--accent);
   text-shadow: 0 0 16px var(--accent-glow);
 }
-.cd-unit { font-size: 0.65rem; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
+.cd-unit { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
 
 /* ─── LISTS ─── */
 .list-header {
@@ -1306,7 +1308,7 @@ function renderCountdown() {
         <div class="countdown-urgency-tag ${cls}">${tagText}</div>
         <div class="countdown-label">Next Critical Deadline</div>
         <div class="countdown-name">🎯 ${esc(primary.name)}</div>
-        <div style="font-size:0.78rem;color:rgba(255,255,255,0.55);margin-top:3px">${esc(primary.desc)} · ${fmtDate(primary.date)}</div>
+        <div class="countdown-desc">${esc(primary.desc)} · ${fmtDate(primary.date)}</div>
       </div>
       <div class="countdown-tiles">
         <div class="cd-tile"><div class="cd-num">${months}</div><div class="cd-unit">Months</div></div>
