@@ -1,248 +1,230 @@
 {
   "_meta": {
-    "source": "Claude Artifact database — https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
-    "snapshot_generated": "2026-09-19",
-    "note": "Full export of the artifact database's scored collections, in the same shape the dashboard (index.html) expects. This is what index.html should read when it cannot reach window.claude.use('db') (i.e. when hosted outside claude.ai, such as on GitHub Pages).",
-    "asia_pacific_expansion": {
-      "added": "2026-09-17",
-      "status": "unverified watchlist only — not yet scored, see watchlist_asia_pacific below",
-      "countries": [
-        "China",
-        "South Korea",
-        "New Zealand",
-        "Australia"
-      ],
-      "new_portals": 12,
-      "portals": {
-        "China": [
-          "Tsinghua University",
-          "Peking University",
-          "Fudan University"
-        ],
-        "South Korea": [
-          "Seoul National University",
-          "KAIST",
-          "Yonsei University"
-        ],
-        "New Zealand": [
-          "University of Auckland",
-          "Victoria University of Wellington",
-          "University of Otago"
-        ],
-        "Australia": [
-          "Australian National University",
-          "University of Melbourne",
-          "University of Sydney"
-        ]
-      }
-    }
+    "snapshot_generated": "2026-09-17",
+    "source": "Claude Artifact database export, merged with Asia-Pacific scanner expansion",
+    "artifact_url": "https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
+    "counts": {
+      "positions": 5,
+      "scholarships": 10,
+      "supervisors": 21,
+      "applications": 0,
+      "bibliography": 30,
+      "watchlist_general": 5,
+      "watchlist_asia_pacific": 4
+    },
+    "geographic_scope": [
+      "Europe",
+      "China",
+      "South Korea",
+      "New Zealand",
+      "Australia",
+      "Hong Kong",
+      "Japan"
+    ],
+    "scope_expanded_date": "2026-09-17",
+    "note": "positions/scholarships verified against live artifact DB (IDs match). watchlist_asia_pacific entries are unverified — see uncertainty_note on each."
   },
   "positions": [
     {
       "id": "insead-phd-ob-2027",
-      "addedAt": "2026-09-15",
-      "applyUrl": "https://inse.ad/phd-apply-2027",
+      "title": "PhD in Management — Organisational Behaviour Field",
+      "institution": "INSEAD",
       "country": "France / Singapore (dual campus)",
       "deadline": "2027-01-04",
-      "institution": "INSEAD",
+      "relevance": 55,
+      "status": "open",
+      "url": "https://www.insead.edu/phd",
+      "source": "auto",
+      "addedAt": "2026-09-15",
       "lastChecked": "2026-09-17",
-      "notes": "Fully funded 5-year scholarship (tuition waiver + annual living stipend + research/conference funding + international health insurance). Dual campus: Fontainebleau (France) and Singapore. Organisational Behaviour field directly relevant to managerial control, HRM, and work organisation research. INSEAD is among the world's top-ranked business schools. Applications open September 2026 for mid-August 2027 intake. DEADLINE CORRECTED: January 4, 2027 (open-one-way interview by Jan 6, 2027). Interview rounds: Jan–Mar 2027. GMAT/GRE mandatory (< 5 years old). Any bachelor's degree accepted; master's advantageous but not required. International students strongly encouraged. Score: 55.",
-      "relevance": 55,
-      "source": "auto",
-      "status": "open",
-      "title": "PhD in Management — Organisational Behaviour Field",
-      "url": "https://www.insead.edu/phd"
-    },
-    {
-      "id": "kcl-gregory-jackson-2027",
-      "addedAt": "2026-09-17",
-      "country": "UK",
-      "deadline": "TBC — contact KBS-PhD@kcl.ac.uk; typical Jan/Feb intake",
-      "fundingNote": "No funded position — requires external scholarship; HKPFS or Swiss Excellence would cover it",
-      "institution": "King's College London — King's Business School",
-      "notes": "CONFIRMED 17 Sept 2026: Profile page states Gregory Jackson is CURRENTLY ACCEPTING NEW PhD STUDENTS. Jackson's research: comparative corporate governance, employment relations, corporate social responsibility, comparative institutional analysis — extremely strong alignment with Bij's institutional theory + HRM + comparative management framework. Jackson uses institutional theory (VoC, comparative capitalism) and qualitative methods. International tuition: £27,300/year — requires external scholarship (e.g., HKPFS, Swiss Excellence, Gates Cambridge). Contact: KBS-PhD@kcl.ac.uk. Sociology of work and employment relations maps directly to managerial control and work process clarity. Score: 55.",
-      "relevance": 55,
-      "source": "auto",
-      "status": "open",
-      "supervisorStatus": "actively accepting",
-      "title": "MPhil/PhD in Management (Supervisor: Gregory Jackson — currently accepting students)",
-      "url": "https://www.kcl.ac.uk/study/postgraduate-research/areas/management-research-mphil-phd"
+      "notes": "Fully funded 5-year scholarship (tuition waiver + annual living stipend + research/conference funding + international health insurance). Dual campus: Fontainebleau (France) and Singapore. Organisational Behaviour field directly relevant to managerial control, HRM, and work organisation research. INSEAD is among the world's top-ranked business schools. Applications open September 2026 for mid-August 2027 intake. DEADLINE CORRECTED 17 Sept 2026: January 4, 2027 (open-one-way interview by Jan 6, 2027). Interview rounds: Jan–Mar 2027. GMAT/GRE mandatory (< 5 years old). Any bachelor's degree accepted; master's advantageous but not required. International students strongly encouraged."
     },
     {
       "id": "mpifg-imprs-2027",
-      "addedAt": "2026-09-13",
+      "title": "Doctoral Positions — IMPRS-SPCE (Economic Sociology & Political Economy)",
+      "institution": "Max Planck Institute for the Study of Societies (MPIfG) / University of Cologne / University of Duisburg-Essen",
       "country": "Germany",
       "deadline": "2027-02-01",
-      "institution": "Max Planck Institute for the Study of Societies (MPIfG) / University of Cologne / University of Duisburg-Essen",
-      "notes": "Application window opens December 2026 (exact deadline TBC — monitor imprs.mpifg.de/99889/calls-for-applications). 3.5-year doctoral programme (42-month contract + 6-month wrap-up). Focus: economic sociology, comparative/international political economy, organizational sociology. Strong comparative institutional and VoC alignment — MPIfG is the global centre for VoC and institutional analysis (Hall & Soskice's original institutional home). Research on how social and political structures shape economic action directly bridges to Bijneshwor's institutional framework. International applicants from Germany and abroad welcome; English is required. Up to 8 students admitted per year. Score: 45.",
+      "openDate": "2026-12-01",
       "relevance": 45,
-      "source": "auto",
       "status": "open",
-      "title": "Doctoral Positions — IMPRS-SPCE (Economic Sociology & Political Economy)",
-      "url": "https://imprs.mpifg.de/"
+      "url": "https://imprs.mpifg.de/",
+      "source": "auto",
+      "addedAt": "2026-09-13",
+      "notes": "Application window opens December 2026 (exact deadline TBC — monitor imprs.mpifg.de/99889/calls-for-applications). 3.5-year doctoral programme (42-month contract + 6-month wrap-up). Focus: economic sociology, comparative/international political economy, organizational sociology. Strong comparative institutional and VoC alignment — MPIfG is the global centre for VoC and institutional analysis (Hall & Soskice's original institutional home). Research on how social and political structures shape economic action directly bridges to Bijneshwor's institutional framework. International applicants from Germany and abroad welcome; English is required. Up to 8 students admitted per year. Contact: mischa.stratenwerth@mpifg.de"
     },
     {
       "id": "nhh-accounting-pos-2026",
-      "addedAt": "2026-09-10T00:00:00Z",
+      "title": "PhD Research Scholar — Department of Accounting, Auditing and Law",
+      "institution": "NHH Norwegian School of Economics",
       "country": "Norway",
       "deadline": "2026-09-15",
-      "institution": "NHH Norwegian School of Economics",
-      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr). Department has active management control research group; prior posting (2023) was explicitly on 'relationship between management control systems and digitalization' with qualitative methods focus. Managerial control is Bijneshwor's core construct — strong alignment. Nordic institutional context. Job ID 305122. Monitor NHH for next cycle.",
       "relevance": 52,
-      "source": "auto",
       "status": "closed",
-      "title": "PhD Research Scholar — Department of Accounting, Auditing and Law",
-      "url": "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law"
+      "url": "https://www.jobbnorge.no/en/available-jobs/job/305122/phd-research-scholar-positions-department-of-accounting-auditing-and-law",
+      "source": "auto",
+      "addedAt": "2026-09-10",
+      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr). Department has active management control research group; prior posting (2023) was explicitly on 'relationship between management control systems and digitalization' with qualitative methods focus. Managerial control is Bijneshwor's core construct — strong alignment. Nordic institutional context. Job ID 305122. Monitor NHH for next cycle (expected Jan 2027)."
     },
     {
       "id": "nhh-strategy-pos-2026",
-      "addedAt": "2026-09-10T00:00:00Z",
+      "title": "PhD Research Scholar — Department of Strategy and Management",
+      "institution": "NHH Norwegian School of Economics",
       "country": "Norway",
       "deadline": "2026-09-15",
-      "institution": "NHH Norwegian School of Economics",
-      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr ~EUR 48k). Research areas included: Future of HRM (remote work, aging workforce), AI & Professional Services (algorithmic expertise, organisational design), Business Model Innovation. Nordic institutional context. Job ID 305121. Monitor NHH for next cycle.",
       "relevance": 48,
-      "source": "auto",
       "status": "closed",
-      "title": "PhD Research Scholar — Department of Strategy and Management",
-      "url": "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management"
+      "url": "https://www.jobbnorge.no/en/available-jobs/job/305121/phd-research-scholar-position-department-of-strategy-and-management",
+      "source": "auto",
+      "addedAt": "2026-09-10",
+      "notes": "DEADLINE PASSED 15 Sept 2026. Fully funded 4-year position (NOK 565,000/yr ~EUR 48k). Research areas included: Future of HRM, AI & Professional Services, Business Model Innovation. Nordic institutional context. Job ID 305121. Monitor NHH for next cycle (expected Jan 2027). NHH portal (17 Sept 2026): next main deadline is 15 January 2027."
+    },
+    {
+      "id": "kcl-gregory-jackson-2027",
+      "title": "MPhil/PhD in Management (Supervisor: Gregory Jackson — currently accepting students)",
+      "institution": "King's College London — King's Business School",
+      "country": "UK",
+      "deadline": "TBC — contact KBS-PhD@kcl.ac.uk; typical Jan/Feb intake",
+      "relevance": 55,
+      "status": "open",
+      "url": "https://www.kcl.ac.uk/study/postgraduate-research/areas/management-research-mphil-phd",
+      "supervisorUrl": "https://www.kcl.ac.uk/people/gregory-jackson",
+      "supervisorStatus": "actively accepting",
+      "fundingNote": "No funded position — requires external scholarship; HKPFS or Swiss Excellence would cover it",
+      "source": "auto",
+      "addedAt": "2026-09-17",
+      "notes": "CONFIRMED 17 Sept 2026: Profile page states Gregory Jackson is CURRENTLY ACCEPTING NEW PhD STUDENTS. Jackson's research: comparative corporate governance, employment relations, corporate social responsibility, comparative institutional analysis — extremely strong alignment with Bij's institutional theory + HRM + comparative management framework. Jackson uses institutional theory (VoC, comparative capitalism) and qualitative methods. International tuition: £27,300/year — requires external scholarship (e.g., HKPFS, Swiss Excellence, Gates Cambridge). Contact: KBS-PhD@kcl.ac.uk. Sociology of work and employment relations maps directly to managerial control and work process clarity."
     }
   ],
   "scholarships": [
     {
-      "id": "daad-epos-2027",
-      "addedAt": "2026-09-12",
-      "amount": "Monthly stipend ~EUR 1,000 + travel allowance + health insurance + tuition support",
-      "deadline": "2027 cycle TBD — typically Oct–Nov for following academic year; check DAAD scholarship database",
-      "eligibility": "Applicants from developing countries including Nepal. For postgraduate (Master’s or doctoral) studies in Germany. Development-related research focus. Degree from home country required.",
-      "name": "DAAD EPOS — Development-Related Postgraduate Courses",
-      "notes": "INELIGIBLE FOR BIJ — confirmed. DAAD's own rule caps prior German residency at 15 months before application; Bij has lived in Germany 3 years. Cannot apply. Kept for reference only in case rules change. Score: 45.",
-      "provider": "German Academic Exchange Service (DAAD)",
-      "relevance": 45,
-      "source": "auto",
-      "status": "open",
-      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777"
-    },
-    {
-      "id": "fulbright-nepal-2027",
-      "addedAt": "2026-09-12",
-      "amount": "Full funding: tuition, monthly stipend, airfare, health insurance",
-      "deadline": "2027 cycle TBD — typically spring/summer application window; check USEF Nepal",
-      "eligibility": "Nepali citizens; for doctoral study or research at U.S. universities. Management and social science fields included. Strong academic record required.",
-      "name": "Fulbright Nepal Scholar Award",
-      "notes": "Prestigious U.S. government scholarship specifically for Nepali scholars. Covers full PhD funding at American universities. Strong fit for institutional theory and HRM in developing economies research — U.S. schools with relevant faculty (Michigan, Wisconsin, Cornell ILR, Northwestern Kellogg). Score: 50. Monitor USEF Nepal (www.usefnepal.org) for 2027 cycle opening.",
-      "provider": "U.S. Department of State / Fulbright Program via USEF Nepal",
-      "relevance": 50,
-      "source": "auto",
-      "status": "open",
-      "url": "https://us.fulbrightonline.org/countries/south-and-central-asia/nepal"
-    },
-    {
-      "id": "gothenburg-doctoral-2027",
-      "addedAt": "2026-09-09T00:00:00Z",
-      "amount": "Swedish doctoral salary (employment-based, ~SEK 32,000/month)",
-      "deadline": "2027-03-15",
-      "eligibility": "Linked to Stefan Tengblad’s research group. Position advertisement expected Feb–March 2027. Active lead supervisor already engaged.",
-      "name": "Gothenburg University Doctoral Position",
-      "notes": "HIGHEST PROBABILITY ROUTE. Tengblad REPLIED 15 SEPT 2026 — positive and substantive. Offered letter of recommendation. Cannot commit to supervision right now. Keep watching gu.se for doctoral position (expected Feb–Mar 2027). Next: draft thank-you to Tengblad, take up LoR offer. Swedish doctoral salary (employment-based, ~SEK 32,000/month). Monitor department job board from Jan 2027.",
-      "openDate": "2027-01-01",
-      "provider": "University of Gothenburg — Department of Business Administration",
-      "status": "open",
-      "url": "https://www.gu.se/en/business-economics"
-    },
-    {
       "id": "hkpfs-2026",
-      "addedAt": "2026-09-09T00:00:00Z",
+      "name": "Hong Kong PhD Fellowship Scheme (HKPFS)",
+      "provider": "Research Grants Council, Hong Kong",
       "amount": "HKD 28,700/month stipend + HKD 14,400/year travel allowance",
       "deadline": "2026-12-01",
-      "eligibility": "Outstanding candidates regardless of country of origin; must apply to HKUST / HKU / CUHK / PolyU etc. simultaneously. Highly competitive (~270 awarded from thousands).",
-      "name": "Hong Kong PhD Fellowship Scheme (HKPFS)",
-      "notes": "MOST URGENT DEADLINE — 1 Dec 2026, 12:00 noon HK time (RGC reference number). HKUST-specific: full application also due 1 Dec 2026 by 11:59 pm. HKU/CUHK regular deadline also 1 Dec 2026. Regular non-HKPFS deadline: 3 Jan 2027 (HKUST). HKU converts every HKPFS holder automatically to Presidential PhD Scholarship (Year 1 cash award + tuition waiver + guaranteed hall place). Bij's floor: HKD 31,000–33,500/month — HKPFS alone fails; HKPFS + university top-up clears it. Decline studentship-only fallback (~HKD 18,000–19,000/month) outright. Sociology route confirmed (no GMAT at any HK sociology dept). Active contacts: Yi-min Lin (HKUST, sent), Zhu Ling (CUHK, sent), Ladegaard (HKU, declined). Only one HKPFS application ever permitted across all HK universities. Critical open item: line up 2nd (CUHK: 3rd) academic referee — only Prof Flavio confirmed so far.",
+      "status": "open",
       "openDate": "2026-09-01",
-      "provider": "Research Grants Council, Hong Kong",
-      "status": "open",
-      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html"
-    },
-    {
-      "id": "kozminski-2027",
-      "addedAt": "2026-09-09T00:00:00Z",
-      "amount": "Partial scholarship + tuition reduction",
-      "deadline": "2027-05-31",
-      "eligibility": "International applicants; English-language PhD programme. English proficiency required.",
-      "name": "Kozminski University PhD Scholarship",
-      "notes": "Previously flagged — Vaszkun funding issue closed but institution still viable. May 2027 deadline gives time to build stronger profile.",
-      "openDate": "2027-02-01",
-      "provider": "Kozminski University Warsaw",
-      "status": "open",
-      "url": "https://www.kozminski.edu.pl/en/phd"
-    },
-    {
-      "id": "mext-japan-2027",
-      "addedAt": "2026-09-12",
-      "amount": "Approx. JPY 145,000–152,000/month + tuition waiver + travel allowance",
-      "deadline": "2027-05-01",
-      "eligibility": "Nepali citizens; under 35 years old; bachelor’s degree held. Application through Japanese Embassy in Kathmandu. Initial placement as research student, then formal PhD enrollment.",
-      "name": "MEXT Research Student Scholarship (Japan)",
-      "notes": "Japanese government scholarship available specifically to Nepali students. Japan has a strong tradition of comparative management and work organisation research (Dore on enterprise society, comparative institutionalism in East Asian economies). Hitotsubashi, Waseda, Osaka, Kyushu have relevant management schools. Score: 40 — lower comparative/Nordic fit but Nepal-specific eligibility is a major plus. Verify 2027 cycle with Japanese Embassy Kathmandu (tel: 977-1-5543361).",
-      "provider": "Japanese Government — Ministry of Education, Culture, Sports, Science and Technology",
-      "relevance": 40,
-      "source": "auto",
-      "status": "open",
-      "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm"
-    },
-    {
-      "id": "rsm-erim-2027",
-      "addedAt": "2026-09-09T00:00:00Z",
-      "amount": "Full PhD fellowship (4 years)",
-      "deadline": "2027-01-15",
-      "eligibility": "Research Master or equivalent; proposal aligned with ERIM faculty research. Strong quantitative/mixed-methods background preferred.",
-      "name": "ERIM PhD Programme (Erasmus Research Institute of Management)",
-      "notes": "Jan 15 2027 deadline. Paul Boselie at Utrecht is linked; ERIM also has other relevant faculty. Check for HRM / organisation cluster.",
-      "openDate": "2026-11-01",
-      "provider": "Rotterdam School of Management / Erasmus University",
-      "status": "open",
-      "url": "https://www.erim.eur.nl/doctoral-programme/"
+      "url": "https://cerg1.ugc.edu.hk/hkpfs/index.html",
+      "addedAt": "2026-09-09",
+      "notes": "MOST URGENT DEADLINE — 1 Dec 2026, 12:00 noon HK time. CONFIRMED OPEN (17 Sept 2026): RGC page shows 'Open for application now! Please refer to call circular.' HKUST-specific: full application also due 1 Dec 2026 by 11:59 pm. HKU/CUHK regular deadline also 1 Dec 2026. Regular non-HKPFS deadline: 3 Jan 2027 (HKUST). HKU converts every HKPFS holder automatically to Presidential PhD Scholarship (Year 1 cash award + tuition waiver + guaranteed hall place). Bij's floor: HKD 31,000–33,500/month — HKPFS alone fails; HKPFS + university top-up clears it. Decline studentship-only fallback (~HKD 18,000–19,000/month) outright. Sociology route confirmed (no GMAT at any HK sociology dept). Active contacts: Yi-min Lin (HKUST, sent), Zhu Ling (CUHK, sent), Ladegaard (HKU, declined). Only one HKPFS application ever permitted across all HK universities. Critical open item: line up 2nd (CUHK: 3rd) academic referee — only Prof Flavio confirmed so far.",
+      "eligibility": "Outstanding candidates regardless of country of origin; must apply to HKUST / HKU / CUHK / PolyU etc. simultaneously. Highly competitive (~270 awarded from thousands)."
     },
     {
       "id": "swiss-excellence-2027",
-      "addedAt": "2026-09-12",
+      "name": "Swiss Government Excellence Scholarships",
+      "provider": "Swiss Federal Commission for Scholarships (FCS)",
       "amount": "Full tuition waiver + monthly stipend (CHF 1,920–3,500 depending on level and canton)",
       "deadline": "2026-11-10",
-      "eligibility": "Open to applicants from 183 countries including Nepal. For PhD research and postdoc at Swiss universities. Apply through Swiss Embassy in Kathmandu.",
-      "name": "Swiss Government Excellence Scholarships",
-      "notes": "URGENT — deadline Nov 10, 2026. Nepal is an eligible country. Swiss universities (St. Gallen, Zurich, Lausanne) have strong management, institutional, and comparative organization research. Aligns with Germanic/Nordic theory pillar in proposal. Score: 60.",
-      "provider": "Swiss Federal Commission for Scholarships (FCS)",
+      "status": "open",
       "relevance": 60,
-      "source": "auto",
-      "status": "open",
-      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html"
-    },
-    {
-      "id": "tilburg-phd-2027",
-      "addedAt": "2026-09-09T00:00:00Z",
-      "amount": "Full fellowship (4 years, employment-based)",
-      "deadline": "2027-06-30",
-      "eligibility": "Linked to HR Studies department. Brigitte Kroon and Charissa Freese faculty connections.",
-      "name": "Tilburg University PhD (HR Studies)",
-      "notes": "Longer horizon. Monitor for position advertisements.",
-      "openDate": "2027-01-01",
-      "provider": "Tilburg School of Social and Behavioral Sciences",
-      "status": "open",
-      "url": "https://www.tilburguniversity.edu/education/phd-programs"
+      "url": "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html",
+      "addedAt": "2026-09-12",
+      "notes": "URGENT — deadline ~Nov 10, 2026. Nepal is an eligible country. Swiss universities (St. Gallen, Zurich, Lausanne) have strong management, institutional, and comparative organization research. Aligns with Germanic/Nordic theory pillar in proposal. Applications opened 20 August 2026. Country-specific deadline for Nepal not explicitly confirmed on main SBFI page (17 Sept 2026 check) — verify with Swiss Embassy Kathmandu. Apply through Swiss Embassy in Kathmandu.",
+      "eligibility": "Open to applicants from 183 countries including Nepal. For PhD research and postdoc at Swiss universities. Apply through Swiss Embassy in Kathmandu."
     },
     {
       "id": "unu-wider-visiting-2026",
-      "addedAt": "2026-09-13",
+      "name": "UNU-WIDER Visiting PhD Fellowship (September 2026 cycle)",
+      "provider": "United Nations University — World Institute for Development Economics Research (UNU-WIDER), Helsinki, Finland",
       "amount": "EUR 2,100/month stipend + return travel grant + medical insurance (3-month residency in Helsinki)",
       "deadline": "2026-09-30",
-      "eligibility": "Currently enrolled PhD students conducting dissertation research on developing economies. Strong qualitative and/or quantitative analytical skills required. English proficiency required. Priority given to researchers from developing countries (Nepal qualifies), women researchers, and advanced-stage PhD students. Two cycles per year: March 31 and September 30 deadlines.",
-      "name": "UNU-WIDER Visiting PhD Fellowship (September 2026 cycle)",
-      "notes": "URGENT — deadline September 30, 2026 (17 days). Highly aligned: explicitly for PhD research on developing economies, with priority to researchers from developing countries (Nepal qualifies as developing country). Bijneshwor's research on Nepalese institutional environment maps directly onto the 'developing economies' mandate. Three months in Helsinki gives access to UNU-WIDER's global development research network and Nordic institutional context. Qualitative methods explicitly welcomed. Applies as a visiting scholar supplement, not a degree programme — can be combined with ongoing PhD enrolment. Score: 58.",
-      "provider": "United Nations University — World Institute for Development Economics Research (UNU-WIDER), Helsinki, Finland",
-      "relevance": 58,
-      "source": "auto",
       "status": "open",
-      "url": "https://www.wider.unu.edu/opportunity/visiting-phd-fellowship"
+      "relevance": 58,
+      "url": "https://www.wider.unu.edu/opportunity/visiting-phd-fellowship",
+      "addedAt": "2026-09-13",
+      "notes": "MOST URGENT — deadline September 30, 2026 at 23:59 UTC+3 (13 days from 17 Sept 2026). Main page returned 403 on 17 Sept scan — confirmed open via globalsouthopportunities.com (published 1 Sept 2026). Highly aligned: explicitly for PhD research on developing economies, with priority to researchers from developing countries (Nepal qualifies). Bijneshwor's research on Nepalese institutional environment maps directly onto the 'developing economies' mandate. Three months in Helsinki gives access to UNU-WIDER's global development research network and Nordic institutional context. Qualitative methods explicitly welcomed. Applies as a visiting scholar supplement, not a degree programme — can be combined with ongoing PhD enrolment. Highly competitive (~1% success rate historically). Two cycles per year: March 31 and September 30 deadlines.",
+      "eligibility": "Currently enrolled PhD students conducting dissertation research on developing economies. Strong qualitative and/or quantitative analytical skills required. English proficiency required. Priority given to researchers from developing countries (Nepal qualifies), women researchers, and advanced-stage PhD students."
+    },
+    {
+      "id": "rsm-erim-2027",
+      "name": "ERIM PhD Programme (Erasmus Research Institute of Management)",
+      "provider": "Rotterdam School of Management / Erasmus University",
+      "amount": "Full PhD fellowship (4 years)",
+      "deadline": "2027-01-15",
+      "status": "open",
+      "openDate": "2026-11-01",
+      "url": "https://www.erim.eur.nl/doctoral-programme/",
+      "addedAt": "2026-09-09",
+      "notes": "Jan 15, 2027 deadline. Current open vacancy (17 Sept 2026): 'Neurodivergent Entrepreneurs' in Strategic Management & Entrepreneurship dept, deadline 1 Oct 2026 — not relevant (score ~10). People & Organisations dept has no current vacancy but historically relevant. The specific OMT position (People & Organisations dept, supervisors: Greetje Corporaal, Jochem Kroezen et al.) closed in January 2026. General ERIM fellowship remains active — Jan 2027 cycle. Paul Boselie at Utrecht is linked; ERIM also has other relevant faculty. Check for HRM / organisation cluster."
+    },
+    {
+      "id": "gothenburg-doctoral-2027",
+      "name": "Gothenburg University Doctoral Position",
+      "provider": "University of Gothenburg — Department of Business Administration",
+      "amount": "Swedish doctoral salary (employment-based, ~SEK 32,000/month)",
+      "deadline": "2027-03-15",
+      "status": "open",
+      "openDate": "2027-01-01",
+      "url": "https://www.gu.se/en/business-economics",
+      "addedAt": "2026-09-09",
+      "notes": "HIGHEST PROBABILITY ROUTE. Tengblad REPLIED 15 SEPT 2026 — positive and substantive. Offered letter of recommendation. Cannot commit to supervision right now. Keep watching gu.se for doctoral position (expected Feb–Mar 2027). Next: draft thank-you to Tengblad, take up LoR offer. Monitor department job board from Jan 2027. 17 Sept scan: no open positions currently listed, Director of Postgraduate Studies is Jan Marton (kajsa.lundh@handels.gu.se).",
+      "eligibility": "Linked to Stefan Tengblad's research group. Position advertisement expected Feb–March 2027. Active lead supervisor already engaged."
+    },
+    {
+      "id": "kozminski-2027",
+      "name": "Kozminski University PhD Scholarship",
+      "provider": "Kozminski University Warsaw",
+      "amount": "Partial scholarship + tuition reduction",
+      "deadline": "2027-05-31",
+      "status": "open",
+      "openDate": "2027-02-01",
+      "url": "https://www.kozminski.edu.pl/en/phd",
+      "addedAt": "2026-09-09",
+      "notes": "2026 cycle closed June 15, 2026. 2027 cycle not yet open (17 Sept scan confirmed). Programme: KUDoS, fully funded international interdisciplinary, Management track, ~EUR 823/month scholarship, admission fee EUR 107 (non-refundable). GMAT/GRE required for management track. C1 English required. May 2027 deadline gives time to build stronger profile.",
+      "eligibility": "International applicants; English-language PhD programme. English proficiency required."
+    },
+    {
+      "id": "tilburg-phd-2027",
+      "name": "Tilburg University PhD (HR Studies)",
+      "provider": "Tilburg School of Social and Behavioral Sciences",
+      "amount": "Full fellowship (4 years, employment-based)",
+      "deadline": "2027-06-30",
+      "status": "open",
+      "openDate": "2027-01-01",
+      "url": "https://www.tilburguniversity.edu/education/phd-programs",
+      "addedAt": "2026-09-09",
+      "notes": "No positions currently visible on vacancies page (17 Sept scan — page routes to job alerts portal). Longer horizon. Brigitte Kroon and Charissa Freese faculty connections. Monitor via Academic Transfer and direct vacancies portal.",
+      "eligibility": "Linked to HR Studies department. Brigitte Kroon and Charissa Freese faculty connections."
+    },
+    {
+      "id": "fulbright-nepal-2027",
+      "name": "Fulbright Nepal Scholar Award",
+      "provider": "U.S. Department of State / Fulbright Program via USEF Nepal",
+      "amount": "Full funding: tuition, monthly stipend, airfare, health insurance",
+      "deadline": "2027 cycle TBD — typically spring/summer application window; check USEF Nepal",
+      "status": "open",
+      "url": "https://us.fulbrightonline.org/countries/south-and-central-asia/nepal",
+      "addedAt": "2026-09-12",
+      "relevance": 50,
+      "notes": "Prestigious U.S. government scholarship specifically for Nepali scholars. Covers full PhD funding at American universities. Strong fit for institutional theory and HRM in developing economies research — U.S. schools with relevant faculty (Michigan, Wisconsin, Cornell ILR, Northwestern Kellogg). Opens Feb 2027 — only flag when deadline approaches per standing instructions. Score: 50. Monitor USEF Nepal (www.usefnepal.org) for 2027 cycle opening.",
+      "eligibility": "Nepali citizens; for doctoral study or research at U.S. universities. Management and social science fields included. Strong academic record required."
+    },
+    {
+      "id": "mext-japan-2027",
+      "name": "MEXT Research Student Scholarship (Japan)",
+      "provider": "Japanese Government — Ministry of Education, Culture, Sports, Science and Technology",
+      "amount": "Approx. JPY 145,000–152,000/month + tuition waiver + travel allowance",
+      "deadline": "2027-05-01",
+      "status": "open",
+      "relevance": 40,
+      "url": "https://www.mext.go.jp/en/policy/education/highered/title02/detail02/sdetail02/1373897.htm",
+      "addedAt": "2026-09-12",
+      "notes": "Japanese government scholarship available specifically to Nepali students. Japan has a strong tradition of comparative management and work organisation research (Dore on enterprise society, comparative institutionalism in East Asian economies). Hitotsubashi, Waseda, Osaka, Kyushu have relevant management schools. Opens ~April 2027 — only flag when deadline approaches per standing instructions. Verify 2027 cycle with Japanese Embassy Kathmandu.",
+      "eligibility": "Nepali citizens; under 35 years old; bachelor's degree held. Application through Japanese Embassy in Kathmandu. Initial placement as research student, then formal PhD enrollment."
+    },
+    {
+      "id": "daad-epos-2027",
+      "name": "DAAD EPOS — Development-Related Postgraduate Courses",
+      "provider": "German Academic Exchange Service (DAAD)",
+      "amount": "Monthly stipend ~EUR 1,000 + travel allowance + health insurance + tuition support",
+      "deadline": "2027 cycle TBD — typically Oct–Nov for following academic year; check DAAD scholarship database",
+      "status": "open",
+      "relevance": 45,
+      "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
+      "addedAt": "2026-09-12",
+      "notes": "INELIGIBLE FOR BIJ — confirmed. DAAD's own rule caps prior German residency at 15 months before application; Bij has lived in Germany 3 years. Cannot apply. Kept for reference only in case rules change.",
+      "eligibility": "Applicants from developing countries including Nepal. For postgraduate (Master's or doctoral) studies in Germany. Development-related research focus. Degree from home country required. NOTE: Bij is ineligible due to prior German residency > 15 months."
     }
   ],
   "supervisors": [
@@ -964,50 +946,66 @@
       "year": 1984
     }
   ],
+  "watchlist_general": [
+    {
+      "institution": "Stockholm School of Economics (HHS)",
+      "note": "Next cycle expected early 2027. Areas include Organizations and People at Work (OB/HRM). Jan 2026 deadline passed. Contact: phd.admissions@hhs.se",
+      "url": "https://hhs.se/en/research/departments/dmo/education/phd-recruitment",
+      "region": "Europe"
+    },
+    {
+      "institution": "NHH Bergen — new cycle",
+      "note": "Next main deadline: January 15, 2027. No positions currently posted. Monitor from November 2026.",
+      "url": "https://www.nhh.no/en/study-programmes/phd-programme-at-nhh/vacant-phd-positions/",
+      "region": "Europe"
+    },
+    {
+      "institution": "HEC Paris PhD Management",
+      "note": "Deadline April 20, 2027. 5 years, EUR 26,000/year + tuition waiver. Management track incl. OB/HRM/cross-cultural. Score ~35 (below threshold). Borderline — monitor.",
+      "url": "https://www.hec.edu/en/faculty-research/departments/management-human-resources",
+      "region": "Europe"
+    },
+    {
+      "institution": "Gates Cambridge Scholarship (non-US round)",
+      "note": "Deadline Dec 8, 2026 or Jan 6, 2027 (course-dependent). PhD-eligible at Cambridge. Score ~30. Highly competitive (~70 awards globally). Worth attempting if Cambridge supervisor found.",
+      "url": "https://www.gatescambridge.org/apply/timeline/",
+      "region": "Europe"
+    },
+    {
+      "institution": "LSE MRes/PhD Employment Relations and Human Resources",
+      "note": "2026 deadline passed (Jan 14, 2026). New cycle expected Jan 2027. 5-year programme (MRes + PhD). Funding: LSE PhD Studentships + ESRC available. Relevant: comparative employment relations, diversity, future of work.",
+      "url": "https://www.lse.ac.uk/study-at-lse/graduate/mresphd-management-employment-relations-and-human-resources",
+      "region": "Europe"
+    }
+  ],
   "watchlist_asia_pacific": [
     {
-      "id": "csc-china-watchlist-2027",
-      "name": "Chinese Government Scholarship — China Scholarship Council (CSC)",
-      "country": "China",
-      "provider": "China Scholarship Council, via individual host universities (e.g. Tsinghua, Peking, Fudan)",
-      "deadline_note": "Varies by host university and track; commonly roughly Feb-Apr for the following intake — verify per institution",
-      "amount_note": "Approximately tuition waiver + monthly stipend + accommodation + medical insurance — exact tier varies by city/university, verify",
-      "status": "watchlist",
-      "url": "https://www.campuschina.org/",
-      "added": "2026-09-17"
+      "institution": "Chinese Government Scholarship (CSC) — PhD at CEIBS / Tsinghua / Fudan",
+      "note": "Added to scan scope 2026-09-17. CSC covers full tuition + CNY 3,000–3,500/month stipend + accommodation. Nepal is eligible. Typical deadline March–April each year. 2027 cycle not yet announced. Only pursue if a relevant English-language management programme confirmed. Contact: Chinese Embassy Kathmandu.",
+      "url": "https://www.campuschina.org/content/details3_74776.html",
+      "region": "China",
+      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
     },
     {
-      "id": "gks-korea-watchlist-2027",
-      "name": "Korean Government Scholarship Program (GKS) — Graduate track",
-      "country": "South Korea",
-      "provider": "National Institute for International Education (NIIED), via embassy or university track",
-      "deadline_note": "Embassy track ~Sept prior year; university track ~Feb-Mar — verify with NIIED or host university",
-      "amount_note": "Approximately tuition + monthly stipend + settlement allowance + airfare — verify current figures",
-      "status": "watchlist",
-      "url": "https://www.studyinkorea.go.kr/",
-      "added": "2026-09-17"
+      "institution": "Global Korea Scholarship (GKS / KGSP) — PhD in South Korea",
+      "note": "Added to scan scope 2026-09-17. Full tuition + KRW 1,000,000/month stipend (~EUR 700). Nepal is eligible. Embassy-recommended track: deadline typically March. University-recommended track opens separately. Check SKKU, Korea University, KAIST business schools for management research alignment. Korean institutional theory (Chang/Lee on Chaebol dynamics) has comparative relevance.",
+      "url": "https://www.studyinkorea.go.kr/en/sub/gks/allnew_invite.do",
+      "region": "South Korea",
+      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
     },
     {
-      "id": "nz-excellence-watchlist-2027",
-      "name": "New Zealand Excellence Awards / host-university doctoral scholarships",
-      "country": "New Zealand",
-      "provider": "Individual universities (Auckland, Victoria Wellington, Otago) and NZ award schemes",
-      "deadline_note": "Varies by university and scheme; some NZ schemes have historically been Master's-only — confirm PhD eligibility per scheme",
-      "amount_note": "Reported historically ~NZD 27,000-35,000/year tax-free plus tuition at PhD-scholarship universities — verify current figures",
-      "status": "watchlist",
-      "url": "https://www.auckland.ac.nz/en/study/scholarships-and-awards.html",
-      "added": "2026-09-17"
+      "institution": "New Zealand Excellence Awards — University of Auckland / Victoria Wellington",
+      "note": "Added to scan scope 2026-09-17. NZ Excellence Awards cover tuition + NZD 25,000/year living allowance. Nepal is eligible. Check 2027 cycle deadline (typically opens mid-year for following intake). NZ universities have Pacific-Asia management research streams. RTP-equivalent stipend: NZD 28,000–32,000/year for funded PhDs. Auckland Business School and Victoria Wellington School of Management are primary targets.",
+      "url": "https://www.universitiesnz.ac.nz/scholarships/new-zealand-excellence-awards",
+      "region": "New Zealand",
+      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
     },
     {
-      "id": "australia-rtp-watchlist-2027",
-      "name": "Australian Government Research Training Program (RTP)",
-      "country": "Australia",
-      "provider": "Host university (ANU, Melbourne, Sydney), Australian Government-funded",
-      "deadline_note": "Set per university, commonly Aug-Oct of the prior year — verify per institution",
-      "amount_note": "RTP stipend reported historically ~AUD 35,000+/year tax-free plus tuition offset — prior funding-floor analysis (project ledger §6.3) flagged Australia as falling short of Bij's floor once converted to EUR",
-      "status": "watchlist",
-      "url": "https://www.rtp.edu.au/",
-      "added": "2026-09-17"
+      "institution": "Australian RTP (Research Training Program) — Melbourne / Monash / UNSW / ANU / Sydney",
+      "note": "Added to scan scope 2026-09-17. RTP funded PhDs: tuition waiver + AUD 32,192–34,000/year stipend. Applications are per-university, not centralised. Priority targets: ANU (strong developing economies research), Monash (international HRM), University of Melbourne (management & marketing). Some universities top up RTP for international students. Applications typically open throughout the year with rolling or semester deadlines.",
+      "url": "https://www.education.gov.au/research-training-program",
+      "region": "Australia",
+      "uncertainty_note": "Figures are drawn from general knowledge, not a freshly verified fetch as of 2026-09-17 — treat all amounts and deadlines here as approximate and verify against the official source before relying on them."
     }
   ]
 }

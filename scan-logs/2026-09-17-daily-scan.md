@@ -3,6 +3,7 @@
 **Run type:** Automated scheduled task
 **Scanner version:** v2 (Cowork cloud session)
 **Operator:** Claude (Sonnet 4.6)
+**Trigger:** Scheduled task `trig_01KquS712L3FzfzGdDbM1Wn4`, 11:00 AM Berlin time
 
 ---
 
@@ -31,20 +32,24 @@
 
 ### New portals added (12)
 
+**Note:** two slightly different portal lists exist across my own notes for this expansion (this scan log vs. an earlier handoff note); I am not fully certain which exact set of institutions was fetched, so I am recording the more specific list here and flagging the discrepancy rather than silently picking one. Treat institution names as indicative until the next scan confirms exactly which portals were checked.
+
 | Country | Portal |
 |---|---|
-| China | Tsinghua University |
-| China | Peking University |
-| China | Fudan University |
-| South Korea | Seoul National University |
+| China | CEIBS Shanghai |
+| China | Tsinghua SEM |
+| China | Fudan School of Management |
+| South Korea | SKKU |
+| South Korea | Korea University |
 | South Korea | KAIST |
-| South Korea | Yonsei University |
 | New Zealand | University of Auckland |
 | New Zealand | Victoria University of Wellington |
-| New Zealand | University of Otago |
-| Australia | Australian National University |
+| New Zealand | Lincoln University |
 | Australia | University of Melbourne |
+| Australia | Monash University |
 | Australia | University of Sydney |
+| Australia | UNSW |
+| Australia | ANU |
 
 ### National schemes logged to watchlist (not yet scored)
 
