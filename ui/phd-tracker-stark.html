@@ -927,6 +927,7 @@ a:hover { text-decoration: underline; }
             <option value="applied">Applied</option>
             <option value="awarded">Awarded</option>
             <option value="closed">Closed</option>
+            <option value="ineligible">Ineligible</option>
           </select>
         </div>
         <button class="btn btn-primary btn-sm" onclick="openModal('scholarship')">＋ Add Scholarship</button>
@@ -1188,6 +1189,7 @@ function urgencyBadgeClass(days) {
 function fmtDate(dateStr) {
   if (!dateStr) return '—';
   const d = new Date(dateStr + 'T00:00:00');
+  if (isNaN(d.getTime())) return dateStr; // non-ISO placeholder text (e.g. "2027 cycle TBD ...") — show as-is, not "Invalid Date"
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 function statusBadge(status) {
@@ -1199,6 +1201,7 @@ function statusBadge(status) {
     'declined': ['badge-red','Declined'],
     'closed': ['badge-muted','Closed'],
     'open': ['badge-green','Open'],
+    'ineligible': ['badge-muted','Ineligible'],
     'applied': ['badge-blue','Applied'],
     'awarded': ['badge-purple','Awarded'],
     'shortlisted': ['badge-blue','Shortlisted'],
@@ -1564,10 +1567,16 @@ function renderScholarships() {
   let items = [...state.scholarships];
   if (q) items = items.filter(s => (s.name||'').toLowerCase().includes(q) || (s.provider||'').toLowerCase().includes(q));
   if (statusF) items = items.filter(s => s.status === statusF);
+  // Sort by live urgency: open items with a real countdown first (soonest first),
+  // then expired/undated/ineligible items pushed to the bottom — never a raw
+  // string/date comparison, which breaks (NaN) on placeholder deadlines like
+  // "2027 cycle TBD ...".
   items.sort((a,b) => {
-    if (!a.deadline) return 1;
-    if (!b.deadline) return -1;
-    return new Date(a.deadline) - new Date(b.deadline);
+    const da = daysUntil(a.deadline), db = daysUntil(b.deadline);
+    const aRank = (a.status === 'open' && da !== null && !isNaN(da) && da >= 0) ? da : Infinity;
+    const bRank = (b.status === 'open' && db !== null && !isNaN(db) && db >= 0) ? db : Infinity;
+    if (aRank !== bRank) return aRank - bRank;
+    return 0;
   });
 
   if (!items.length) {
@@ -1579,6 +1588,8 @@ function renderScholarships() {
   el.innerHTML = items.map(s => {
     const days = daysUntil(s.deadline);
     const cls = urgencyClass(days);
+    const hasCountdown = days !== null && !isNaN(days);
+    const daysLabel = hasCountdown ? (days < 0 ? 'Expired' : days === 0 ? 'Today' : days + 'd left') : '';
     return `<div class="item-card ${cls}">
       <div class="item-main">
         <div class="item-title">${esc(s.name)}</div>
@@ -1586,7 +1597,7 @@ function renderScholarships() {
         <div class="item-meta">
           ${s.status ? statusBadge(s.status) : ''}
           ${s.openDate ? `<span class="badge badge-muted">Opens: ${fmtDate(s.openDate)}</span>` : ''}
-          ${s.deadline ? `<span class="badge ${urgencyBadgeClass(days)}">Due: ${fmtDate(s.deadline)}${days !== null && days >= 0 ? ' · '+days+'d' : ''}</span>` : ''}
+          ${s.deadline ? `<span class="badge ${urgencyBadgeClass(days)}">Due: ${fmtDate(s.deadline)}${daysLabel ? ' · '+daysLabel : ''}</span>` : ''}
         </div>
         ${s.eligibility ? `<div class="notes-box">${esc(s.eligibility)}</div>` : ''}
         ${s.notes ? `<div class="notes-box" style="margin-top:4px">${esc(s.notes)}</div>` : ''}
