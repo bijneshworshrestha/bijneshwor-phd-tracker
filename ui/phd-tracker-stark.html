@@ -1097,6 +1097,17 @@ const subs = [];
   }
 })();
 
+// ─── LIVE TIMER ───
+// Every deadline's day-count is computed from today's date, so it goes stale the moment the
+// clock ticks past midnight while the tab is left open — this keeps it live without needing a
+// page refresh or a database round-trip. Re-renders only the currently visible section (and the
+// dashboard countdown/stat tiles, whenever it's the active one) from state already in memory, so
+// it's cheap: no network call, just recomputing daysUntil()/urgencyClass() and redrawing.
+// Also re-runs on tab visibility change, so a countdown left open overnight in a background tab
+// catches up immediately instead of waiting up to a minute.
+setInterval(() => { renderCurrent(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) renderCurrent(); });
+
 function setSyncStatus(status, label) {
   const dot = document.getElementById('sync-dot');
   const lbl = document.getElementById('sync-label');
