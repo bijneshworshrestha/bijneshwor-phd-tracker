@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "snapshot_generated": "2026-09-19",
+    "snapshot_generated": "2026-09-27",
     "source": "Claude Artifact database export, merged with Asia-Pacific scanner expansion",
     "artifact_url": "https://claude.ai/artifact/0c17f819-0f83-4a8e-a627-f359085cbef8",
     "counts": {
-      "positions": 5,
+      "positions": 14,
       "scholarships": 10,
       "supervisors": 21,
       "applications": 0,
@@ -23,7 +23,7 @@
       "Japan"
     ],
     "scope_expanded_date": "2026-09-17",
-    "note": "positions/scholarships verified against live artifact DB (IDs match). mext-japan-2027 deadline corrected 19 Sept 2026. watchlist_asia_pacific entries verified 19 Sept 2026 against official/embassy sources (CSC, GKS, NZ doctoral scholarships, Australian RTP) -- GKS and MEXT deadlines were corrected from earlier wrong estimates. None of the four watchlist items is in the scored positions/scholarships collections yet."
+    "note": "positions/scholarships verified against live artifact DB (IDs match). mext-japan-2027 deadline corrected 19 Sept 2026. watchlist_asia_pacific entries verified 19 Sept 2026 against official/embassy sources (CSC, GKS, NZ doctoral scholarships, Australian RTP) -- GKS and MEXT deadlines were corrected from earlier wrong estimates. None of the four watchlist items is in the scored positions/scholarships collections yet. | 27 Sept 2026: added 9 advertised vacancies from a partial-fit sweep (deadline range 28 Sept - 3 Nov 2026); ranked by fit, strongest is Tampere University (relevance 65). See scan-logs/2026-09-27-partial-fit-sweep.md for full writeup and screened-out items."
   },
   "positions": [
     {
@@ -95,6 +95,123 @@
       "source": "auto",
       "addedAt": "2026-09-17",
       "notes": "CONFIRMED 17 Sept 2026: Profile page states Gregory Jackson is CURRENTLY ACCEPTING NEW PhD STUDENTS. Jackson's research: comparative corporate governance, employment relations, corporate social responsibility, comparative institutional analysis — extremely strong alignment with Bij's institutional theory + HRM + comparative management framework. Jackson uses institutional theory (VoC, comparative capitalism) and qualitative methods. International tuition: £27,300/year — requires external scholarship (e.g., HKPFS, Swiss Excellence, Gates Cambridge). Contact: KBS-PhD@kcl.ac.uk. Sociology of work and employment relations maps directly to managerial control and work process clarity."
+    },
+    {
+      "id": "tampere-doctoral-researcher-2026",
+      "title": "Doctoral Researcher — Administrative Sciences, Business Studies & Politics (4 positions)",
+      "institution": "Tampere University",
+      "country": "Finland",
+      "deadline": "2026-10-16",
+      "relevance": 65,
+      "status": "open",
+      "url": "https://www.tuni.fi",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "STRONGEST TOPICAL FIT in the 27 Sept sweep — you submit your own research plan, so the existing V9 proposal can go in largely as is. Starting salary €2,775/month. RISK: a supervisor at Tampere must be arranged BEFORE applying, and pay may be marginal against the funding floor once checked against Tampere's Numbeo cost-of-living. Only ~2.5 weeks left as of 27 Sept. Action: identify a management/management-accounting supervisor and email them this week. Programme head: Prof. Eija Vinnari (eija.vinnari@tuni.fi)."
+    },
+    {
+      "id": "vu-amsterdam-augmented-org-2026",
+      "title": "PhD — Knowledge Creation and Sharing in Augmented Organisations",
+      "institution": "VU Amsterdam",
+      "country": "Netherlands",
+      "deadline": "2026-10-18",
+      "relevance": 55,
+      "status": "open",
+      "url": "https://www.vu.nl",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Moderate fit: qualitative, ethnographic study of employees' work experience in AI-augmented organisations. Full Dutch salary €3,204–4,051/month + 8% holiday allowance + 8.3% year-end bonus. Master's fields accepted: organisation studies, sociology, anthropology, STS, information systems 'or related'. Cover letter must explicitly address the concept of 'AI anomie'. Eligibility note: no more than 12 of the last 36 months spent in the Netherlands — fine from Germany."
+    },
+    {
+      "id": "tudelft-paradoxical-leadership-2026",
+      "title": "PhD — Twin Transition of Infrastructure: Paradoxical Leadership",
+      "institution": "TU Delft",
+      "country": "Netherlands",
+      "deadline": "2026-10-18",
+      "relevance": 55,
+      "status": "open",
+      "url": "https://www.tudelft.nl",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Moderate fit: longitudinal qualitative case study of how leaders manage competing demands; business administration explicitly accepted as a background field. Full Dutch salary €3,204–4,051/month + bonuses. DEADLINE UNVERIFIED: AcademicTransfer listed 18 Oct 2026, but the ad's own page said 3 Nov 2026 — confirm directly before relying on either date. Infrastructure sector framing. Application requires a 1-minute video."
+    },
+    {
+      "id": "jibs-family-business-2026",
+      "title": "PhD Positions in Business Administration (2 positions)",
+      "institution": "Jönköping International Business School (JIBS)",
+      "country": "Sweden",
+      "deadline": "2026-10-01",
+      "relevance": 50,
+      "status": "open",
+      "url": "https://ju.se",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Deadline midnight CET, 1 Oct 2026. Partial fit: entrepreneurship, ownership, family business governance — possible angle via family-owned Nepali service firms and afno manchhe as an informal governance mechanism. RISK: requires 240 ECTS total including 90 ECTS in business administration; unclear whether the Global MBA qualifies. Action before deadline: ask Mart Ots (mart.ots@ju.se) directly whether the MBA meets the ECTS requirement. Monthly salary amount not stated in the posting."
+    },
+    {
+      "id": "kuleuven-vlerick-leadership-2026",
+      "title": "PhD — 'How do leaders develop their employees?' (qualitative track)",
+      "institution": "KU Leuven / Vlerick Business School",
+      "country": "Belgium",
+      "deadline": "2026-11-03",
+      "relevance": 45,
+      "status": "open",
+      "url": "https://www.kuleuven.be",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Moderate fit: leadership and employee development, with an explicitly qualitative track available. Scholarship on the KU Leuven scale, renewable up to 4 years. RISK: requires a master's WITH DISTINCTION in psychology or a closely related field — long shot given the MBA background."
+    },
+    {
+      "id": "cbs-strategy-innovation-2026",
+      "title": "PhD — 2 stipends, Dept of Strategy & Innovation",
+      "institution": "Copenhagen Business School (CBS)",
+      "country": "Denmark",
+      "deadline": "2026-09-28",
+      "relevance": 45,
+      "status": "open",
+      "url": "https://www.cbs.dk",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Partial fit: managerial professionalization and the building of organization in startups, scaleups and established firms; any proposal must address interaction with the Copenhagen School of Entrepreneurship (CSE). Salary ~DKK 31–37k/month gross. FUNDING RISK: by the project's own city-floor rule, Copenhagen's floor is €2,862/month and the Danish net (~€2,690–3,250) falls short at entry level. On 27 Sept Bij declined a reframed draft for this call — apply only if he decides to go ahead himself. Deadline is imminent (28 Sept, time not stated)."
+    },
+    {
+      "id": "tudelft-ecosystem-orchestration-2026",
+      "title": "PhD — Twin Transition of Infrastructure: Ecosystem Orchestration",
+      "institution": "TU Delft",
+      "country": "Netherlands",
+      "deadline": "2026-11-03",
+      "relevance": 35,
+      "status": "open",
+      "url": "https://www.tudelft.nl",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Weak-to-partial fit: embedded case study, business administration accepted as background, but the topic (ecosystem orchestration in infrastructure) is far from the core proposal. Full Dutch salary €3,204–4,051/month + bonuses."
+    },
+    {
+      "id": "uef-transformation-market4-2026",
+      "title": "PhD — 'Management of Transformation in Market 4.0'",
+      "institution": "University of Eastern Finland (UEF) Business School",
+      "country": "Finland",
+      "deadline": "2026-10-15",
+      "relevance": 30,
+      "status": "open",
+      "url": "https://www.uef.fi",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Weak fit: platform ecosystems and organisational change with a retail focus. Salary €2,332–2,907/month + 6–50% personal component. Low pay relative to other options and requires separate admission to the doctoral programme."
+    },
+    {
+      "id": "kuleuven-bpm-iot-2026",
+      "title": "PhD — Sustainable Business Process Management & IoT",
+      "institution": "KU Leuven (Brussels)",
+      "country": "Belgium",
+      "deadline": "2026-10-23",
+      "relevance": 30,
+      "status": "open",
+      "url": "https://www.kuleuven.be",
+      "source": "manual-sweep-2026-09-27",
+      "addedAt": "2026-09-27",
+      "notes": "Weak-to-partial fit: process design and clarity is relevant, but the role is heavily IS/engineering and IoT-focused; wants BPM, process-mining or IoT expertise. Doctoral scholarship on the KU Leuven scale. CS BSc background helps but proposal alignment is limited."
     }
   ],
   "scholarships": [

@@ -68,6 +68,11 @@ Items scoring **40+** are saved. Items below 40 may appear in the scan log watch
 - **MEXT Japan:** `mext-japan-2027`'s 2027-cycle embassy deadline was 31 May 2026 — already passed,
   status corrected to `closed`. Watch for the next intake's deadline announcement.
 - **HKPFS:** only one lifetime application permitted across all HK universities.
+- **Pre-existing PhD enrolment required — excluded entirely, added 24 Sept 2026:** any listing
+  that requires the applicant to already be enrolled in a PhD programme (a visiting fellowship,
+  visiting scholar post, research residency, ABD/"dissertation phase" requirement) does not
+  qualify, however well it scores on topic. `unu-wider-visiting-2026` is `ineligible` for this
+  reason. Never re-flag it, or anything like it, back to open.
 
 ---
 
@@ -79,9 +84,17 @@ Items scoring **40+** are saved. Items below 40 may appear in the scan log watch
 
 ## Last manual update
 
-**Date:** 2026-09-24 — see `scan-logs/2026-09-24-update-log.md` for the full write-up. Summary:
-fixed inconsistent countdown/urgency display on the Scholarships list, added an always-on live
-timer (dashboard and every list re-render every 60s so day-counts never go stale without a
-refresh), set DAAD and Fulbright Nepal to `ineligible` and MEXT to `closed` per Bij's standing
-exclusion rules, and updated the auto-scanner's prompt so it never re-adds these.  
-**Urgent deadline:** UNU-WIDER closes **30 September 2026** (6 days as of 24 Sept)
+**Date:** 2026-09-27 — see `scan-logs/2026-09-27-partial-fit-sweep.md` for the full write-up.
+Summary: added 9 advertised PhD vacancies (deadlines 28 Sept – 3 Nov 2026) from a one-off
+"partial topical fit, fully funded, no GMAT/GRE" sweep — CBS, JIBS, UEF, Tampere, VU Amsterdam,
+TU Delft (×2), KU Leuven (×2). Strongest fit: **Tampere University** (own research plan
+accepted). Nine other screened-out calls are recorded in the log so they aren't re-derived.
+
+Previous update (2026-09-24, see `scan-logs/2026-09-24-update-log.md`): fixed inconsistent
+countdown/urgency display on the Scholarships list, added an always-on live timer, set DAAD and
+Fulbright Nepal to `ineligible` and MEXT to `closed`, and corrected the UNU-WIDER Visiting PhD
+Fellowship to `ineligible` (it requires pre-existing PhD enrolment, which Bij does not have).
+
+**Nearest live deadlines as of 27 Sept 2026:** CBS Strategy & Innovation (28 Sept — pay falls
+short of Copenhagen's funding floor) and JIBS (1 Oct — ECTS eligibility unconfirmed) are the two
+soonest; the strongest genuine fit, Tampere, closes 16 Oct 2026.
