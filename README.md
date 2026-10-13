@@ -84,11 +84,20 @@ Items scoring **40+** are saved. Items below 40 may appear in the scan log watch
 
 ## Last manual update
 
-**Date:** 2026-09-27 — see `scan-logs/2026-09-27-partial-fit-sweep.md` for the full write-up.
-Summary: added 9 advertised PhD vacancies (deadlines 28 Sept – 3 Nov 2026) from a one-off
-"partial topical fit, fully funded, no GMAT/GRE" sweep — CBS, JIBS, UEF, Tampere, VU Amsterdam,
-TU Delft (×2), KU Leuven (×2). Strongest fit: **Tampere University** (own research plan
-accepted). Nine other screened-out calls are recorded in the log so they aren't re-derived.
+**Date:** 2026-10-13 — deadline status pass.
+- `cbs-strategy-innovation-2026` (deadline 28 Sept) and `jibs-family-business-2026` (deadline 1 Oct)
+  set to `closed`: both passed with no application submitted.
+- `unu-wider-visiting-2026` set to `ineligible` in the JSON snapshot to match the 24 Sept eligibility
+  decision (it was still `open` in the file).
+- Active list as of 13 Oct 2026, by deadline: UEF Market 4.0 (15 Oct), Tampere Doctoral Researcher
+  (16 Oct, strongest fit, supervisor must be contacted first), VU Amsterdam (18 Oct), TU Delft
+  Paradoxical Leadership (18 Oct or 3 Nov, unverified), KU Leuven BPM & IoT (23 Oct), Swiss Government
+  Excellence Scholarships (10 Nov), HKPFS (1 Dec), INSEAD (4 Jan 2027), ERIM/RSM (15 Jan 2027),
+  IMPRS-SPCE (15 Feb 2027), Gothenburg (15 Mar 2027), Kozminski (fails funding floor), Tilburg (30 Jun 2027).
+
+**Nearest live deadline as of 13 Oct 2026:** UEF Business School (15 Oct). Tampere (16 Oct) is the strongest fit.
+
+Note: deadlines were carried forward from the 27 Sept data; confirm each on the official page before relying on it.
 
 Previous update (2026-09-24, see `scan-logs/2026-09-24-update-log.md`): fixed inconsistent
 countdown/urgency display on the Scholarships list, added an always-on live timer, set DAAD and
